@@ -12,7 +12,8 @@ import { EgresosComponent } from 'app/contable/egresos/egresos.component';
 import { ListadoCabanasComponent } from 'app/cabanas/listado-cabanas/listado-cabanas.component';
 import { AyudaComponent } from 'app/ayuda/ayuda.component';
 import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
-import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
+import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
+import { ReservasModule } from 'app/reservas/reservas.module';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -57,14 +58,14 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'reservas',       component: UserProfileComponent },
-    { path: 'usuario-editar', component: EditarUsuarioComponent },
+    { path: 'reservas',       component:  ReservasModule},
+    { path: 'usuario-editar', component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'contable',       component: EgresosComponent},
+    { path: 'contable',       component: IngresosComponent},
     { path: 'cabanas',        component: ListadoCabanasComponent},
     { path: 'ayuda',          component: AyudaComponent},
     { path: 'planes',         component: ListadoPlanesComponent},
