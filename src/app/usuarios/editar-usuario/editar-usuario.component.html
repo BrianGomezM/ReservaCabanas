@@ -8,19 +8,40 @@
               </div>
               <div class="card-body">
                   <form>
-                      <div class="row">
+                    <div class="form-group">
+                          <div class="row">
+                            <div class="col-md-5">
+                              <input  class="form-control" type="text" placeholder="Nombre"> 
+                            </div>
+                            <div class="col-md-5">
+                                <input class="form-control" type="text" placeholder="Apellido" >
+                            </div>
+                        </div>
+                        <div class="row">
                           <div class="col-md-5">
-                             <input placeholder="Nombre"> 
+                            <input  class="form-control" placeholder="Email" type="email"> 
                           </div>
                           <div class="col-md-5">
-                              <input placeholder="Email" type="email">
+                              <input class="form-control" placeholder="Telefono" type="number">
                           </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-
+                        </div>
+                        <div class="row">
+                          <div class="col-md-7">
+                            <label class="form-check-label">Perfil de usuario</label>
+                            <select>
+                              <option>Administrador</option>
+                              <option>Logistica</option>
+                              <option>Encargado de reservas</option>
+                              <option>Auxiliar contable</option>
+                            </select>
                           </div>
-                          </div>
+                          
+                        </div>
+                        <button mat-raised-button type="submit" class="btn btn-success pull-right">Actualizar</button>
+                        <div class="clearfix"></div>
+                    </div>
+                      
+                      
                           <!--
                       <mat-form-field class="example-full-width">
                               <input matInput placeholder="Primer nombre" type="text">
@@ -70,8 +91,7 @@
                               </div> 
                           </div>-->
                       </div>
-                      <button mat-raised-button type="submit" class="btn btn-success pull-right">Actualizar</button>
-                      <div class="clearfix"></div>
+                      
                   </form>
               </div>
           </div>

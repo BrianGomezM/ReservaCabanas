@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listado-reservas.component.scss']
 })
 export class ListadoReservasComponent implements OnInit {
-
+  fecha = new Date();
+ 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
