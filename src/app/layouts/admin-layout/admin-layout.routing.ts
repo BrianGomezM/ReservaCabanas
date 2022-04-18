@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -12,6 +11,7 @@ import { AyudaComponent } from 'app/ayuda/ayuda.component';
 import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
 import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
+import { ListadoUsuariosComponent } from 'app/usuarios/listado-usuarios/listado-usuarios.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -58,6 +58,7 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'reservas',       component: ListadoReservasComponent},
     { path: 'usuario-editar', component: EditarUsuarioComponent },
+    { path: 'usuario-listar', component: ListadoUsuariosComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
