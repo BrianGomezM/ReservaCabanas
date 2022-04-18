@@ -4,16 +4,13 @@ import { UserProfileComponent } from '../../user-profile/user-profile.component'
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ListadoReservasComponent } from 'app/reservas/listado-reservas/listado-reservas.component';
-import { EgresosComponent } from 'app/contable/egresos/egresos.component';
 import { ListadoCabanasComponent } from 'app/cabanas/listado-cabanas/listado-cabanas.component';
 import { AyudaComponent } from 'app/ayuda/ayuda.component';
 import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
-import { ReservasModule } from 'app/reservas/reservas.module';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -58,7 +55,7 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'reservas',       component:  ReservasModule},
+    { path: 'reservas',       component: ListadoReservasComponent},
     { path: 'usuario-editar', component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
