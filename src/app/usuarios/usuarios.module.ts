@@ -4,11 +4,13 @@ import {  MatFormFieldModule} from '@angular/material/form-field';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { MatInput } from '@angular/material/input';
 import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
     EditarUsuarioComponent,
-    ListadoUsuariosComponent
+    ListadoUsuariosComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     CommonModule

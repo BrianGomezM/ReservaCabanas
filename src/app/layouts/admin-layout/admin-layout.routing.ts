@@ -12,6 +12,10 @@ import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
 import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
 import { ListadoUsuariosComponent } from 'app/usuarios/listado-usuarios/listado-usuarios.component';
+import { CrearUsuarioComponent } from 'app/usuarios/crear-usuario/crear-usuario.component';
+import { CabanasModule } from 'app/cabanas/cabanas.module';
+import { CrearCabanaComponent } from 'app/cabanas/crear-cabana/crear-cabana.component';
+import { EditarCabanaComponent } from 'app/cabanas/editar-cabana/editar-cabana.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -59,13 +63,16 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reservas',       component: ListadoReservasComponent},
     { path: 'usuario-editar', component: EditarUsuarioComponent },
     { path: 'usuario-listar', component: ListadoUsuariosComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
+    { path: 'usuario-crear',  component: CrearUsuarioComponent },
+    //{ path: 'table-list',     component: TableListComponent },
+   // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    //{ path: 'upgrade',        component: UpgradeComponent },
     { path: 'contable',       component: IngresosComponent},
     { path: 'cabanas',        component: ListadoCabanasComponent},
+    { path: 'cabana-crear',   component: CrearCabanaComponent },
+    { path: 'cabana-editar',  component: EditarCabanaComponent},
     { path: 'ayuda',          component: AyudaComponent},
     { path: 'planes',         component: ListadoPlanesComponent},
 ];

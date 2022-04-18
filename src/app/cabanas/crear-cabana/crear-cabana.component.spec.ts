@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EgresosComponent } from './egresos.component';
+import { CrearCabanaComponent } from './crear-cabana.component';
 
-describe('EgresosComponent', () => {
-  let component: EgresosComponent;
-  let fixture: ComponentFixture<EgresosComponent>;
+describe('CrearCabanaComponent', () => {
+  let component: CrearCabanaComponent;
+  let fixture: ComponentFixture<CrearCabanaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EgresosComponent ]
+      declarations: [ CrearCabanaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EgresosComponent);
+    fixture = TestBed.createComponent(CrearCabanaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

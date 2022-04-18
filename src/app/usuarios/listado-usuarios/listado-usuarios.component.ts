@@ -16,5 +16,7 @@ export class ListadoUsuariosComponent implements OnInit {
   editar(){
     this.router.navigate(['usuario-editar']);
   }
-
+  crear(){
+    this.router.navigate(['usuario-crear']);
+  }
 }
