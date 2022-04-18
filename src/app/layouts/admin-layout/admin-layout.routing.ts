@@ -11,6 +11,7 @@ import { ListadoCabanasComponent } from 'app/cabanas/listado-cabanas/listado-cab
 import { AyudaComponent } from 'app/ayuda/ayuda.component';
 import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
+import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -56,7 +57,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'reservas',       component: ListadoReservasComponent},
-    { path: 'usuario-editar', component: UserProfileComponent },
+    { path: 'usuario-editar', component: EditarUsuarioComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
