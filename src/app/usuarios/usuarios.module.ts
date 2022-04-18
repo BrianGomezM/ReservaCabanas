@@ -9,9 +9,7 @@ import { MatInput } from '@angular/material/input';
     EditarUsuarioComponent
   ],
   imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInput,
+    CommonModule
 
   ]
 })
