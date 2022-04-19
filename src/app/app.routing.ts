@@ -5,12 +5,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 
 const routes: Routes =[
   {
     path: '',
     component: LoginComponent,
-  }, {
+  },{
+    path: 'contrasenaolvidada',
+    component: ContrasenaOlvidadaComponent,
+  },{
     path: '',
     component: AdminLayoutComponent,
     children: [{

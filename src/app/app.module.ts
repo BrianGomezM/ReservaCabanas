@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { AyudaComponent } from './ayuda/ayuda.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AyudaComponent
+    AyudaComponent,
+    ContrasenaOlvidadaComponent
 
   ],
   providers: [],
