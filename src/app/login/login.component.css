@@ -1,7 +1,3 @@
-body{
-    background: #0A974F;
-    background: linear-gradient(to right, #135332, #0A974F );
-}
 .bg{
     background-image: url(../../assets/img/bg.jpg);
     background-size: cover;
