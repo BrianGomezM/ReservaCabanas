@@ -4,11 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-ol
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ComponentsModule,
+    SharedModule,
     RouterModule,
     AppRoutingModule,
   ],
