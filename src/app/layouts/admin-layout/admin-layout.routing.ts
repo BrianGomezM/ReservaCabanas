@@ -1,21 +1,19 @@
 import { Routes } from '@angular/router';
 
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ListadoReservasComponent } from 'app/reservas/listado-reservas/listado-reservas.component';
-import { ListadoCabanasComponent } from 'app/cabanas/listado-cabanas/listado-cabanas.component';
+import { ListadoCabanasComponent } from 'app/cabanas/pages/listado-cabanas/listado-cabanas.component';
 import { AyudaComponent } from 'app/ayuda/ayuda.component';
 import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
 import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
 import { ListadoUsuariosComponent } from 'app/usuarios/listado-usuarios/listado-usuarios.component';
 import { CrearUsuarioComponent } from 'app/usuarios/crear-usuario/crear-usuario.component';
-import { CabanasModule } from 'app/cabanas/cabanas.module';
-import { CrearCabanaComponent } from 'app/cabanas/crear-cabana/crear-cabana.component';
-import { EditarCabanaComponent } from 'app/cabanas/editar-cabana/editar-cabana.component';
+import { CrearCabanaComponent } from 'app/cabanas/pages/crear-cabana/crear-cabana.component';
+import { EditarCabanaComponent } from 'app/cabanas/pages/editar-cabana/editar-cabana.component';
+
+import { UsuariosModule } from 'app/usuarios/usuarios.module';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -61,9 +59,11 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'reservas',       component: ListadoReservasComponent},
-    { path: 'usuario-editar', component: EditarUsuarioComponent },
-    { path: 'usuario-listar', component: ListadoUsuariosComponent },
+    /*{path: 'usuarios',  
+       loadChildren: () => import('../../usuarios/usuarios.module').then(m => m.UsuariosModule)},*/
     { path: 'usuario-crear',  component: CrearUsuarioComponent },
+    { path: 'usuario-listar',  component: ListadoUsuariosComponent },
+    { path: 'usuario-editar',  component: EditarUsuarioComponent },
     //{ path: 'table-list',     component: TableListComponent },
    // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
