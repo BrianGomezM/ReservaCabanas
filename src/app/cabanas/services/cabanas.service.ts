@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cabana } from '../interfaces/Cabana.interface';
@@ -19,5 +19,8 @@ export class CabanasService {
   }
   cabañaPorNombre(varNombre):Observable<Cabana[]>{
     return this.http.get<Cabana[]>( this.url + "?name="+ varNombre );
+  }
+  crearCabana(Cabana:Cabana){
+    return this.http.post(this.url,JSON.stringify(Cabana));
   }
 }
