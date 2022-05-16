@@ -11,10 +11,12 @@ import { CabanasService } from 'app/cabanas/services/cabanas.service';
 export class ListadoCabanasComponent implements OnInit {
   
   @Input() cabanas: Cabana[] = [];
-  
+  varNombre:String="";
+  hayError:boolean=false;
   constructor(private router: Router, private cabanaService: CabanasService) { }
 
   ngOnInit(): void {
+
     this.listarCabanas();
   }
 
@@ -29,10 +31,25 @@ export class ListadoCabanasComponent implements OnInit {
   listarCabanas(){
     this.cabanaService.getCabanas().subscribe(
       (cabanas) =>{
+        this.hayError=false;
         this.cabanas = cabanas;
+      }, (err)=> {
+        this.cabanas=[];
+        this.hayError=true;
       }
     )
   }
 
+  buscarCabana(varNombre:String){
+    this.cabanaService.cabañaPorNombre(varNombre).subscribe(
+      (cabanas) =>{
+        this.hayError=false;
+        this.cabanas=cabanas;
+      }, (err)=> {
+        this.cabanas=[];
+        this.hayError=true;
+      }
+    )
+  }
 
 }

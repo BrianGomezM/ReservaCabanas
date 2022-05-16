@@ -4,17 +4,23 @@
         
         <form class="form-group col-md-6">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Buscar...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                <input 
+                type="text" 
+                name="varNombre" 
+                [(ngModel)]="varNombre" 
+                class="form-control" 
+                placeholder="Buscar...">
+                
+                <button (click)="buscarCabana(varNombre)" type="submit" class="btn btn-white btn-round btn-just-icon">
                     <i class="material-icons">search</i>
                 </button>
                 <button type="submit" class="btn btn-success px-2" (click)="crearCabana()">
                     <span class="material-icons btnIconLg">add_home</span> Crear cabaña
                 </button>
             </div>
-        </form> 
-     
+        </form>  
     </div>
+    <div *ngIf="hayError" class="alert alert-danger"> No se encontro nada.</div>
     <hr class="my-4" />
     <div class="row">
         <div class="col-lg-5 col-md-6" *ngFor="let cabana of cabanas">
