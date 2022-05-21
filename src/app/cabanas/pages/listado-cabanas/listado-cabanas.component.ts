@@ -16,7 +16,6 @@ export class ListadoCabanasComponent implements OnInit {
   constructor(private router: Router, private cabanaService: CabanasService) { }
 
   ngOnInit(): void {
-
     this.listarCabanas();
   }
   validaEstado(estado:string) {
