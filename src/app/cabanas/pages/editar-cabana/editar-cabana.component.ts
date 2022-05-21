@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CabanasService } from 'app/cabanas/services/cabanas.service';
 
 @Component({
   selector: 'app-editar-cabana',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarCabanaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,private cabanaService:CabanasService) { }
 
   ngOnInit(): void {
+  }
+  redirect(){
+    this.router.navigate(['/cabanas']);
   }
 
 }

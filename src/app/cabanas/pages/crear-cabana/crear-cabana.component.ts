@@ -44,4 +44,9 @@ export class CrearCabanaComponent implements OnInit {
       this.onCrear.emit();
     })
   }
+
+  elegirImgen(params){
+    var files=params.target.files[0].name;
+    console.log(files);
+  }
 }
