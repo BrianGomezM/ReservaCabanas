@@ -4,4 +4,5 @@ export interface Cabana {
     descripcion_cabana: string;
     capacidad_cabana:   string;
     valor_cabana:       string;
+    estado_cabana:      number;
 }

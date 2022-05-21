@@ -20,21 +20,46 @@
             </div>
         </form>  
     </div>
-    <div *ngIf="hayError" class="alert alert-danger"> No se encontro nada.</div>
+    <div *ngIf="hayError" class="alert alert-danger alert-with-icon"> 
+        <i class="material-icons" data-notify="icon">error_outline</i>
+        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
+        <span data-notify="message">
+            <b>Error:</b> No se pudo encontrar nada...</span></div>
     <hr class="my-4" />
     <div class="row">
         <div class="col-lg-5 col-md-6" *ngFor="let cabana of cabanas">
             <div class="card">
-                <div class="card-header card-header-success">
-                    <h4 class="card-title">{{cabana.nombre_cabana}}</h4>
+                <div [ngClass]="{'card-header card-header-success':cabana.estado_cabana==1,'card-header card-header-info':cabana.estado_cabana==0}">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h4 class="card-title">{{cabana.nombre_cabana}}</h4>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <section>
+                                <label class="check-t">
+                                    <input  
+                                    type="checkbox"
+                                    [checked]="cabana.estado_cabana==1"
+                                    (click)="prueba()"
+                                    >
+                                    <span class="check-t1"></span>
+                                </label>
+                            </section>
+
+        
+                        </div>
+                    </div>
                     <p class="card-category"></p>
                 </div>
                 <div class="card-body">
                     <img [src]="" alt=""><!--<img [src]="elemento.imagen" alt="">-->
                     <span><!--{{ elemento.valor}}--></span>
                     <p>Detalles de cabaña</p>
+                    <span>Estado:{{cabana.estado_cabana}} 
+                    
+                    </span><br>
                     <span>{{cabana.descripcion_cabana}}</span>
-                    <div>
+                    <div class="mt-lg-2 d-flex justify-content-end">
                         <button type="submit" class="btn btn-success px-2" (click)="editarCabana()">
                             <i class="material-icons">mode_edit_outline</i> Editar
                         </button>

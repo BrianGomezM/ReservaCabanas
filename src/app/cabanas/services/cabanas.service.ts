@@ -21,6 +21,7 @@ export class CabanasService {
     return this.http.get<Cabana[]>( this.url + "?name="+ varNombre );
   }
   crearCabana(Cabana:Cabana){
+    console.log(Cabana.estado_cabana);
     return this.http.post(this.url,JSON.stringify(Cabana));
   }
 }
