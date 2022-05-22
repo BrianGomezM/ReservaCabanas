@@ -1,49 +1,60 @@
 <div class="main-content">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header card-header-success">
-                    <h4 class="card-title">Crear usuario</h4>
-                    
-                </div>
-                <div class="card-body">
-                    <form method="get">
-                      <div class="form-group">
-                            <div class="row">
-                              <div class="col-md-5">
-                                <input  class="form-control" type="text" placeholder="Nombre"> 
-                              </div>
-                              <div class="col-md-5">
-                                  <input class="form-control" type="text" placeholder="Apellido" >
-                              </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-5">
-                              <input  class="form-control" placeholder="Email" type="email"> 
-                            </div>
-                            <div class="col-md-5">
-                                <input class="form-control" placeholder="Telefono" type="number">
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-5">  
-                                <select class="form-control" id="roles" name="roles">
-                                  <option value selected> Perfil de usuario</option>
-                                  <option value="1">Administrador</option>
-                                  <option value="2">Logistica</option>
-                                  <option value="3">Encargado de reservas</option>
-                                  <option value="4">Auxiliar contable</option>
-                                </select>
-                            </div>
-                          </div>
-                            
-                            
-                          
-                          <button  mat-raised-button type="submit" class="btn btn-success pull-right" (click)="guardar()">Crear</button>
-                          <div class="clearfix"></div>
-                      </div>
-                        
-                    </form>
-                </div>
-            </div>
-        </div>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="card">
+				<div class="card-header card-header-success">
+					<h4  class="card-title">{{varTitulo}}</h4>                    
+				</div>
+				<div class="card-body">
+					<form method="get">
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-4" style="padding-bottom: 12px;">									
+								    <input  class="form-control" type="text"  required pattern="[A-Za-z0-9]{5,40}" placeholder="Nombre" name="nombre" [(ngModel)]="usuarioEdita.nombre">
+								</div>
+								<div class="col-md-4">
+								    <input  class="form-control" type="text" placeholder="Apellido" name="apellido" [(ngModel)]="usuarioEdita.apellido">
+								</div>
+								<div class="col-md-4">  
+									<select class="form-control"  name="rol"  (change)="validarCampos(1)" [(ngModel)]="usuarioEdita.idRol">
+										<option value=0>Rol Del Usuario</option>
+										<option value=1>Administrador</option>
+										<option value=2>Logistica</option>
+										<option value=3>Encargado de reservas</option>
+										<option value=4>Auxiliar contable</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">	
+								<div class="col-md-4" style="padding-bottom: 12px;">  
+								<select class="form-control" id="TipoDoc" name="tipoDoc" (change)="validarCampos(1)" [(ngModel)]="usuarioEdita.tipoDocumento">
+								  <option value="0" >Tipo De Documento</option>
+								  <option value="1">Cedula</option>
+								  <option value="2">Tajerta Identidad</option>
+								</select>
+							  </div>
+								<div class="col-md-4">
+								    <input  class="form-control" type="number" (change)="validarCampos(1)" placeholder="Documento" name="Documento" [(ngModel)]="usuarioEdita.documento">
+								</div>
+								<div class="col-md-4">
+								    <input  class="form-control" type="number" (change)="validarCampos(1)" placeholder="Telefono" name="Telefono" [(ngModel)]="usuarioEdita.telefono">
+							  </div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" style="padding-bottom: 40px;">
+								    <input  class="form-control" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="Correo-Electronico" name="correo" [(ngModel)]="usuarioEdita.correo">
+								</div>
+								<div class="col-md-4">
+									<input class="form-control" placeholder="Contraseña" type="password" [(ngModel)]="usuarioEdita.contrasena">
+								</div>
+							</div>
+							<button  type="submit" class="btn pull-right btn-danger" title="Cancelar"><i class="material-icons" (click)="cancelar()">cancel</i> Cancelar</button>
+							<button type="submit" class="btn pull-right btn-success" title="gurdar"><i class="material-icons" (click)="guardar()">save</i> Guardar</button>
+							<div class="clearfix"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
