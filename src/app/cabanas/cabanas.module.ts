@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ListadoCabanasComponent } from './pages/listado-cabanas/listado-cabanas.component';
 import { CrearCabanaComponent } from './pages/crear-cabana/crear-cabana.component';
 import { EditarCabanaComponent } from './pages/editar-cabana/editar-cabana.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
   ]
 })
 export class CabanasModule { }

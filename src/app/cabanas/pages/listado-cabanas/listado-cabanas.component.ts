@@ -19,7 +19,16 @@ export class ListadoCabanasComponent implements OnInit {
   ngOnInit(): void {
     this.listarCabanas();
   }
-
+  validaEstado(estado:string) {
+    var estadoRes:boolean=false;
+    if(estado=="1"){
+      estadoRes=true;
+    }
+    return estadoRes;
+}
+prueba(){
+  console.log("funciona prueba");
+}
   crearCabana(){
     this.router.navigate(['/cabana-crear']);
   }
