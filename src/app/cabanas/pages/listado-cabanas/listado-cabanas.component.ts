@@ -47,7 +47,18 @@ prueba(){
       }
     )
   }
-
+  cambiarEstadoCabana(cabana:Cabana){
+    if(cabana.estado_cabana==1){
+      cabana.estado_cabana=0;
+    }else{
+      cabana.estado_cabana=1;
+    }
+    this.cabanaService.cambiarEstadoCabana(cabana).subscribe(
+    resp=>{
+      console.log(resp);
+    }
+  )
+}
   buscarCabana(varNombre:String){
     this.cabanaService.cabañaPorNombre(varNombre).subscribe(
       (cabanas) =>{
