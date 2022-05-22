@@ -9,17 +9,18 @@
                 <div class="card-body">
                     <form method="get">
                       <div class="form-group">
+                            <!-- <input type="number" [(ngModel)]="cabana.id_cabana"> -->
                             <h4>Nombre de la cabaña:</h4>
-                            <input [(ngModel)]="cabana.nombre_cabana" class="form-control" placeholder="Ingrese el nombre de la cabaña...">
+                            <input [(ngModel)]="cabana.nombre_cabana" class="form-control" name="nombre_cabana"  placeholder="Ingrese el nombre de la cabaña...">
                             <div class="row">   
                                 <div class="col-5">                      
                                 <h4>Valor estadia:</h4>
-                                <input [(ngModel)]="cabana.valor_cabana" class="form-control" placeholder="Ingrese el valor de la estadía por día..." type="text" >
+                                <input [(ngModel)]="cabana.valor_cabana" class="form-control" name="valor_cabana" placeholder="Ingrese el valor de la estadía por día..." type="text" >
                                 </div> 
                                 
                                 <div class="col-5">
                                 <h4>Capacidad maxima:</h4>
-                                <input [(ngModel)]="cabana.capacidad_cabana" class="form-control" placeholder="" min="1" type="number" >
+                                <input [(ngModel)]="cabana.capacidad_cabana" class="form-control"  name="capacidad_cabana"  placeholder="" min="1" type="number" >
                                 </div>
                             </div>
                             
