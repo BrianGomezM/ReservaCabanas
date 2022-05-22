@@ -17,7 +17,8 @@ export class CrearCabanaComponent implements OnInit {
   nombre_cabana:"",
   descripcion_cabana:"",
   capacidad_cabana:"",
-  valor_cabana:""
+  valor_cabana:"",
+  estado_cabana:1
   };
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router,private cabanaService:CabanasService) { }
@@ -37,11 +38,17 @@ export class CrearCabanaComponent implements OnInit {
         nombre_cabana:"",
         descripcion_cabana:"",
         capacidad_cabana:"",
-        valor_cabana:""
+        valor_cabana:"",
+        estado_cabana:1
       }
       this.redirect();
       console.log(resp);
       this.onCrear.emit();
     })
+  }
+
+  elegirImgen(params){
+    var files=params.target.files[0].name;
+    console.log(files);
   }
 }

@@ -7,7 +7,7 @@ import { Cabana } from '../interfaces/Cabana.interface';
   providedIn: 'root'
 })
 export class CabanasService {
-  url: string ="http://localhost/selecionar.php";
+  url: string ="http://localhost/proyect2/selecionar.php";
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,7 @@ export class CabanasService {
     return this.http.get<Cabana[]>( this.url + "?name="+ varNombre );
   }
   crearCabana(Cabana:Cabana){
+    console.log(Cabana.estado_cabana);
     return this.http.post(this.url,JSON.stringify(Cabana));
   }
 }
