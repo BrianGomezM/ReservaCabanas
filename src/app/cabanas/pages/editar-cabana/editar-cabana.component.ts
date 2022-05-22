@@ -1,7 +1,8 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
+import { switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-editar-cabana',
@@ -10,32 +11,44 @@ import { CabanasService } from 'app/cabanas/services/cabanas.service';
 })
 export class EditarCabanaComponent implements OnInit {
   nombre:string;
-  @Output() cabanas: Cabana[] = [];
-  cabana:Cabana={
+  cabana: Cabana ={
      id_cabana:"",
      nombre_cabana:"",
      descripcion_cabana:"",
-     capacidad_cabana:"",
+     capacidad_cabana: 0,
      valor_cabana:"",
      estado_cabana:1
   };
 
-  constructor(private router: Router,private cabanaService:CabanasService) { }
+  constructor(private activateRoute: ActivatedRoute, private router: Router,private cabanaService:CabanasService) { }
 
   ngOnInit(): void {
+    this.activateRoute.params
+    .pipe(
+      switchMap(({ id }) => this.cabanaService.cabanaPorId(id))
+    )
+    .subscribe( resp =>{
+      this.cabana=resp[0];
+    })
   }
   
   redirect(){
     this.router.navigate(['/cabanas']);
   }
 
-  // actualizarCabana(){
-  //   this.cabanaService.actualizarCabana(this.cabana).subscribe(
-  //     resp=>{
-  //       console.log(resp);
-  //       this.redirect();
-  //     }
-  //   )
-  // }
+  actualizarCabana(){
+    this.cabana.capacidad_cabana = Number(this.cabana.capacidad_cabana);
+    this.cabana.estado_cabana = Number(this.cabana.estado_cabana);
+
+    this.cabanaService.actualizarCabana(this.cabana).subscribe(
+      resp=>{
+        console.log('',resp);
+        this.redirect();
+      },
+      err=>{
+        console.log("error al guardar",err);
+      }
+    )
+  }
 
 }

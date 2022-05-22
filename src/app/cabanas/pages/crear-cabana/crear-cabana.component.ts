@@ -16,7 +16,7 @@ export class CrearCabanaComponent implements OnInit {
   id_cabana:"",
   nombre_cabana:"",
   descripcion_cabana:"",
-  capacidad_cabana:"",
+  capacidad_cabana:0,
   valor_cabana:"",
   estado_cabana:1
   };
@@ -37,7 +37,7 @@ export class CrearCabanaComponent implements OnInit {
         id_cabana:"",
         nombre_cabana:"",
         descripcion_cabana:"",
-        capacidad_cabana:"",
+        capacidad_cabana:0,
         valor_cabana:"",
         estado_cabana:1
       }
@@ -46,6 +46,7 @@ export class CrearCabanaComponent implements OnInit {
       this.onCrear.emit();
     })
   }
+
 
   elegirImgen(params){
     var files=params.target.files[0].name;

@@ -40,7 +40,7 @@
                                     <input  
                                     type="checkbox"
                                     [checked]="cabana.estado_cabana==1"
-                                    (click)="prueba()"
+                                    (click)="cambiarEstadoCabana(cabana)"
                                     >
                                     <span class="check-t1"></span>
                                 </label>
@@ -56,11 +56,16 @@
                     <span><!--{{ elemento.valor}}--></span>
                     <p>Detalles de cabaña</p>
                     <span>Estado:{{cabana.estado_cabana}} 
+                        
+                    
+                    </span><br>
+                    <span>ID:{{cabana.id_cabana}} 
+                        
                     
                     </span><br>
                     <span>{{cabana.descripcion_cabana}}</span>
                     <div class="mt-lg-2 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success px-2" (click)="editarCabana()">
+                        <button type="submit" class="btn btn-success px-2" (click)="editarCabana(cabana)">
                             <i class="material-icons">mode_edit_outline</i> Editar
                         </button>
                         <button type="submit" class="btn btn-danger px-2" (click)="editarCabana()">

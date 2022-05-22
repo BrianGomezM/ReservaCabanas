@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
@@ -11,6 +11,7 @@ import { CabanasService } from 'app/cabanas/services/cabanas.service';
 export class ListadoCabanasComponent implements OnInit {
   
   @Input() cabanas: Cabana[] = [];
+  
   varNombre:String="";
   hayError:boolean=false;
   constructor(private router: Router, private cabanaService: CabanasService) { }
@@ -32,8 +33,9 @@ prueba(){
     this.router.navigate(['/cabana-crear']);
   }
 
-  editarCabana(){
-    this.router.navigate(['/cabana-editar']);
+  editarCabana(cabana:Cabana){
+   
+    this.router.navigate(['/cabana-editar',cabana.id_cabana]);
   }
 
   listarCabanas(){
@@ -47,7 +49,18 @@ prueba(){
       }
     )
   }
-
+  cambiarEstadoCabana(cabana:Cabana){
+    if(cabana.estado_cabana==1){
+      cabana.estado_cabana=0;
+    }else{
+      cabana.estado_cabana=1;
+    }
+    this.cabanaService.cambiarEstadoCabana(cabana).subscribe(
+    resp=>{
+      console.log(resp);
+    }
+  )
+}
   buscarCabana(varNombre:String){
     this.cabanaService.cabañaPorNombre(varNombre).subscribe(
       (cabanas) =>{
