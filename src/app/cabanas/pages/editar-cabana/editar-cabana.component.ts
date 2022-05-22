@@ -29,7 +29,6 @@ export class EditarCabanaComponent implements OnInit {
     )
     .subscribe( resp =>{
       this.cabana=resp[0];
-      //console.log('hola',this.cabana);
     })
   }
   
@@ -40,10 +39,7 @@ export class EditarCabanaComponent implements OnInit {
   actualizarCabana(){
     this.cabana.capacidad_cabana = Number(this.cabana.capacidad_cabana);
     this.cabana.estado_cabana = Number(this.cabana.estado_cabana);
-    //this.cabana. = Number(this.cabana.estado_cabana);
-    // = Number(this.cabana.capacidad_cabana);
 
-    //console.log('actualizar',Number(this.cabana.capacidad_cabana));
     this.cabanaService.actualizarCabana(this.cabana).subscribe(
       resp=>{
         console.log('',resp);
