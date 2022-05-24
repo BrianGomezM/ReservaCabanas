@@ -7,7 +7,7 @@ import { Cabana } from '../interfaces/Cabana.interface';
   providedIn: 'root'
 })
 export class CabanasService {
-  url: string ="http://localhost/Cabanas.php";
+  url: string ="http://localhost/proyect2/Cabanas.php";
 
   constructor(private http: HttpClient) { }
 

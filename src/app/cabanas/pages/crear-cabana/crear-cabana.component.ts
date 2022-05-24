@@ -48,8 +48,4 @@ export class CrearCabanaComponent implements OnInit {
   }
 
 
-  elegirImgen(params){
-    var files=params.target.files[0].name;
-    console.log(files);
-  }
 }
