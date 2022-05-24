@@ -72,5 +72,14 @@ prueba(){
       }
     )
   }
+  eliminarCabana(cabana:Cabana){
+    this.cabanaService.eliminarCabana(cabana).subscribe(
+      resp=>{
+        console.log(resp);
+      }
+      
+    )
+    
+  }
 
 }

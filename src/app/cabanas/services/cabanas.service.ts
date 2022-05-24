@@ -31,4 +31,8 @@ export class CabanasService {
   actualizarCabana(cabana:Cabana){
     return this.http.put(this.url,JSON.stringify(cabana));
   }
+  eliminarCabana(cabana:Cabana){
+
+    return this.http.post(this.url + "?op="+1, JSON.stringify(cabana),{responseType: 'text'});
+  }
 }
