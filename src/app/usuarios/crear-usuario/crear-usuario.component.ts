@@ -49,6 +49,7 @@ export class CrearUsuarioComponent implements OnInit {
     this.UsuariosService.editarUsuario(this.usuarioEdita).subscribe(usuarioEdita=>{
       if(usuarioEdita['status']==200){
         this.showNotification("top", "center", 0, "ÉXITO", "Se actualizo el usuario");
+        this.router.navigate(['usuario-listar']);
       }else{
         this.showNotification("top", "center", 1, "ERROR", "No se actualizo el usuario");
       }
@@ -58,11 +59,12 @@ export class CrearUsuarioComponent implements OnInit {
     this.UsuariosService.crearUsuario(this.usuarioEdita).subscribe(usuarioEdita=>{
     if(usuarioEdita['status']==200){
       this.showNotification("top", "center", 0, "ÉXITO", "Se creo el usuario");
+      this.router.navigate(['usuario-listar']);
     }else{
       this.showNotification("top", "center", 1, "ERROR", "No se creo el usuario");
     }
      // console.log(usuarioEdita);
-    this.router.navigate(['usuario-listar']);
+    
  })}
 }
   cancelar(){
