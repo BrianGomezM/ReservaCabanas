@@ -30,9 +30,11 @@ export class CrearCabanaComponent implements OnInit {
   redirect(){
     this.router.navigate(['/cabanas']);
   }
+
   crearCabana(){
     console.log(this.cabana.nombre_cabana);
-    this.cabanaService.crearCabana(this.cabana).subscribe(resp=>{
+    this.cabanaService.crearCabana(this.cabana).subscribe(
+      resp=>{
       this.cabana={
         id_cabana:"",
         nombre_cabana:"",
