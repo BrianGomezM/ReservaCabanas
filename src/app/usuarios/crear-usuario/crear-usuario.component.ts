@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import { UsuariosService } from '../services/usuarios.servicios';
 import { Usuario } from '../../usuarios/interfaces/usuario.interface';
+import { AlertMessage } from '../../alerta/alerta';
 
 declare var $: any;
 @Component({
@@ -29,7 +30,7 @@ export class CrearUsuarioComponent implements OnInit {
   
  
   constructor(private router: Router, private route: ActivatedRoute, private UsuariosService:UsuariosService) { }
-
+  aler = new AlertMessage();
   
   ngOnInit(): void {
     if(!this.router.url.includes('usuario-editar')){
@@ -47,56 +48,26 @@ export class CrearUsuarioComponent implements OnInit {
   if(this.usuarioEdita.idUsuario != 0){
     //ACTUALIZAR
     this.UsuariosService.editarUsuario(this.usuarioEdita).subscribe(usuarioEdita=>{
-      if(usuarioEdita['status']==200){
-        this.showNotification("top", "center", 0, "ÉXITO", "Se actualizo el usuario");
+      if(usuarioEdita['status']==200){        
+        this.aler.correcto("Bien", "El usurio se actualizo correctamente");
         this.router.navigate(['usuario-listar']);
       }else{
-        this.showNotification("top", "center", 1, "ERROR", "No se actualizo el usuario");
+        this.aler.error("Error", "El Usuario no se  actualizo", 'error');
       }
     });
   }else{
     //CREAR USUARIO
     this.UsuariosService.crearUsuario(this.usuarioEdita).subscribe(usuarioEdita=>{
     if(usuarioEdita['status']==200){
-      this.showNotification("top", "center", 0, "ÉXITO", "Se creo el usuario");
+      this.aler.correcto("Bien", "El usurio se creo correctamente");
       this.router.navigate(['usuario-listar']);
     }else{
-      this.showNotification("top", "center", 1, "ERROR", "No se creo el usuario");
+      this.aler.error("Error", "No se creo el usuario en el sistema", 'error');
     }
-     // console.log(usuarioEdita);
-    
  })}
 }
   cancelar(){
     this.router.navigate(['usuario-listar']);
   }
-
-  validarCampos(opcion){
-  }
-
-  showNotification(from, align, opcion, titulo, mesanje){
-        const type = ['success','danger'];
-        const color = opcion;
-        $.notify({
-            icon: titulo,
-            message: mesanje
-        },{
-            type: type[color],
-            timer: 2000,
-            placement: {
-                from: from,
-                align: align
-            },
-            template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-              '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-              '<i class="material-icons" data-notify="icon">notifications</i> ' +
-              '<span data-notify="title">{1}</span> ' +
-              '<span data-notify="message">{2}</span>' +
-              '<div class="progress" data-notify="progressbar">' +
-                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-              '</div>' +
-              '<a href="{3}" target="{4}" data-notify="url"></a>' +
-            '</div>'
-        });
-    }
+  
 }
