@@ -7,7 +7,7 @@ import { Cabana } from '../interfaces/Cabana.interface';
   providedIn: 'root'
 })
 export class CabanasService {
-  url: string ="http://localhost/Cabanas.php";
+  url: string ="http://localhost/proyect2/Cabanas.php";
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class CabanasService {
     return this.http.post(this.url + "?op="+0,JSON.stringify(Cabana));
   }
   cambiarEstadoCabana(Cabana:Cabana){
-    return this.http.put(this.url,JSON.stringify(Cabana),{responseType: 'text'});
+    return this.http.put(this.url,JSON.stringify(Cabana));
   }
   actualizarCabana(cabana:Cabana){
     return this.http.put(this.url,JSON.stringify(cabana));

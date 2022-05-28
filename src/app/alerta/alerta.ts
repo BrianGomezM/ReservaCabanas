@@ -46,8 +46,6 @@ export class AlertMessage{
     }
 
 
-
-
     notificacionExito(from, align, opcion, titulo, mesanje){
         const type = ['success','danger'];
         const color = opcion;
