@@ -13,7 +13,7 @@ export class AlertMessage{
             confirmButtonText:'Aceptar'
           })
     }
-
+    
     eliminarRegistros(titulo: string, texto: string){
         Swal.fire({
             title: titulo,
@@ -34,8 +34,6 @@ export class AlertMessage{
           })
 
     }
-
-
 
 
     notificacionExito(from, align, opcion, titulo, mesanje){

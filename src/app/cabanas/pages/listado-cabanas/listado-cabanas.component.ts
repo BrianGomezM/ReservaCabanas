@@ -121,6 +121,7 @@ filtrarCabanas(value){
       (cabanas) =>{
         this.hayError=false;
         this.cabanas=cabanas;
+        this.cabanasActual=cabanas;
       }, (err)=> {
         this.cabanas=[];
         this.hayError=true;
