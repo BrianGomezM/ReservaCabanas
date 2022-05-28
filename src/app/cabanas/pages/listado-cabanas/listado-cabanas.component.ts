@@ -11,12 +11,16 @@ declare var $: any;
 export class ListadoCabanasComponent implements OnInit {
   
   @Input() cabanas: Cabana[] = [];
-  
+  cabanasActual: Cabana[]=[];
+  filtroTodas:boolean=false;
+  filtroHabilitadas:boolean=false;
+  filtroInhabilitadas:boolean=false;
   varNombre:String="";
   hayError:boolean=false;
   constructor(private router: Router, private cabanaService: CabanasService) { }
 
   ngOnInit(): void {
+    this.filtroTodas=true;
     this.listarCabanas();
   }
   validaEstado(estado:string) {
@@ -26,8 +30,51 @@ export class ListadoCabanasComponent implements OnInit {
     }
     return estadoRes;
 }
-prueba(){
-  console.log("funciona prueba");
+filtrarCabanas(value){
+  this.cabanasActual= [];
+  if(value=="0"){
+    this.filtroTodas=true;
+    this.filtroHabilitadas=false;
+    this.filtroInhabilitadas=false;
+    console.log("Opcion 1");
+    console.log(this.cabanas.length)
+    for(let cabana of this.cabanas){
+      cabana.visibilidad=true;
+      this.cabanasActual=this.cabanas;
+    }
+  }
+  if(value=="1"){
+    this.filtroTodas=false;
+    this.filtroHabilitadas=true;
+    this.filtroInhabilitadas=false;
+    console.log("Opcion 2");
+    for(let cabana of this.cabanas){
+      if(cabana.estado_cabana==1){
+        cabana.visibilidad=true;
+        this.cabanasActual.push(cabana);
+        console.log("Id:" + cabana.id_cabana +" Estado:"+ cabana.estado_cabana  +" Visibilidad:"+ cabana.visibilidad);
+      }
+      else{
+        cabana.visibilidad=false;
+      }
+    }
+  }
+  if(value=="2"){
+    this.filtroTodas=false;
+    this.filtroHabilitadas=false;
+    this.filtroInhabilitadas=true;
+    console.log("Opcion 3")
+    for(let cabana of this.cabanas){
+      if(cabana.estado_cabana==0){
+        console.log("Id:" + cabana.id_cabana +" Estado:"+ cabana.estado_cabana  +" Visibilidad:"+ cabana.visibilidad);
+        cabana.visibilidad=true;
+        this.cabanasActual.push(cabana);
+      }
+      else{
+        cabana.visibilidad=false;
+      }
+    }    
+  }
 }
   crearCabana(){
     this.router.navigate(['/cabana-crear']);
@@ -43,6 +90,8 @@ prueba(){
       (cabanas) =>{
         this.hayError=false;
         this.cabanas = cabanas;
+        this.filtroTodas=true;
+        this.filtrarCabanas("0");
       }, (err)=> {
         this.cabanas=[];
         this.hayError=true;
@@ -57,7 +106,13 @@ prueba(){
     }
     this.cabanaService.cambiarEstadoCabana(cabana).subscribe(
     resp=>{
-      console.log(resp);
+      if(resp['status']==200){
+        this.showNotification("top", "right", 0, "ÉXITO", "Se cambiado el estado de la cabaña: " + cabana.nombre_cabana + " Correctamente.");
+      this.listarCabanas();
+      this.filtroTodas=true;
+      }else{
+        this.showNotification("top", "right", 1, "ERROR", "No se pudo cambiar el estado de la cabaña: " + cabana.nombre_cabana + " recargue la pagina e intente nuevamente.");
+      }
     }
   )
 }
@@ -78,9 +133,10 @@ prueba(){
         if(resp['status']==200){
         this.showNotification("top", "right", 0, "ÉXITO", "Se ha eliminado la cabaña: " + cabana.nombre_cabana + " Correctamente.");
         this.listarCabanas();
+        this.filtroTodas=true;
         console.log(resp);
         }else{
-          this.showNotification("top", "right", 0, "ERROR", "No se pudo eliminar la cabaña: " + cabana.nombre_cabana + " recargue la pagina e intente nuevamente.");
+          this.showNotification("top", "right", 1, "ERROR", "No se pudo eliminar la cabaña: " + cabana.nombre_cabana + " recargue la pagina e intente nuevamente.");
         }
       }
       

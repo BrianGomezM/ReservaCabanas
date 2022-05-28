@@ -11,13 +11,15 @@ import { switchMap, tap } from 'rxjs';
 })
 export class EditarCabanaComponent implements OnInit {
   nombre:string;
+
   cabana: Cabana ={
      id_cabana:"",
      nombre_cabana:"",
      descripcion_cabana:"",
      capacidad_cabana: 0,
      valor_cabana:"",
-     estado_cabana:1
+     estado_cabana:1,
+     visibilidad:true
   };
 
   constructor(private activateRoute: ActivatedRoute, private router: Router,private cabanaService:CabanasService) { }

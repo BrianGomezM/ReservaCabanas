@@ -5,4 +5,5 @@ export interface Cabana {
     capacidad_cabana:   number;
     valor_cabana:       string;
     estado_cabana:      number;
+    visibilidad: boolean;
 }

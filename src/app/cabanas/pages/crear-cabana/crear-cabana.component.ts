@@ -18,7 +18,8 @@ export class CrearCabanaComponent implements OnInit {
   descripcion_cabana:"",
   capacidad_cabana:0,
   valor_cabana:"",
-  estado_cabana:1
+  estado_cabana:1,
+  visibilidad:true
   };
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router,private cabanaService:CabanasService) { }
@@ -41,7 +42,8 @@ export class CrearCabanaComponent implements OnInit {
         descripcion_cabana:"",
         capacidad_cabana:0,
         valor_cabana:"",
-        estado_cabana:1
+        estado_cabana:1,
+        visibilidad:true
       }
       this.redirect();
       console.log(resp);
