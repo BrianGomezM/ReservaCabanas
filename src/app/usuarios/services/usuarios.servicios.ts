@@ -15,7 +15,7 @@ export class UsuariosService{
   constructor(private http: HttpClient) { }
 
   getUsuarios(param:String){
-    let  url ='http://localhost/Usuarios.php?param='+param;
+    let  url ='https://reservascabanas.000webhostapp.com/Usuarios.php?param='+param;
         let header=new HttpHeaders();
         header.append('Content-Type','aplication/json')
        //header.append('Access-Control-Allow-Methods','"POST, GET"')
@@ -25,7 +25,7 @@ export class UsuariosService{
 
   eliminarUsuario(usuario:string): Observable<any>{
     //defino la url donde esta el servicio
-    let  url ='http://localhost/Usuarios.php?opcion='+1+'&idUsuario='+usuario;
+    let  url ='https://reservascabanas.000webhostapp.com/Usuarios.php?opcion='+1+'&idUsuario='+usuario;
     let header=new HttpHeaders();
     header.append('Content-Type','aplication/json')
   //  header.append('Access-Control-Allow-Methods','"POST, GET,DELETE,PUT"')
@@ -33,7 +33,7 @@ export class UsuariosService{
     return this.http.get<any>(url,{headers:header});
   }
   getUsuarioID(param:number){
-    let  url ='http://localhost/Usuarios.php?param1='+param;
+    let  url ='https://reservascabanas.000webhostapp.com/Usuarios.php?param1='+param;
         let header=new HttpHeaders();
         header.append('Content-Type','aplication/json')
        //header.append('Access-Control-Allow-Methods','"POST, GET"')
@@ -42,7 +42,7 @@ export class UsuariosService{
   }
   editarUsuario(usuario:Usuario){
     //defino la url donde esta el servicio
-    let  url ='http://localhost/Usuarios.php?opcion='+1;
+    let  url ='https://reservascabanas.000webhostapp.com/Usuarios.php?opcion='+1;
     let header=new HttpHeaders();
     header.append('Content-Type','aplication/json')
     //header.append('Access-Control-Allow-Methods','"POST, GET,DELETE,PUT"')
@@ -51,7 +51,7 @@ export class UsuariosService{
   } 
   crearUsuario(usuario:Usuario){
     //defino la url donde esta el servicio
-    let  url ='http://localhost/Usuarios.php?opcion='+2;
+    let  url ='https://reservascabanas.000webhostapp.com/Usuarios.php?opcion='+2;
        let header=new HttpHeaders();
        header.append('Content-Type','aplication/json')
       // header.append('Access-Control-Allow-Methods','"POST, GET"')
@@ -60,7 +60,7 @@ export class UsuariosService{
  }
 
  getSesionUser(email:string,password:string ){
-  let  url ='http://localhost/?control=1&correo='+email+'&clave='+password;
+  let  url ='https://reservascabanas.000webhostapp.com/?control=1&correo='+email+'&clave='+password;
       let header=new HttpHeaders();
       header.append('Content-Type','aplication/json')
      //header.append('Access-Control-Allow-Methods','"POST, GET"')
@@ -68,7 +68,7 @@ export class UsuariosService{
       return this.http.get<Usuario[]>(url,{headers:header});
 }
 getOlvidoC(correo:string){
-  let  url ='http://localhost/';
+  let  url ='https://reservascabanas.000webhostapp.com/';
   let header=new HttpHeaders();
   header.append('Content-Type','aplication/json')
   //header.append('Access-Control-Allow-Methods','"POST, GET,DELETE,PUT"')
