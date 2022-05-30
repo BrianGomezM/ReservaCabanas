@@ -10,6 +10,7 @@ export class AlertMessage{
             title: titulo,
             text: texto,
             confirmButtonColor: '#3085d6',
+            timer: 2000,
             confirmButtonText:'Aceptar',
           })
     }
