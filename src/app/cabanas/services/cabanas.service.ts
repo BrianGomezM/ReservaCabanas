@@ -43,7 +43,7 @@ export class CabanasService {
   }
   async subirImagenes(nombre:string, img:any){
     try{
-      let response = await this.storageRef.child("/" + nombre).putString(img,'data_url');
+      let response = await this.storageRef.child("/cabana" + nombre).putString(img,'data_url');
       return response.ref.getDownloadURL();
     }catch(err){
       console.log(err);
