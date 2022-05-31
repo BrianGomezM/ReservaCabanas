@@ -9,6 +9,7 @@ import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 
 
 
+
 @NgModule({
   declarations: [
     ListadoCabanasComponent,
@@ -18,7 +19,8 @@ import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
   imports: [
     CommonModule,
     FormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    
   ]
 })
 export class CabanasModule { }

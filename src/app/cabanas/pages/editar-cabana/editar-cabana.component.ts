@@ -65,7 +65,8 @@ export class EditarCabanaComponent implements OnInit {
     this.cabanaService.actualizarCabana(this.cabana).subscribe(
       resp=>{
         console.log('',resp);
-        this.alerta.error('La cabaña fue editada con exito','','success');
+        this.alerta.notificacionExito("top", "right", 0, "ÉXITO", "Se ha actualizado la cabaña: " + this.cabana.nombre_cabana + " Correctamente.");
+        //this.alerta.error('La cabaña fue editada con exito','','success');
         this.router.navigate(['/cabanas']);
       },
       err=>{

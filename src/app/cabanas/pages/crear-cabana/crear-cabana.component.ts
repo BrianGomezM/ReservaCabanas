@@ -3,7 +3,6 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-crear-cabana',
   templateUrl: './crear-cabana.component.html',
@@ -11,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class CrearCabanaComponent implements OnInit {
   nombre:string;
-
+  fileToUpload : File | null = null;
+  fileList : File[];
+  imgURL: any;
   cabana:Cabana={
   id_cabana:"",
   nombre_cabana:"",
@@ -21,6 +22,7 @@ export class CrearCabanaComponent implements OnInit {
   estado_cabana:1,
   visibilidad:true
   };
+
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router,private cabanaService:CabanasService) { }
 
@@ -50,6 +52,18 @@ export class CrearCabanaComponent implements OnInit {
       this.onCrear.emit();
     })
   }
+  subirImagenes(file:FileList){
+    this.fileToUpload = file.item(0);
+    this.fileList.push(this.fileToUpload);
+    console.log(this.fileToUpload.name);
+    var reader = new FileReader();
+    reader.readAsDataURL(this.fileToUpload); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
+
+  preview(file:File){}
 
 
 }
