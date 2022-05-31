@@ -2,12 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cabana } from '../interfaces/Cabana.interface';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/storage';
+import { environment } from 'environments/environment';
+
+firebase.initializeApp(environment.firebaseConfig);
 
 @Injectable({
   providedIn: 'root'
 })
 export class CabanasService {
   url: string ="http://localhost/proyect2/Cabanas.php";
+  storageRef = firebase.app().storage().ref();
 
   constructor(private http: HttpClient) { }
 
@@ -34,5 +40,13 @@ export class CabanasService {
   eliminarCabana(cabana:Cabana){
 
     return this.http.post(this.url + "?op="+1, JSON.stringify(cabana));
+  }
+  async subirImagenes(nombre:string, img:any){
+    try{
+      let response = await this.storageRef.child("/" + nombre).putString(img,'data_url');
+      return response.ref.getDownloadURL();
+    }catch(err){
+      console.log(err);
+    }
   }
 }

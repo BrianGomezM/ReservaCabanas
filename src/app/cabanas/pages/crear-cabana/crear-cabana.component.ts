@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CrearCabanaComponent implements OnInit {
   nombre:string;
   fileToUpload : File | null = null;
-  fileList : File[];
+  imagenes : any[] = [];
   imgURL: any;
   cabana:Cabana={
   id_cabana:"",
@@ -52,18 +52,31 @@ export class CrearCabanaComponent implements OnInit {
       this.onCrear.emit();
     })
   }
+  cargarImagenes(file:FileList){
+    for(let i=0; i<file.length;i++){
+      this.imagenes.push(file.item(i));
+      console.log(file.item(i).name);
+    }
+  }
   subirImagenes(file:FileList){
-    this.fileToUpload = file.item(0);
-    this.fileList.push(this.fileToUpload);
-    console.log(this.fileToUpload.name);
-    var reader = new FileReader();
-    reader.readAsDataURL(this.fileToUpload); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
+    let nombre = "prueba2";
+    for(let i=0; i<file.length; i++){
+      let reader = new FileReader();
+      reader.readAsDataURL(file.item(0));
+      reader.onloadend = () => {
+        this.imagenes.push(reader.result);
+        this.cabanaService.subirImagenes(nombre+"_", reader.result).then(
+          urlImagen =>{
+            console.log(urlImagen);
+          }
+        );
+      }
+    }
+   
     }
   }
 
-  preview(file:File){}
+ 
 
 
-}
+
