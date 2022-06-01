@@ -2,7 +2,8 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { UsuariosService } from '../services/usuarios.servicios';
 import { Usuario } from '../../usuarios/interfaces/usuario.interface';
-
+import { AlertMessage } from '../../alerta/alerta';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-listado-usuarios',
   templateUrl: './listado-usuarios.component.html',
@@ -11,7 +12,7 @@ import { Usuario } from '../../usuarios/interfaces/usuario.interface';
 export class ListadoUsuariosComponent implements OnInit {
 
  
-
+  aler = new AlertMessage();
   public param: String="";
   public nocarga:boolean=true;
   public closeModal:string="";
@@ -43,9 +44,25 @@ export class ListadoUsuariosComponent implements OnInit {
       );}
     //invoco el servicio
     eliminarUsuario(index:string){
-      this.UsuariosService.eliminarUsuario(index).subscribe(
-        resp=>{this.ngOnInit();
-       }); 
+       Swal.fire({
+        title: "Estad seguro?",
+        text: "Se borrara  de forma permanente!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, bórralo'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire(
+            'Eliminado!',
+            'El registro seleccionado fue eliminado correctamente.',
+            'success') 
+            this.UsuariosService.eliminarUsuario(index).subscribe(
+              resp=>{this.ngOnInit();
+             });
+        }
+      }); 
     }
 
     editar(index: number){
@@ -53,12 +70,17 @@ export class ListadoUsuariosComponent implements OnInit {
       this.router.navigate(['usuario-editar',index]);
     }
     
-    buscar(){
-        this.UsuariosService.getUsuarios(this.param).subscribe((usuario:any)=>{
-        this.usuarios = usuario['0'];
-        });
-        
-    }
+    buscar(valor){
+       
+        this.UsuariosService.getUsuarios(valor).subscribe((usuario:any)=>{
+          if(this.usuarios = usuario['0']){
+
+          }else{
+            this.aler.error("Advertencia", "No hay usuarios registrados con el nombre: "+valor, 'warning');   
+          }
+          });
+      }
+    
     crear(){ 
        this.router.navigate(['usuario-crear']);
     }

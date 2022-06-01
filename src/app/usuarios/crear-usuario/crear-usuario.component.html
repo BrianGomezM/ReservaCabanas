@@ -9,15 +9,18 @@
 					<form method="get">
 						<div class="form-group">
 							<div class="row" >
-								<div class="col-md-4" style="padding-bottom: 12px;">									
-								    <input  class="form-control" type="text"  required pattern="[A-Za-z0-9]{5,40}" placeholder="Nombre" name="nombre" [(ngModel)]="usuarioEdita.nombre">
+								<div class="col-md-4" style="padding-bottom: 12px;">	
+									<label for="nombre" class="form-label">Nombre*</label>								
+								    <input  class="form-control" type="text" title="nombre" required pattern="[A-Za-z0-9]{5,40}" placeholder="" id="nombre" name="nombre" [(ngModel)]="usuarioEdita.nombre">
 								</div>
 								<div class="col-md-4">
-								    <input  class="form-control" type="text" placeholder="Apellido" name="apellido" [(ngModel)]="usuarioEdita.apellido">
+									<label for="apellido" class="form-label">Apellido*</label>
+								    <input  class="form-control" type="text" title="apellido" placeholder="" name="apellido" id="apellido" [(ngModel)]="usuarioEdita.apellido">
 								</div>
 								<div class="col-md-4">  
-									<select class="form-control"  name="rol"  (change)="validarCampos(1)" [(ngModel)]="usuarioEdita.idRol">
-										<option value=0>Rol Del Usuario</option>
+									<label for="rolUser" class="form-label">Rol de usuario*</label>
+									<select class="form-control"  name="rolUser" title="rol de usuario"  id="rolUser"  [(ngModel)]="usuarioEdita.idRol">
+										<option value=0>Seleccione el rol</option>
 										<option value=1>Administrador</option>
 										<option value=2>Logistica</option>
 										<option value=3>Encargado de reservas</option>
@@ -26,26 +29,33 @@
 								</div>
 							</div>
 							<div class="row">	
-								<div class="col-md-4" style="padding-bottom: 12px;">  
-								<select class="form-control" id="TipoDoc" name="tipoDoc" (change)="validarCampos(1)" [(ngModel)]="usuarioEdita.tipoDocumento">
-								  <option value="0" >Tipo De Documento</option>
-								  <option value="1">Cedula</option>
-								  <option value="2">Tajerta Identidad</option>
+								<div class="col-md-4" style="padding-bottom: 12px;"> 
+								<label for="tipoDoc" class="form-label">Tipo de documento*</label> 
+								<select class="form-control" title="Tipo de documento" id="tipoDoc" name="tipoDoc" [(ngModel)]="usuarioEdita.tipoDocumento">
+								  <option value="0">Seleccione el tipo de documento</option>
+								  <option value="1">Cedula ciudadania</option>
+								  <option value="2">Cedula extrangera</option>
+								  <option value="3">Tajerta Identidad</option>
 								</select>
+								
 							  </div>
 								<div class="col-md-4">
-								    <input  class="form-control" type="number" (change)="validarCampos(1)" placeholder="Documento" name="Documento" [(ngModel)]="usuarioEdita.documento">
+									<label for="documento" id="documento" class="form-label">Numero de documento*</label> 
+								    <input  class="form-control" type="number" title="documento" id="documento"  placeholder="" name="documento" [(ngModel)]="usuarioEdita.documento">
 								</div>
 								<div class="col-md-4">
-								    <input  class="form-control" type="number" (change)="validarCampos(1)" placeholder="Telefono" name="Telefono" [(ngModel)]="usuarioEdita.telefono">
+									<label for="telefono" id="telefono" class="form-label">Telefono*</label> 
+								    <input  class="form-control" type="number" title="telefono"  placeholder="" name="telefono" [(ngModel)]="usuarioEdita.telefono">
 							  </div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" style="padding-bottom: 40px;">
-								    <input  class="form-control" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="Correo-Electronico" name="correo" [(ngModel)]="usuarioEdita.correo">
+									<div class="col-md-4" style="padding-bottom: 40px;">
+									<label for="correo" id="correo" class="form-label">Correo electronico*</label> 
+								    <input  class="form-control" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="" name="correo" [(ngModel)]="usuarioEdita.correo">
 								</div>
 								<div class="col-md-4">
-									<input class="form-control" placeholder="Contraseña" type="password" [(ngModel)]="usuarioEdita.contrasena">
+									<label for="password" id="password" class="form-label">Contraseña*</label> 
+									<input class="form-control" placeholder="" type="password" [(ngModel)]="usuarioEdita.contrasena">
 								</div>
 							</div>
 							<button  type="submit" class="btn pull-right btn-danger" title="Cancelar" (click)="cancelar()"><i class="material-icons">cancel</i> Cancelar</button>

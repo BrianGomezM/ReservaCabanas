@@ -1,0 +1,12 @@
+.inputfile {
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    /*box-shadow: 0 2px 2px 0 rgba(76, 244, 54, 0.14), 0 3px 1px -2px rgb(76, 244, 54, 0.14), 0 1px 5px 0 rgb(76, 244, 54, 0.14);*/
+    cursor:pointer;
+}

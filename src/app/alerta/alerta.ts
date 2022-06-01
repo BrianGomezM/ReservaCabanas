@@ -10,11 +10,21 @@ export class AlertMessage{
             title: titulo,
             text: texto,
             confirmButtonColor: '#3085d6',
-            confirmButtonText:'Aceptar'
+            timer: 2000,
+            confirmButtonText:'Aceptar',
           })
     }
-
-    eliminarRegistros(titulo: string, texto: string){
+    correcto(titulo: string, texto: string){
+      Swal.fire({
+        icon: 'success',
+        title: titulo,
+        text: texto,
+        showConfirmButton: false,
+        timer: 2000
+      })
+    }
+    eliminarRegistros(titulo: string, texto: string):any{     
+      var respuesta =false;
         Swal.fire({
             title: titulo,
             text: texto,
@@ -22,20 +32,19 @@ export class AlertMessage{
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminar'
+            confirmButtonText: 'Si, bórralo'
           }).then((result) => {
-            if (result.isConfirmed) {
+            if (result.value) {
               Swal.fire(
                 'Eliminado!',
-                'El registro seleccionado fue eliminado.',
-                'success'
-              )
+                'El registro seleccionado fue eliminado correctamente.',
+                'success') 
+                respuesta= true;
+            }else{
+              respuesta= false;
             }
-          })
-
+          }); 
     }
-
-
 
 
     notificacionExito(from, align, opcion, titulo, mesanje){
