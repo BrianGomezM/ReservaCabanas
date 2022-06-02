@@ -21,26 +21,30 @@
             </div>
         </form>  
     </div>
+    
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input [checked]="filtroTodas" type="radio" class="form-check-input" value="0" name="filtroTodas" (change)="filtrarCabanas($event.target.value)">Todas
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input [checked]="filtroHabilitadas" type="radio" class="form-check-input" value="1" name="filtroHabilitadas" (change)="filtrarCabanas($event.target.value)">Habilitadas
+        </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+            <input [checked]="filtroInhabilitadas" type="radio" class="form-check-input" value="2" name="filtroInhabilitadas" (change)="filtrarCabanas($event.target.value)">Inhabilitadas
+        </label>
+    </div>
+    
     <div *ngIf="hayError" class="alert alert-danger alert-with-icon"> 
         <i class="material-icons" data-notify="icon">error_outline</i>
         <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
         <span data-notify="message">
-            <b>Error:</b> No se pudo encontrar nada...</span></div>
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input [checked]="filtroTodas" type="radio" class="form-check-input" value="0" name="filtroTodas" (change)="filtrarCabanas($event.target.value)">Todas
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input [checked]="filtroHabilitadas" type="radio" class="form-check-input" value="1" name="filtroHabilitadas" (change)="filtrarCabanas($event.target.value)">Habilitadas
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input [checked]="filtroInhabilitadas" type="radio" class="form-check-input" value="2" name="filtroInhabilitadas" (change)="filtrarCabanas($event.target.value)">Inhabilitadas
-                </label>
-              </div>
+            <b>Error:</b> No se pudo encontrar nada...</span>
+    </div>
+
     <hr class="my-4" />
     <div class="row">
         <div class="col-lg-5 col-md-6" *ngFor="let cabana of cabanasActual">

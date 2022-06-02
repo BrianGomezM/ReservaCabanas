@@ -7,7 +7,7 @@
 </div>
 <div class="sidebar-wrapper">
   <div *ngIf="isMobileMenu()">
-    <form class="navbar-form">
+    <!-- <form class="navbar-form">
       <span class="bmd-form-group">
         <div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
@@ -17,7 +17,7 @@
           </button>
         </div>
       </span>
-    </form>
+    </form> -->
     <ul class="nav navbar-nav nav-mobile-menu">
         <li class="nav-item">
             <a class="nav-link" routerLink="/reservas">
@@ -49,12 +49,25 @@
         </li>
     </ul>
   </div>
-    <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
+  <ul class="nav navbar-nav" *ngFor="let menuItem of menuItems" >
+    <li *ngIf="menuItem.title=='Reservas'" class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="[menuItem.path]" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" routerLinkActive="" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/prereservas">
+                <i class="material-icons">calendar_month</i>
+                <p>Prereservas</p>
             </a>
-        </li>
-    </ul>
+        </div>
+    </li>
+    <li *ngIf="menuItem.title!='Reservas' && menuItem.title!='Prereservas' " routerLinkActive="active" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+    </li>
+  </ul>
+    
 </div>
