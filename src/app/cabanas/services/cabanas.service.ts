@@ -29,7 +29,7 @@ export class CabanasService {
   }
 
   crearCabana(Cabana:Cabana){
-    return this.http.post(this.url + "?op="+0,JSON.stringify(Cabana));
+    return this.http.post<Cabana>(this.url + "?op="+0,JSON.stringify(Cabana));
   }
   cambiarEstadoCabana(Cabana:Cabana){
     return this.http.put(this.url,JSON.stringify(Cabana));

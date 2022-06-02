@@ -53,8 +53,9 @@ export class CrearCabanaComponent implements OnInit {
         estado_cabana:1,
         visibilidad:true
       }
+      //this.cargarImagenes(this.fileToUpload);
       this.redirect();
-      console.log(resp);
+      console.log("CABAÑA CREADA: "+resp.id_cabana);
       this.onCrear.emit();
     })
   }
@@ -67,7 +68,8 @@ export class CrearCabanaComponent implements OnInit {
   }
 
   deleteImage(i:number){
-    delete this.fileToUpload[i];
+    this.fileToUpload.splice(i,1);
+    this.imagenes.splice(i,1);
   }
 
   cargarImagenes(file:FileList){
