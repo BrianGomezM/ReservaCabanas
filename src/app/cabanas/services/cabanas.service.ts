@@ -12,7 +12,7 @@ firebase.initializeApp(environment.firebaseConfig);
   providedIn: 'root'
 })
 export class CabanasService {
-  url: string ="http://localhost/Cabanas.php";
+  url: string ="http://localhost/proyect2/Cabanas.php";
   storageRef = firebase.app().storage().ref();
 
   constructor(private http: HttpClient) { }
