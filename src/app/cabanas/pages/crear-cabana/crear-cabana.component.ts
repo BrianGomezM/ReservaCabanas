@@ -53,7 +53,7 @@ export class CrearCabanaComponent implements OnInit {
         estado_cabana:1,
         visibilidad:true
       }
-      //this.cargarImagenes(this.fileToUpload);
+      this.subirImagenes();
       this.redirect();
       console.log("CABAÑA CREADA: "+resp.id_cabana);
       this.onCrear.emit();
@@ -69,7 +69,7 @@ export class CrearCabanaComponent implements OnInit {
 
   deleteImage(i:number){
     this.fileToUpload.splice(i,1);
-    this.imagenes.splice(i,1);
+    //this.imagenes.splice(i,1);
   }
 
   cargarImagenes(file:FileList){
@@ -79,7 +79,6 @@ export class CrearCabanaComponent implements OnInit {
         let reader = new FileReader();
       
         reader.onloadend = () => {
-          this.imagenes.push(file.item(i));
           this.imagen={
             id_imagen:"",
             nombre_imagen:file.item(i).name,
@@ -96,19 +95,24 @@ export class CrearCabanaComponent implements OnInit {
     }
   }
   
-  subirImagenes(file:FileList){
+  subirImagenes(){
     let nombre = "prueba2";
-    for(let i=0; i<file.length; i++){
-      let reader = new FileReader();
-      reader.readAsDataURL(file.item(0));
-      reader.onloadend = () => {
-        this.imagenes.push(reader.result);
-        this.cabanaService.subirImagenes(nombre+"_"+Date.now(), reader.result).then(
-          urlImagen =>{
-            console.log(urlImagen);
-          }
-        );
-      }
+    var tmpImagenes = this.fileToUpload.length;
+    for(let i=0; i<tmpImagenes; i++){
+      // let reader = new FileReader();
+      // reader.readAsDataURL(file.item(0));
+      // reader.onloadend = () => {
+      //   this.imagenes.push(reader.result);
+      //   this.cabanaService.subirImagenes(nombre+"_"+Date.now(), reader.result).then(
+      //     urlImagen =>{
+      //       console.log(urlImagen);
+      //     }
+      //   );
+      // }
+      this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen).then(
+           urlImagen =>{
+             console.log(urlImagen);
+      });
     }
    
     }
