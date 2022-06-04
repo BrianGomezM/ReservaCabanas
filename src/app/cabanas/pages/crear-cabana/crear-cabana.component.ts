@@ -12,12 +12,13 @@ declare var $: any;
 export class CrearCabanaComponent implements OnInit {
   nombre:string;
   fileToUpload : Imagen[]= [];
-  imagenes : any[] = [];
-  imgURL: any;
+  //imagenes : any[] = [];
+  //imgURL: any;
   imagen: Imagen={
     id_imagen:"",
     nombre_imagen:"",
-    url_imagen:""
+    url_imagen:"",
+    id_cabana:""
   }
   cabana:Cabana={
   id_cabana:"",
@@ -43,21 +44,20 @@ export class CrearCabanaComponent implements OnInit {
   crearCabana(){
     console.log(this.cabana.nombre_cabana);
     this.cabanaService.crearCabana(this.cabana).subscribe(
-      resp=>{
-      this.cabana={
-        id_cabana:"",
-        nombre_cabana:"",
-        descripcion_cabana:"",
-        capacidad_cabana:0,
-        valor_cabana:"",
-        estado_cabana:1,
-        visibilidad:true
-      }
-      this.subirImagenes();
-      this.redirect();
-      console.log("CABAÑA CREADA: "+resp.id_cabana);
-      this.onCrear.emit();
-    })
+      resp => {
+        this.cabana = {
+          id_cabana: "",
+          nombre_cabana: "",
+          descripcion_cabana: "",
+          capacidad_cabana: 0,
+          valor_cabana: "",
+          estado_cabana: 1,
+          visibilidad: true
+        };
+        this.subirImagenes(resp.id_cabana);
+        console.log("CABAÑA CREADA: " + resp.id_cabana);
+        this.onCrear.emit();
+      })
   }
   typeValidate(file:File){
      let varResultado:Boolean=false;
@@ -81,13 +81,13 @@ export class CrearCabanaComponent implements OnInit {
         reader.onloadend = () => {
           this.imagen={
             id_imagen:"",
+            id_cabana:"",
             nombre_imagen:file.item(i).name,
             url_imagen:reader.result as string
           };
           this.fileToUpload.push(this.imagen);
         }
         reader.readAsDataURL(file.item(i));
-        console.log(reader.result);
       }else{
         this.showNotification("top", "right", 1, "ERROR:", "solo se admiten archivos en formatos de imagen (.PNG  y .JPG)");
         
@@ -95,7 +95,7 @@ export class CrearCabanaComponent implements OnInit {
     }
   }
   
-  subirImagenes(){
+  async subirImagenes(id_cabana:string){
     let nombre = "prueba2";
     var tmpImagenes = this.fileToUpload.length;
     for(let i=0; i<tmpImagenes; i++){
@@ -109,13 +109,25 @@ export class CrearCabanaComponent implements OnInit {
       //     }
       //   );
       // }
-      this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen).then(
+      await this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen).then(
            urlImagen =>{
-             console.log(urlImagen);
+            this.fileToUpload[i].url_imagen = urlImagen;
+            this.fileToUpload[i].id_cabana = id_cabana;
+            console.log(urlImagen, this.fileToUpload[i]+"aa");
       });
+      
+      this.cabanaService.agregarImagenes(this.fileToUpload[i]).subscribe(
+        resp=>{
+          console.log(resp);
+          this.redirect();
+          this.showNotification("top", "right", 0, "SUCCESS:", "Se ha creado la cabaña correctamente");
+        }
+      );
+
     }
+    
    
-    }
+  }
 
     showNotification(from, align, opcion, titulo, mesanje){
       const type = ['success','danger'];

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
+import { MatTooltip } from '@angular/material/tooltip';
 declare var $: any;
 @Component({
   selector: 'app-listado-cabanas',
@@ -29,6 +30,10 @@ export class ListadoCabanasComponent implements OnInit {
       estadoRes=true;
     }
     return estadoRes;
+}
+tooltip(){
+  console.log("holi");
+
 }
 filtrarCabanas(value){
   this.cabanasActual= [];
@@ -144,7 +149,7 @@ filtrarCabanas(value){
     )
     
   }
-
+  
   showNotification(from, align, opcion, titulo, mesanje){
     const type = ['success','danger'];
     const color = opcion;

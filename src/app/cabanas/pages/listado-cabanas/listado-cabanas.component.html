@@ -54,13 +54,15 @@
                         <div class="col">
                             <h4 class="card-title">{{cabana.nombre_cabana}}</h4>
                         </div>
+                        
                         <div class="col d-flex justify-content-end">
-                            <section>
-                                <label class="check-t">
+                            <section (mouseover)="tooltip()">
+                            <label class="check-t">
                                     <input  
                                     type="checkbox"
                                     [checked]="cabana.estado_cabana==1"
                                     (click)="cambiarEstadoCabana(cabana)"
+                                                                        
                                     >
                                     <span class="check-t1"></span>
                                 </label>
@@ -83,7 +85,7 @@
                     </span><br>
                     <span>{{cabana.descripcion_cabana}}</span>
                     <div class="mt-lg-2 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success px-2" (click)="editarCabana(cabana)">
+                        <button type="submit" class="btn btn-success px-2" (click)="editarCabana(cabana)" >
                             <i class="material-icons">mode_edit_outline</i> Editar
                         </button>
                         <button type="submit" class="btn btn-danger px-2" (click)="eliminarCabana(cabana)">
