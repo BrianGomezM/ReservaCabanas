@@ -1,43 +1,44 @@
-    <div class="container w-75 bg-light mt-5 align-content-center  shadow text">
-        <div class="row align-items-stretch">
-            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+<div class="container w-75 bg-light mt-5 align-content-center  shadow text">
+    <div class="row align-items-stretch">
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
 
+        </div>
+        <div class="col bg-white p-5 rounded-end">
+            <div class="text-center">
+                <img src="../../assets/img/logo.png" width="100" alt="">
             </div>
-            <div class="col bg-white p-5 rounded-end">
-                <div class="text-center">
-                    <img src="../../assets/img/logo.png" width="100" alt="">
+            <br>
+
+            <form action="#">
+                <div class="mb-4">
+                    <label for="email" class="form-label">Correo electronico</label>
+                    <input type="email" required class="form-control" name="email" [(ngModel)]="email">
                 </div>
-                <br>
-
-                <form action="#">
-                    <div class="mb-4">
-                        <label for="email" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-                    <div class="mb-4"></div>
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password">
-                    <div class="mb-4 form-check">
-                        <input type="checkbox" name="connected" class="form-check-input">
-                        <label for="connected" class="form-check-label">Mantenerme conectado</label>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-success btn-block" (click)="login()">Iniciar sesion</button>
-                    </div>
-                    <div class="my-3">
-                        <span><a routerLink="/contrasenaolvidada">Olvidaste tu contraseña?</a></span>
-                    </div>
-                </form>
-
+                <div class="mb-4"></div>
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="password">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success btn-block" (click)="login()">Iniciar sesion</button>
+                </div>
+                <div class="my-3">
+                    <span><a routerLink="/contrasenaolvidada">Olvidaste tu contraseña?</a></span>
+                </div>
+            </form>
+            <div class="alert alert-danger" *ngIf="mensaje">
+                <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+                <span>
+                    <b> Error - </b> Usuario no encontrado!!</span>
             </div>
         </div>
     </div>
-    <footer class="container w-75 bg-success  shadow text-white text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3 ">
-          © 2022 Copyright:
-          <a class="text-white" href="#">NOMBRE</a>
-        </div>
-        <!-- Copyright -->
-    </footer>
-  
+</div>
+<footer class="container w-75 bg-success  shadow text-white text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3 ">
+      © 2022 Copyright:
+      <a class="text-white" href="#">NOMBRE</a>
+    </div>
+    <!-- Copyright -->
+  </footer>

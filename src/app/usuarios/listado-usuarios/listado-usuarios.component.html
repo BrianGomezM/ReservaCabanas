@@ -1,49 +1,59 @@
 <div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <!-- Header de card-->
-                    <div class="card-header card-header-success">
-                       <div class="row col-md-10 ">
-                           <div class="col-md-5">
-                            <h4 class="card-title ">Usuarios registrados</h4>
-                           </div>
-                           <div class="col-md-5">
-                             <button mat-raised-button type="submit" class="btn btn-white pull-right" (click)="crear()">Crear usuario</button> 
-                           </div>
-                            
-                       </div> 
-                    </div>
-                    <!-- Body de card-->
-                    <div class="card-body">
-                        <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead class="">
-                                        <th> ID </th>
-                                        <th> Nombre </th>
-                                        <th> Correo </th>
-                                        <th> Perfil de usuario </th>
-                                        <th> </th>
-                                       
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td> 1 </td>
-                                            <td> Dakota Rice </td>
-                                            <td> dakota@gmail.com  </td>
-                                            <td> Administrador </td>
-                                            <td><button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon" (click)="editar()"><i class="material-icons">edit</i></button> </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                        </div>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-md-8" style="padding-left: 450px;">
+            <div class="input-group no-border">
+                <input type="text"  class="form-control" placeholder="Buscar Por Nombre" id="buscarNombre" value="" (ngModelChange)="buscar($event)" name="buscar" [(ngModel)]="param">
+                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon"  >
+                    <i class="material-icons">search</i>
+                    <div class="ripple-container"></div>
+                </button>
             </div>
-           
+        </div>
+        <div class="col-md-4">
+            <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="crear()">Crear usuario</button> 
         </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="card">
+            <!-- Header de card-->  
+             <div class="card-header card-header-success">
+               <div class="row col-md-12 ">
+                   <div class="col-md-12">
+                        <h4 class="card-title ">Lista De Usuarios</h4>
+                   </div>
+               </div> 
+            </div>
+            <!-- Body de card-->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="">
+                            <th> Nombre </th>
+                            <th> Apellido </th>
+                            <th> Cedula </th>
+                            <th> Telefono </th>
+                            <th> Correo Electronico </th>
+                            <th> Fecha De Registro</th>
+                            <th> Editar</th>
+                            <th> Eliminar</th>
+                        </thead>
+                        <tbody>
+                             <tr *ngFor="let usuario of usuarios,let i = index">
+                                <th scope="row" style="display:none;">{{i+1}}</th>
+                                <td>{{usuario.nombre}}</td>
+                                <td>{{usuario.apellido}}</td>
+                                <td>{{usuario.documento}}</td>
+                                <td>{{usuario.telefono}}</td>
+                                <td>{{usuario.correo}}</td>
+                                <td>{{usuario.fechaR}}</td>
+                                <td><button mat-raised-button type="submit" class="btn btn-warning btn-round btn-just-icon" (click)="editar([i])"title="Editar Usuario" ><i class="material-icons">manage_accounts</i></button> </td>
+                                <td><button mat-raised-button type="submit" class="btn btn-danger btn-round btn-just-icon" (click)="eliminarUsuario(usuario.idUsuario)" title="Eliminar Usuario"><i class="material-icons">person_remove</i></button> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
   

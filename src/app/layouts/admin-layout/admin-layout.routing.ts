@@ -59,11 +59,10 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'reservas',       component: ListadoReservasComponent},
-    /*{path: 'usuarios',  
-       loadChildren: () => import('../../usuarios/usuarios.module').then(m => m.UsuariosModule)},*/
+    { path: 'prereservas',    component: ListadoReservasComponent},
+    { path: 'usuario-listar', component: ListadoUsuariosComponent },
+    { path: 'usuario-editar/:id',  component: CrearUsuarioComponent },
     { path: 'usuario-crear',  component: CrearUsuarioComponent },
-    { path: 'usuario-listar',  component: ListadoUsuariosComponent },
-    { path: 'usuario-editar',  component: EditarUsuarioComponent },
     //{ path: 'table-list',     component: TableListComponent },
    // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
@@ -72,7 +71,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'contable',       component: IngresosComponent},
     { path: 'cabanas',        component: ListadoCabanasComponent},
     { path: 'cabana-crear',   component: CrearCabanaComponent },
-    { path: 'cabana-editar',  component: EditarCabanaComponent},
+    { path: 'cabana-editar/:id',  component: EditarCabanaComponent},
     { path: 'ayuda',          component: AyudaComponent},
     { path: 'planes',         component: ListadoPlanesComponent},
 ];
