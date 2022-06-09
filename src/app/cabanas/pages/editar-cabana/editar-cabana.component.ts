@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
+import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { switchMap, tap } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -13,6 +14,14 @@ import {AlertMessage} from '../../../alerta/alerta'
 export class EditarCabanaComponent implements OnInit {
   nombre:string;
   alerta:AlertMessage = new AlertMessage();
+
+  imagen: Imagen={
+    id_imagen:"",
+    nombre_imagen:"",
+    url_imagen:"",
+    id_cabana:""
+  }
+  imagenes:Imagen[]=[];
   cabana: Cabana ={
      id_cabana:"",
      nombre_cabana:"",
@@ -22,6 +31,7 @@ export class EditarCabanaComponent implements OnInit {
      estado_cabana:1,
      visibilidad:true
   };
+
    cabanaid:string;
 
   constructor(private activateRoute: ActivatedRoute, private router: Router,private cabanaService:CabanasService) { }
@@ -37,8 +47,9 @@ export class EditarCabanaComponent implements OnInit {
     .subscribe( resp =>{
       this.cabana=resp[0];
       this.cabanaid=this.cabana.id_cabana;
-      console.log(this.cabanaid);
-      
+      this.cabanaService.listarImagenes(this.cabana.id_cabana).subscribe(resp=>{
+          this.imagenes=resp;                      
+      })
     })
     console.log(this.cabanaid)
 
