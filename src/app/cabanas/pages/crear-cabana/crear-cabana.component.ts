@@ -54,6 +54,7 @@ export class CrearCabanaComponent implements OnInit {
           estado_cabana: 1,
           visibilidad: true
         };
+        console.log("----" + resp.id_cabana);
         this.subirImagenes(resp.id_cabana);
         console.log("CABAÑA CREADA: " + resp.id_cabana);
         this.onCrear.emit();
@@ -109,7 +110,7 @@ export class CrearCabanaComponent implements OnInit {
       //     }
       //   );
       // }
-      await this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen).then(
+      await this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen, id_cabana).then(
            urlImagen =>{
             this.fileToUpload[i].url_imagen = urlImagen;
             this.fileToUpload[i].id_cabana = id_cabana;
