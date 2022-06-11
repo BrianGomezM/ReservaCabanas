@@ -59,8 +59,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'reservas',       component: ListadoReservasComponent},
-    /*{path: 'usuarios',  
-       loadChildren: () => import('../../usuarios/usuarios.module').then(m => m.UsuariosModule)},*/
+    { path: 'prereservas',    component: ListadoReservasComponent},
     { path: 'usuario-listar', component: ListadoUsuariosComponent },
     { path: 'usuario-editar/:id',  component: CrearUsuarioComponent },
     { path: 'usuario-crear',  component: CrearUsuarioComponent },

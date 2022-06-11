@@ -22,17 +22,26 @@ export class EditarCabanaComponent implements OnInit {
      estado_cabana:1,
      visibilidad:true
   };
+   cabanaid:string;
 
   constructor(private activateRoute: ActivatedRoute, private router: Router,private cabanaService:CabanasService) { }
 
   ngOnInit(): void {
+    
+
     this.activateRoute.params
     .pipe(
       switchMap(({ id }) => this.cabanaService.cabanaPorId(id))
+     
     )
     .subscribe( resp =>{
       this.cabana=resp[0];
+      this.cabanaid=this.cabana.id_cabana;
+      console.log(this.cabanaid);
+      
     })
+    console.log(this.cabanaid)
+
   }
   
   redirect(){
@@ -65,7 +74,8 @@ export class EditarCabanaComponent implements OnInit {
     this.cabanaService.actualizarCabana(this.cabana).subscribe(
       resp=>{
         console.log('',resp);
-        this.alerta.error('La cabaña fue editada con exito','','success');
+        this.alerta.notificacionExito("top", "right", 0, "ÉXITO", "Se ha actualizado la cabaña: " + this.cabana.nombre_cabana + " Correctamente.");
+        //this.alerta.error('La cabaña fue editada con exito','','success');
         this.router.navigate(['/cabanas']);
       },
       err=>{

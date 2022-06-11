@@ -35,6 +35,37 @@
                 </div>
             </div>
         </div>
+        <!--CARD DE LAS IMAGENES DE LA CABAÑA-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="row d-flex pb-1 justify-content-between card-header card-header-success">
+                    <h4  class="card-title">Imagenes de la cabaña</h4>
+                    <input type="file" class="inputfile" multiple id="file" accept=".jpg,.png" required>
+                    <label for="file"><i class="material-icons">upload_file</i></label>
+				</div>
+				<div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                                <th> Nombre   </th>
+                                <th> Imagen   </th>
+                                <th> Eliminar </th>
+                            </thead>
+                            <tbody>
+                                <!-- <tr *ngFor="let item of fileToUpload">
+                                    <td>{{item.nombre_imagen}}</td>
+                                    <td><img class="d-block w-100  p-3" [src]="item.url_imagen"></td>
+                                    <td class="mt-lg-2 d-flex justify-content-center">
+                                            <button type="submit" class="btn px-2 btn-danger"><i class="material-icons" (click)="deleteImage(fileToUpload.indexOf(item))">delete</i></button>
+                                    </td>
+                                   
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
 </div>

@@ -1,10 +1,10 @@
 <div class="main-content">
     <div class="row">
+        <!--FORMULARIO DE LA CABAÑA-->
         <div class="col-md-7">
             <div class="card">
                 <div class="card-header card-header-success">
-                    <h4 class="card-title">Crear cabaña</h4>
-                    
+                    <h4 class="card-title">Crear cabaña</h4>                    
                 </div>
                 <div class="card-body">
                     <form method="get">
@@ -19,18 +19,51 @@
                                 
                                 <div class="col-5">
                                 <h4>Capacidad maxima:</h4>
-                                <input [(ngModel)]="cabana.capacidad_cabana" class="form-control" placeholder="" min="1" type="number" >
+                                <input [(ngModel)]="cabana.capacidad_cabana" class="form-control" placeholder="1" min="1" type="number" >
                                 </div>
                             </div>
                             
                             <h4>Detalles de la cabaña:</h4>
                             <textarea [(ngModel)]="cabana.descripcion_cabana" class="form-control" rows="5" placeholder="Ingrese los detalles de la cabaña..."></textarea>
+
                             <div class="mt-lg-2 d-flex justify-content-end">
                             <button  (click)="redirect()" type="submit" class="btn px-2 btn-danger"><i class="material-icons">cancel</i> Cancelar</button>
                             <button (click)="crearCabana()"type="submit" class="btn px-2 btn-success"><i class="material-icons">save</i> Guardar</button>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <!--CARD DE LAS IMAGENES DE LA CABAÑA-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="row d-flex pb-1 justify-content-between card-header card-header-success">
+                    <h4  class="card-title">Imagenes de la cabaña</h4>
+                    <input type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png" required>
+                    <label for="file"><i class="material-icons">upload_file</i></label>
+				</div>
+				<div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                                <th> Nombre   </th>
+                                <th> Imagen   </th>
+                                <th> Eliminar </th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of fileToUpload">
+                                    <td>{{item.nombre_imagen}}</td>
+                                    <td><img class="d-block w-100  p-3" [src]="item.url_imagen"></td>
+                                    <td class="mt-lg-2 d-flex justify-content-center">
+                                            <button type="submit" class="btn px-2 btn-danger"><i class="material-icons" (click)="deleteImage(fileToUpload.indexOf(item))">delete</i></button>
+                                    </td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
