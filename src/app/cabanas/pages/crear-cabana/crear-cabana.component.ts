@@ -114,7 +114,7 @@ export class CrearCabanaComponent implements OnInit {
            urlImagen =>{
             this.fileToUpload[i].url_imagen = urlImagen;
             this.fileToUpload[i].id_cabana = id_cabana;
-            console.log(urlImagen, this.fileToUpload[i]+"aa");
+            console.log(urlImagen, this.fileToUpload[i]);
       });
       
       this.cabanaService.agregarImagenes(this.fileToUpload[i]).subscribe(
