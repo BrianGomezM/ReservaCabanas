@@ -21,9 +21,60 @@
             line-height: 0;
           }
   }
+  .inputfile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .inputfile:focus + label,
+  .inputfile + label:hover {
+      /*box-shadow: 0 2px 2px 0 rgba(76, 244, 54, 0.14), 0 3px 1px -2px rgb(76, 244, 54, 0.14), 0 1px 5px 0 rgb(76, 244, 54, 0.14);*/
+      cursor:pointer;
+  }
+  .check-t{
+    position:relative;
+    display: block;
+    margin: 1em;
+    border-radius: 37px;
+    
+  }
+  .check-t input{
+    display: none;
+  }
+  .check-t1{
+    width: 58px;
+    height: 30px;
+    background-color: #afacac;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    border-radius: 37px;
+    outline: 2px solid #8c8989;
+  }
+  .check-t1::before{
+    content:'';
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 36px;
+  }
+.check-t input:checked + .check-t1{
+  background: $brand-primary;
+  outline: 2px solid #059fb2;
 
+}
+.check-t input:checked + .check-t1::before{
+  left: 32px;
+
+}
   .form-check {
-      margin-top: 15px;
+      margin-top: 7px;
   }
 
     .card-title{
@@ -175,7 +226,7 @@
     &.bg-info,
     &.card-rotate.bg-info .front,
     &.card-rotate.bg-info .back{
-      background: linear-gradient(60deg, $cyan-400, $cyan-600);
+      background: linear-gradient(60deg, #565353, #646464);
     }
     .card-header-success .card-icon,
     .card-header-success .card-text,
