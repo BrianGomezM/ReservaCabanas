@@ -9,10 +9,11 @@
                 <div class="card-body">
                     <form method="get">
                       <div class="form-group">
-                            <!-- <input type="number" [(ngModel)]="cabana.id_cabana"> -->
-                            <h4>Nombre de la cabaña:</h4>
-                            <input [(ngModel)]="cabana.nombre_cabana" class="form-control" name="nombre_cabana"  placeholder="Ingrese el nombre de la cabaña...">
-                            <div class="row">   
+                            
+                                <h4>Nombre de la cabaña:</h4>
+                                <input [(ngModel)]="cabana.nombre_cabana" class="form-control" name="nombre_cabana"  placeholder="Ingrese el nombre de la cabaña...">
+
+                            <div class="row mb-2 mt-2">   
                                 <div class="col-5">                      
                                 <h4>Valor estadia:</h4>
                                 <input [(ngModel)]="cabana.valor_cabana" class="form-control" name="valor_cabana" placeholder="Ingrese el valor de la estadía por día..." type="text" >
@@ -26,9 +27,10 @@
                             
                             <h4>Detalles de la cabaña:</h4>
                             <textarea [(ngModel)]="cabana.descripcion_cabana" class="form-control" rows="5" placeholder="Ingrese los detalles de la cabaña..."></textarea>
+                            
                             <div class="mt-lg-2 d-flex justify-content-end">
-                            <button type="submit" (click)="redirect()" class="btn px-2 btn-danger"><i class="material-icons">cancel</i> Cancelar</button>
-                            <button type="submit" (click)="actualizarCabana()" class="btn px-2 btn-success"><i class="material-icons">save</i> Guardar</button>
+                                <button type="submit" (click)="redirect()" class="btn px-2 btn-danger"><i class="material-icons">cancel</i> Cancelar</button>
+                                <button type="submit" (click)="actualizarCabana()" class="btn px-2 btn-success"><i class="material-icons">save</i> Guardar</button>
                             </div>
                         </div>
                     </form>
@@ -40,30 +42,32 @@
             <div class="card">
                 <div class="row d-flex pb-1 justify-content-between card-header card-header-success">
                     <h4  class="card-title">Imagenes de la cabaña</h4>
-                    <input max="5" type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png" required>
-                    <label for="file"><i class="material-icons">upload_file</i></label>
+                    <input type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png" required>
+                    <label for="file" class="label-icon"><i class="material-icons icon-md">upload_file</i></label>
 				</div>
 				<div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive " style="max-width: 100%; height: 380px; overflow: scroll;" >
                         <table class="table table-hover">
                             <thead class="">
                                 <th> Imagen   </th>
                                 <th> Eliminar </th>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of imagenes">                                    
-                                    <td><img width="200" height="150" class="d-block " [src]="item.url_imagen"></td>
-                                    <td class="mt-lg-2 d-flex justify-content-center">
-                                            <button type="submit" class="btn px-2 btn-danger"><i class="material-icons" (click)="deleteImage(imagenes.indexOf(item))">delete</i></button>
-                                    </td>
-                                   
-                                </tr> 
+                                    <tr *ngFor="let item of imagenes" class="">                                    
+                                        <td><div style="width: 90%"><img class="d-block w-100 p-3" [src]="item.url_imagen"></div></td>
+                                        <td class="d-flex justify-content-center">
+                                                <button type="submit" class="btn px-2 btn-danger" (click)="deleteImage(imagenes.indexOf(item))"><i class="material-icons">delete</i></button>
+                                        </td>
+                                       
+                                    </tr> 
+                                
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
     
 </div>

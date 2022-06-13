@@ -50,7 +50,7 @@
     </ul>
   </div>
   <ul class="nav navbar-nav" *ngFor="let menuItem of menuItems" >
-    <li *ngIf="menuItem.title=='Reservas'" class="nav-item dropdown" routerLinkActive="active">
+    <!-- <li *ngIf="menuItem.title=='Reservas'" class="nav-item dropdown" routerLinkActive="active">
         <a class="nav-link" [routerLink]="[menuItem.path]" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">{{menuItem.icon}}</i>
             <p>{{menuItem.title}}</p>
@@ -67,7 +67,13 @@
             <i class="material-icons">{{menuItem.icon}}</i>
             <p>{{menuItem.title}}</p>
         </a>
+    </li>-->
+    <li routerLinkActive="active" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
     </li>
-  </ul>
+  </ul> 
     
 </div>
