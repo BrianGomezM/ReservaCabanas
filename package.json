@@ -54,6 +54,7 @@
     "rxjs-compat": "6.6.7",
     "sweetalert2": "^11.4.17",
     "web-animations-js": "2.3.2",
+    "weeknumber": "^1.2.1",
     "zone.js": "~0.11.5"
   },
   "devDependencies": {

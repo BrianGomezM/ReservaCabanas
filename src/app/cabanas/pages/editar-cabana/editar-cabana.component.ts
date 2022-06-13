@@ -153,7 +153,7 @@ export class EditarCabanaComponent implements OnInit {
     // Guarda la imagen en el storage y en la base de datos
     var tmpImagenes = this.imagenesGuardar.length;
     for(let i=0; i<tmpImagenes; i++){
-      await this.cabanaService.subirImagenes(this.imagenesGuardar[i].nombre_imagen+"_"+Date.now(), this.imagenesGuardar[i].url_imagen).then(
+      await this.cabanaService.subirImagenes(this.imagenesGuardar[i].nombre_imagen+"_"+Date.now(), this.imagenesGuardar[i].url_imagen, id_cabana).then(
            urlImagen =>{
             this.imagenesGuardar[i].url_imagen = urlImagen;
             this.imagenesGuardar[i].id_cabana = id_cabana;
