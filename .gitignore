@@ -6,8 +6,8 @@
 /out-tsc
 
 #packege lock
-/packege-lock.json
-/packege.json
+packege-lock.json
+packege.json
 # dependencies
 /node_modules
 
