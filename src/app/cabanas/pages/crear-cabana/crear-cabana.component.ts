@@ -114,11 +114,7 @@ export class CrearCabanaComponent implements OnInit {
       //     }
       //   );
       // }
-<<<<<<< HEAD
-      await this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen, id_cabana).then(
-=======
       await this.cabanaService.subirImagenes(this.fileToUpload[i].nombre_imagen+"_"+Date.now(), this.fileToUpload[i].url_imagen, id_cabana).then(
->>>>>>> kelly
            urlImagen =>{
             this.fileToUpload[i].url_imagen = urlImagen;
             this.fileToUpload[i].id_cabana = id_cabana;

@@ -110,7 +110,7 @@ export class EditarCabanaComponent implements OnInit {
 
   typeValidate(file:File){
     let varResultado:Boolean=false;
-   if(file.type == "image/png" || file.type == "image/jpg"){
+   if(file.type == "image/png" || file.type == "image/jpg" || file.type == "image/jpeg"){
        varResultado=true;
    }
    return varResultado;

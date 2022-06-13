@@ -9,7 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { SharedModule } from './shared/shared.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     RouterModule,
     AppRoutingModule,
-    NgbModule,
+    
   ],
   declarations: [
     AppComponent,

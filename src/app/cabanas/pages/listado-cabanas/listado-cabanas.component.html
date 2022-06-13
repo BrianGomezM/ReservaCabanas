@@ -1,119 +1,122 @@
 
 <div class="main-content">
-    <div class="row align-items-center">
-        
-        <form class="form-group col-md-6">
-            <div class="input-group">
-                <input 
-                type="text" 
-                name="varNombre" 
-                (ngModelChange)="buscarCabana($event)"
-                [(ngModel)]="varNombre" 
-                class="form-control" 
-                placeholder="Buscar...">
-                
-                <button (click)="buscarCabana(varNombre)" type="submit" class="btn btn-white btn-just-icon">
-                    <i class="material-icons">search</i>
-                </button>
-                <button type="submit" class="btn btn-success px-2" (click)="crearCabana()">
-                    <span class="material-icons btnIconLg">add_home</span> Crear cabaña
-                </button>
-            </div>
-        </form>  
-    </div>
-    
-    <div class="form-check-inline">
-        <label class="form-check-label">
-            <input [checked]="filtroTodas" type="radio" class="form-check-input" value="0" name="filtroTodas" (change)="filtrarCabanas($event.target.value)">Todas
-        </label>
-    </div>
-    <div class="form-check-inline">
-        <label class="form-check-label">
-            <input [checked]="filtroHabilitadas" type="radio" class="form-check-input" value="1" name="filtroHabilitadas" (change)="filtrarCabanas($event.target.value)">Habilitadas
-        </label>
-    </div>
-    <div class="form-check-inline">
-        <label class="form-check-label">
-            <input [checked]="filtroInhabilitadas" type="radio" class="form-check-input" value="2" name="filtroInhabilitadas" (change)="filtrarCabanas($event.target.value)">Inhabilitadas
-        </label>
-    </div>
-    
-    <div *ngIf="hayError" class="alert alert-danger alert-with-icon"> 
-        <i class="material-icons" data-notify="icon">error_outline</i>
-        <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
-        <span data-notify="message">
-            <b>Error:</b> No se pudo encontrar nada...</span>
-    </div>
+    <div class="container-fluid">
 
-    <hr class="my-4" />
-    <div class="row">
-        <div class="col-lg-5 col-md-6" *ngFor="let cabana of cabanasActual">
-            <div class="card">
-                <div [ngClass]="{'card-header card-header-success':cabana.estado_cabana==1,'card-header card-header-info':cabana.estado_cabana==0}">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h4 class="card-title">{{cabana.nombre_cabana}}</h4>
-                        </div>
-                        
-                        <div class="col d-flex justify-content-end">
-                            <section (mouseover)="tooltip()">
-                            <label class="check-t">
-                                    <input  
-                                    type="checkbox"
-                                    [checked]="cabana.estado_cabana==1"
-                                    (click)="cambiarEstadoCabana(cabana)"
-                                                                        
-                                    >
-                                    <span class="check-t1"></span>
-                                </label>
-                            </section>
-                        </div>
-                    </div>
-                    <p class="card-category"></p>
-                </div>
-                <div class="card-body">
-
-                    <div class="container">
-                        <div class="row ">
-                          <div class="col-md-6 justify-content-start">
-                            <img *ngIf="cabana.imagenesList" class="d-block w-100 p-1" [src]="cabana.imagenesList[0].url_imagen">
-                            <!-- <ngb-carousel *ngIf="cabana.imagenesList">
-                                <ng-template *ngFor="let img of cabana.imagenesList" ngbSlide>
-                                  <div class="picsum-img-wrapper">
-                                    <img width="500" height="800" [src]="img.url_imagen" alt="">
-                                  </div>
-                                  <div class="carousel-caption">
-                                    <h3>Second slide label</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                </ng-template>
-                              </ngb-carousel> -->
-                          </div>
-                      
-                          <div class="col-md-6 justify-content-start">
-                            <span>Valor: ${{cabana.valor_cabana}} /noche</span><br>
-                            <span>Capacidad:{{cabana.capacidad_cabana}} personas.</span><br>
-                            <span>Detalles de la cabaña:</span>
-                            <textarea class="form-control" name="" id="" cols="35" rows="15"> {{cabana.descripcion_cabana}}</textarea>
-                          </div>
-                      
-                        </div>
-                      </div>
+        <div class="row align-items-center">
+            
+            <form class="form-group col-md-6">
+                <div class="input-group">
+                    <input 
+                    type="text" 
+                    name="varNombre" 
+                    (ngModelChange)="buscarCabana($event)"
+                    [(ngModel)]="varNombre" 
+                    class="form-control" 
+                    placeholder="Buscar...">
                     
-
-                    <div class="mt-lg-2 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success px-2" (click)="editarCabana(cabana)" >
-                            <i class="material-icons">mode_edit_outline</i> Editar
-                        </button>
-                        <button type="submit" class="btn btn-danger px-2" (click)="eliminarCabana(cabana)">
-                            <i class="material-icons">delete</i> Eliminar
-                        </button>
-                    </div>
-    
+                    <button (click)="buscarCabana(varNombre)" type="submit" class="btn btn-white btn-just-icon">
+                        <i class="material-icons">search</i>
+                    </button>
+                    <button type="submit" class="btn btn-success px-2" (click)="crearCabana()">
+                        <span class="material-icons btnIconLg">add_home</span> Crear cabaña
+                    </button>
                 </div>
-            </div>  
+            </form>  
         </div>
         
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input [checked]="filtroTodas" type="radio" class="form-check-input" value="0" name="filtroTodas" (change)="filtrarCabanas($event.target.value)">Todas
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input [checked]="filtroHabilitadas" type="radio" class="form-check-input" value="1" name="filtroHabilitadas" (change)="filtrarCabanas($event.target.value)">Habilitadas
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input [checked]="filtroInhabilitadas" type="radio" class="form-check-input" value="2" name="filtroInhabilitadas" (change)="filtrarCabanas($event.target.value)">Inhabilitadas
+            </label>
+        </div>
+        
+        <div *ngIf="hayError" class="alert alert-danger alert-with-icon"> 
+            <i class="material-icons" data-notify="icon">error_outline</i>
+            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">  <i class="material-icons">close</i></button>
+            <span data-notify="message">
+                <b>Error:</b> No se pudo encontrar nada...</span>
+        </div>
+    
+        <hr class="my-4" />
+        <div class="row">
+            <div class="col-md-6" *ngFor="let cabana of cabanasActual">
+                <div class="card">
+                    <div [ngClass]="{'card-header card-header-success':cabana.estado_cabana==1,'card-header card-header-info':cabana.estado_cabana==0}">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h4 class="card-title">{{cabana.nombre_cabana}}</h4>
+                            </div>
+                            
+                            <div class="col d-flex justify-content-end">
+                                <section (mouseover)="tooltip()">
+                                <label class="check-t">
+                                        <input  
+                                        type="checkbox"
+                                        [checked]="cabana.estado_cabana==1"
+                                        (click)="cambiarEstadoCabana(cabana)"
+                                                                            
+                                        >
+                                        <span class="check-t1"></span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="card-body">
+    
+                        <div class="container">
+                            <div class="row ">
+                              <div class="col-md-6 justify-content-start">
+                                <img *ngIf="cabana.imagenesList" class="d-block w-100 p-1" [src]="cabana.imagenesList[0].url_imagen">
+                                <!-- <ngb-carousel *ngIf="cabana.imagenesList">
+                                    <ng-template *ngFor="let img of cabana.imagenesList" ngbSlide>
+                                      <div class="picsum-img-wrapper">
+                                        <img width="500" height="800" [src]="img.url_imagen" alt="">
+                                      </div>
+                                      <div class="carousel-caption">
+                                        <h3>Second slide label</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                      </div>
+                                    </ng-template>
+                                  </ngb-carousel> -->
+                              </div>
+                          
+                              <div class="col-md-6 justify-content-start">
+                                <span>Valor: ${{cabana.valor_cabana}} /noche</span><br>
+                                <span>Capacidad:{{cabana.capacidad_cabana}} personas.</span><br>
+                                <span>Detalles de la cabaña:</span>
+                                <textarea class="form-control" name="" id="" cols="35" rows="15"> {{cabana.descripcion_cabana}}</textarea>
+                              </div>
+                          
+                            </div>
+                          </div>
+                        
+    
+                        <div class="mt-lg-2 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success px-2" (click)="editarCabana(cabana)" >
+                                <i class="material-icons">mode_edit_outline</i> Editar
+                            </button>
+                            <button type="submit" class="btn btn-danger px-2" (click)="eliminarCabana(cabana)">
+                                <i class="material-icons">delete</i> Eliminar
+                            </button>
+                        </div>
+        
+                    </div>
+                </div>  
+            </div>
+            
+        </div>
     </div>
     
 </div>
