@@ -27,7 +27,8 @@ export class CrearCabanaComponent implements OnInit {
   capacidad_cabana:0,
   valor_cabana:"",
   estado_cabana:1,
-  visibilidad:true
+  visibilidad:true,
+  imagenesList:null
   };
 
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
@@ -52,7 +53,8 @@ export class CrearCabanaComponent implements OnInit {
           capacidad_cabana: 0,
           valor_cabana: "",
           estado_cabana: 1,
-          visibilidad: true
+          visibilidad: true,
+          imagenesList:null
         };
         console.log("----" + resp.id_cabana);
         this.subirImagenes(resp.id_cabana);

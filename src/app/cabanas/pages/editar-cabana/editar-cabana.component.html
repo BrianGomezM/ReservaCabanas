@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="row d-flex pb-1 justify-content-between card-header card-header-success">
                     <h4  class="card-title">Imagenes de la cabaña</h4>
-                    <input type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png" required>
+                    <input max="5" type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png" required>
                     <label for="file"><i class="material-icons">upload_file</i></label>
 				</div>
 				<div class="card-body">
@@ -52,7 +52,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let item of imagenes">                                    
-                                    <td><img class="d-block w-100  p-3" [src]="item.url_imagen"></td>
+                                    <td><img width="200" height="150" class="d-block " [src]="item.url_imagen"></td>
                                     <td class="mt-lg-2 d-flex justify-content-center">
                                             <button type="submit" class="btn px-2 btn-danger"><i class="material-icons" (click)="deleteImage(imagenes.indexOf(item))">delete</i></button>
                                     </td>
