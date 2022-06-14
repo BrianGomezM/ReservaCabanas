@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { weekNumber } from 'weeknumber'
+import { weekNumber } from 'weeknumber';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-listado-reservas',
@@ -18,7 +19,8 @@ export class ListadoReservasComponent implements OnInit {
     this.router.navigate(['/editar-reserva']);
   }
   imprimir(event:any){
-    console.log(event);
+    var datefin = new Date(event);
+    console.log(datefin);
   }
   crearPrereserva(){
     this.router.navigate(['/crear-prereserva']);
