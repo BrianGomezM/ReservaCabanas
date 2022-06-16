@@ -58,4 +58,7 @@ export class CabanasService {
   listarImagenes(id : string):Observable<Imagen[]>{
     return this.http.get<Imagen[]>(this.url_imagen+"?id="+id);  
   }
+  eliminarImagen(imagen:Imagen){
+    return this.http.post(this.url_imagen, JSON.stringify(imagen));
+  }
 }

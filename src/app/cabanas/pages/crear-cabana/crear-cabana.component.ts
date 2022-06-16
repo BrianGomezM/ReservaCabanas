@@ -28,7 +28,8 @@ export class CrearCabanaComponent implements OnInit {
   capacidad_cabana:1,
   valor_cabana:"",
   estado_cabana:1,
-  visibilidad:true
+  visibilidad:true,
+  imagenesList:null
   };
 
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
@@ -54,8 +55,10 @@ export class CrearCabanaComponent implements OnInit {
           capacidad_cabana: 0,
           valor_cabana: "",
           estado_cabana: 1,
-          visibilidad: true
+          visibilidad: true,
+          imagenesList:null
         };
+        console.log("----" + resp.id_cabana);
         this.subirImagenes(resp.id_cabana);
         console.log("CABAÑA CREADA: " + resp.id_cabana);
         this.onCrear.emit();
@@ -115,7 +118,7 @@ export class CrearCabanaComponent implements OnInit {
            urlImagen =>{
             this.fileToUpload[i].url_imagen = urlImagen;
             this.fileToUpload[i].id_cabana = id_cabana;
-            console.log(urlImagen, this.fileToUpload[i]+"aa");
+            console.log(urlImagen, this.fileToUpload[i]);
       });
       
       this.cabanaService.agregarImagenes(this.fileToUpload[i]).subscribe(
