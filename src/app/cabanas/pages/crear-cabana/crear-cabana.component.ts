@@ -3,6 +3,7 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Router } from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-crear-cabana',
@@ -24,16 +25,18 @@ export class CrearCabanaComponent implements OnInit {
   id_cabana:"",
   nombre_cabana:"",
   descripcion_cabana:"",
-  capacidad_cabana:0,
+  capacidad_cabana:1,
   valor_cabana:"",
   estado_cabana:1,
-  visibilidad:true
+  visibilidad:true,
+  imagenesList:null
   };
 
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router,private cabanaService:CabanasService) { }
 
   ngOnInit(): void {
+
   }
   
 
@@ -52,8 +55,10 @@ export class CrearCabanaComponent implements OnInit {
           capacidad_cabana: 0,
           valor_cabana: "",
           estado_cabana: 1,
-          visibilidad: true
+          visibilidad: true,
+          imagenesList:null
         };
+        console.log("----" + resp.id_cabana);
         this.subirImagenes(resp.id_cabana);
         console.log("CABAÑA CREADA: " + resp.id_cabana);
         this.onCrear.emit();
@@ -109,11 +114,11 @@ export class CrearCabanaComponent implements OnInit {
       //     }
       //   );
       // }
-      await this.cabanaService.subirImagenes(nombre+"_"+Date.now(), this.fileToUpload[i].url_imagen).then(
+      await this.cabanaService.subirImagenes(this.fileToUpload[i].nombre_imagen+"_"+Date.now(), this.fileToUpload[i].url_imagen, id_cabana).then(
            urlImagen =>{
             this.fileToUpload[i].url_imagen = urlImagen;
             this.fileToUpload[i].id_cabana = id_cabana;
-            console.log(urlImagen, this.fileToUpload[i]+"aa");
+            console.log(urlImagen, this.fileToUpload[i]);
       });
       
       this.cabanaService.agregarImagenes(this.fileToUpload[i]).subscribe(

@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 import { environment } from '../../environments/environment';
 
-
 @NgModule({
   declarations: [
     ListadoCabanasComponent,

@@ -1,0 +1,159 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <!--Formulario de reserva-->
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Editar reserva</h4>                    
+                    </div>
+                    <div class="card-body">
+                        <form method="get">
+                          <div class="form-group ">
+                            <h4><strong>Información personal</strong></h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4>Nombre del titular:</h4>
+                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>Apellido del titular:</h4>
+                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                    </div>
+                                </div>
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-6">
+                                        <h4>Tipo de documento:</h4>
+                                        <select class="form-control">
+                                            <option value="" selected>Seleccione el tipo de  documento</option>
+                                            <option value="CC">CC</option>
+                                            <option value="TI">TI</option>
+                                            <option value="NIT">NIT</option>
+                                            <option value="CE">CE</option>
+                                            <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>Número de documento:</h4>
+                                        <input  class="form-control" type="number">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-5">
+                                    <h4>Detalles de la reserva:</h4>
+                                    <textarea  class="form-control" rows="5" placeholder="Ingrese los detalles de la reserva..."></textarea>
+                                </div> -->
+                                <div class="row">
+                                    <div class="col-5">
+                                        <h4>Teléfono:</h4>
+                                        <input  class="form-control" type="number">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <h4><strong>Información de la reserva</strong></h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                            <h4>Cabaña a reservar:</h4>
+                                            <select class="form-control">
+                                                <option value="" selected>Seleccione la cabaña</option>
+                                                <option value="1">Aquí van las cabañas</option>
+                                            </select>
+                                            <!-- <select class="form-control" *ngFor="let cabana of listCabanas, index">
+                                                
+                                                <option value="index">{{cabana.nombre_cabana}}</option>
+                                            </select> -->
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>Plan de la reserva:</h4>
+                                        <select class="form-control">
+                                            <option value="" selected>Seleccione el plan</option>
+                                            <option value="1">Aquí van los planes</option>
+                                        </select>
+                                        <!-- <select class="form-control" *ngFor="let plan of listPlanes, index">
+                                            
+                                            <option value="index">{{plan.nombre_plan}}</option>
+                                        </select> -->
+                                    </div>
+                                    
+                                </div>
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-6">
+                                        <h4>Fecha de inicio:</h4>
+                                        <input  class="form-control" type="date">
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>Fecha de fin:</h4>
+                                        <input  class="form-control" type="date">
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <h4>Fecha de reserva:</h4>
+                                        <input  class="form-control" type="date">
+                                    </div> -->
+                                </div>
+                                <div class="row mt-2 mb-2">   
+                                    <div class="col-6">                      
+                                        <h4>Descuento:</h4>
+                                        <input  class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
+                                    <div class="col-6">                      
+                                        <h4>Valor total:</h4>
+                                        <input  class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
+                                    
+                                    
+                                </div>
+                                <div class="row mt-2 mb-2">
+                                    <div class="col-6">                      
+                                        <h4>Valor abonado:</h4>
+                                        <input  class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                        
+                                    </div> 
+                                    <div class="col-6">
+                                        <h4>Saldo total:</h4>
+                                        <input  class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
+                                </div>
+                                <div class="mt-lg-2 d-flex justify-content-end">
+                                    <button  type="submit" class="btn px-2 btn-danger" (click)="redirect()"><i class="material-icons">cancel</i> Cancelar</button>
+                                    <button type="submit" class="btn px-2 btn-success"><i class="material-icons">save</i> Guardar</button>
+                                </div>
+                            </div>
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--TABLE - Listado de acompañantes-->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-tittle">Lista de acompañantes</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <th>Nombre</th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>nombre_prueba</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>                
+            </div>
+    
+       
+        </div>
+
+    </div>
+    
+</div>
