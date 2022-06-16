@@ -3,7 +3,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Usuario } from './usuario.module';
 import { UsuariosService } from '../usuarios/services/usuarios.servicios';
 import { AlertMessage } from '../alerta/alerta';
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
