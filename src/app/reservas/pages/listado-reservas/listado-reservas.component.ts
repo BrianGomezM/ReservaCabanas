@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { weekNumber } from 'weeknumber';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-listado-reservas',
