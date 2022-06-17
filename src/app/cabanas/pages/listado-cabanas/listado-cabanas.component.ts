@@ -4,7 +4,6 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { MatTooltip } from '@angular/material/tooltip';
-import { NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 declare var $: any;
 @Component({
   selector: 'app-listado-cabanas',
@@ -34,7 +33,7 @@ export class ListadoCabanasComponent implements OnInit {
 //     id_cabana:"0"
 //   }
 // ];
-  constructor(private router: Router, private cabanaService: CabanasService, private _config:NgbCarouselConfig) { }
+  constructor(private router: Router, private cabanaService: CabanasService) { }
 
   ngOnInit(): void {
     this.filtroTodas=true;
