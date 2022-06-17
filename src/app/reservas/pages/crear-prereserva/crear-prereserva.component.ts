@@ -4,6 +4,7 @@ import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { ReservasService } from 'app/reservas/services/reservas.service';
+import { Cliente } from 'app/clientes/interfaces/clientes.interface';
 
 @Component({
   selector: 'app-crear-prereserva',
@@ -11,6 +12,16 @@ import { ReservasService } from 'app/reservas/services/reservas.service';
   styleUrls: ['./crear-prereserva.component.css']
 })
 export class CrearPrereservaComponent implements OnInit {
+  cliente:Cliente={
+    id_cliente:"",
+    nombre_cliente:"",
+    apellido_cliente:"",
+    numero_documento:"",
+    tipo_documento:"",
+    telefono_cliente:"",
+    telefono2_cliente:"",
+    correo_cliente:""
+  }
   reserva:Reserva={
     id_reserva:"",
     id_cabana:null,
