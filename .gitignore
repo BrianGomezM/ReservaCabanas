@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+#packege lock
+packege-lock.json
+packege.json
 # dependencies
 /node_modules
 
@@ -18,8 +21,8 @@
 *.sublime-workspace
 
 #package lock
-/package-lock.json
-/package.json
+package-lock.json
+package.json
 
 # IDE - VSCode
 .vscode/*

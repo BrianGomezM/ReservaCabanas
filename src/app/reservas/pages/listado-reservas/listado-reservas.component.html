@@ -1,0 +1,284 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <!-- Barra de busqueda-->
+      <form>
+        <div class="row align-items-center">
+          <div class="col-md-3 pr-2">
+            <input type="week" class="form-control" [(ngModel)]="numberWeek" name="numberWeek" (change)="imprimir($event)">
+          </div>
+          <div class="col-md-3 pl-2">
+            <select class="form-control">
+              <option selected>Seleccione el estado</option>
+              <option value="reserva">Reserva</option>
+              <option value="prereserva">Prereserva</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-white btn-just-icon px-1">
+            <i class="material-icons">search</i>
+          </button>
+          <button type="submit" class="btn btn-success px-2" (click)="crearPrereserva()">
+            <span class="material-icons btnIconLg">add_box</span> Crear Prereserva
+          </button>
+        </div>
+      </form>
+
+        <div id="accordion">
+          <!--Card para el día lunes-->
+            <div class="card mb-2 col-10">
+              <div class="card-header" id="headingOne">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Lunes
+                </h5>
+                
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit"  (click)="editarReserva()"  class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día martes-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingTwo">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Martes
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día miercoles-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingThree">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Miércoles
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día jueves-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingFour">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                    Jueves
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día viernes-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingFive">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                    Viernes
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día sábado-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingSix">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                    Sábado
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--Card para el día domingo-->
+            <div class="card mb-2 mt-2 col-10">
+              <div class="card-header" id="headingSeven">
+                <h5 class="card-title" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                    Domingo
+                </h5>
+                <p class="card-category">Presione para ver las reservas del día</p>
+              </div>
+          
+              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <th>Cabaña</th>
+                        <th>Titular</th>
+                        <th>Estado</th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>Prueba</td>
+                        <td>
+                          <button type="submit" class="btn btn-success btn-just-icon">
+                              <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+        </div>
+              
+    </div>
+      
+</div>
