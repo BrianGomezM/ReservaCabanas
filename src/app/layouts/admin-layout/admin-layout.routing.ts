@@ -15,6 +15,7 @@ import { EditarCabanaComponent } from 'app/cabanas/pages/editar-cabana/editar-ca
 import { UsuariosModule } from 'app/usuarios/usuarios.module';
 import { EditarReservaComponent } from 'app/reservas/pages/editar-reserva/editar-reserva.component';
 import { CrearPrereservaComponent } from 'app/reservas/pages/crear-prereserva/crear-prereserva.component';
+import { HomeComponent } from 'app/home/home/home.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'reservas',       component: ListadoReservasComponent},
@@ -24,6 +25,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'usuario-listar', component: ListadoUsuariosComponent },
     { path: 'usuario-editar/:id',  component: CrearUsuarioComponent },
     { path: 'usuario-crear',  component: CrearUsuarioComponent },
+    { path: 'home',  component: HomeComponent},
     //{ path: 'table-list',     component: TableListComponent },
    // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
