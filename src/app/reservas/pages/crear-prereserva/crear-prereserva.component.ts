@@ -5,6 +5,8 @@ import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { ReservasService } from 'app/reservas/services/reservas.service';
 import { Cliente } from 'app/clientes/interfaces/clientes.interface';
+import { ClientesService } from 'app/clientes/services/clientes.service';
+import { AlertMessage } from 'app/alerta/alerta';
 
 @Component({
   selector: 'app-crear-prereserva',
@@ -33,8 +35,9 @@ export class CrearPrereservaComponent implements OnInit {
     fecha_fin:""
   };
   cabanas:Cabana[]=[];
-
-  constructor(public router:Router, private cabanaService: CabanasService, private reservasService:ReservasService) { }
+  flag:boolean=false;
+  alert: AlertMessage = new AlertMessage();
+  constructor(public router:Router, private clienteService: ClientesService, private cabanaService: CabanasService, private reservasService:ReservasService) { }
 
   ngOnInit(): void {
     this.cabanaService.getCabanas().subscribe(
@@ -48,23 +51,47 @@ export class CrearPrereservaComponent implements OnInit {
     this.router.navigate(["reservas"]);
   }
 
-  crearpreReserva(){
-    this.reservasService.crearpreReserva(this.reserva).subscribe(
-      resp=>{
-        this.reserva = {
-          id_reserva:"",
-          id_cabana:"",
-          id_cliente:"",
-          valor_reserva:"",
-          descuento:"",
-          idUsuario:"",
-          fecha_inicio:"",
-          fecha_fin:""
-        };
-        this.redirect();
-        console.log(resp.id_reserva);
-        console.log(resp.descuento);
-      }
-    );
+  validarDisponibilidad(){
+
+      this.reservasService.verificarDisponibilidad(this.reserva).subscribe(
+        resp=>{
+          for(var i=0; i<resp.length;i++){
+            if(resp[i].id_cabana==this.reserva.id_cabana){
+                this.flag=true;
+            }else{
+              this.flag=false;
+            }
+          }
+          if(!this.flag){
+            this.cabanas=resp;
+            this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");
+          
+          }
+        }
+      );
   }
+
+  crearpreReserva(){
+    this.clienteService.agregarCliente(this.cliente).subscribe(
+      resp=>{
+        console.log(resp.id_cliente);
+        this.reserva.id_cliente=resp.id_cliente;
+        this.reservasService.crearpreReserva(this.reserva).subscribe(
+          resp=>{
+            this.reserva = {
+              id_reserva:"",
+              id_cabana:"",
+              id_cliente:"",
+              valor_reserva:"",
+              descuento:"",
+              idUsuario:"",
+              fecha_inicio:"",
+              fecha_fin:""
+            };
+            this.redirect();
+          }
+        );
+      }
+    )
+  }  
 }
