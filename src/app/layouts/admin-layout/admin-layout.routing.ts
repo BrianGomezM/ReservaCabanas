@@ -16,11 +16,13 @@ import { UsuariosModule } from 'app/usuarios/usuarios.module';
 import { EditarReservaComponent } from 'app/reservas/pages/editar-reserva/editar-reserva.component';
 import { CrearPrereservaComponent } from 'app/reservas/pages/crear-prereserva/crear-prereserva.component';
 import { HomeComponent } from 'app/home/home/home.component';
+import { EditarPrereservaComponent } from 'app/reservas/pages/editar-prereserva/editar-prereserva.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'reservas',       component: ListadoReservasComponent},
     { path: 'editar-reserva', component: EditarReservaComponent},
     { path: 'prereservas',    component: ListadoReservasComponent},
+    { path: 'editar-prereserva/:id',    component: EditarPrereservaComponent},
     { path: 'crear-prereserva',    component: CrearPrereservaComponent},
     { path: 'usuario-listar', component: ListadoUsuariosComponent },
     { path: 'usuario-editar/:id',  component: CrearUsuarioComponent },

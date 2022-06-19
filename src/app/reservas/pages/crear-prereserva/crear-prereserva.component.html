@@ -24,7 +24,7 @@
                                 <div class="row mt-2 mb-2">
                                     <div class="col-4">
                                         <h4>Tipo de documento:</h4>
-                                        <select [(ngModel)]="cliente.numero_documento" class="form-control">
+                                        <select [(ngModel)]="cliente.tipo_documento" class="form-control">
                                             <option value="" selected>Seleccione el tipo de  documento</option>
                                             <option value="CC">CC</option>
                                             <option value="TI">TI</option>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="col-4">
                                         <h4>Número de documento:</h4>
-                                        <input [(ngModel)]="cliente.tipo_documento" class="form-control" type="number">
+                                        <input [(ngModel)]="cliente.numero_documento" class="form-control" type="number">
                                     </div>
                                     <div class="col-4">
                                         <h4>Teléfono:</h4>
@@ -53,7 +53,8 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h4>Cabaña a reservar:</h4>
-                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana" class="form-control" >
+                                        
+                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana" (change)="verificarDisponibilidad()" class="form-control" >
                                             <option value="" selected>Seleccione la cabaña</option>
                                             <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                         </select>
@@ -75,11 +76,11 @@
                                 <div class="row mb-2 mt-2">
                                     <div class="col-4">
                                         <h4>Fecha de inicio:</h4>
-                                        <input  name="fecha_inicio" [(ngModel)]="reserva.fecha_inicio"  (change)="validarDisponibilidad()" class="form-control" type="date">
+                                        <input  name="fecha_inicio"  [(ngModel)]="reserva.fecha_inicio" class="form-control" type="date">
                                     </div>
                                     <div class="col-4">
                                         <h4>Fecha de fin:</h4>
-                                        <input name="fecha_fin" [(ngModel)]="reserva.fecha_fin"  (change)="validarDisponibilidad()" class="form-control"   type="date">
+                                        <input name="fecha_fin" [(ngModel)]="reserva.fecha_fin" class="form-control"   type="date">
                                     </div>
                                 </div>
                                 <div class="row">
