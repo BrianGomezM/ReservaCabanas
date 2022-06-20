@@ -14,17 +14,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <h4>Nombre del titular:</h4>
-                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input class="form-control" [(ngModel)]="cliente.nombre_cliente" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                     <div class="col-6">
                                         <h4>Apellido del titular:</h4>
-                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input class="form-control" [(ngModel)]="cliente.apellido_cliente" placeholder="Ingrese el apellido del titular...">
                                     </div>
                                 </div>
                                 <div class="row mt-2 mb-2">
                                     <div class="col-4">
                                         <h4>Tipo de documento:</h4>
-                                        <select class="form-control">
+                                        <select [(ngModel)]="cliente.numero_documento" class="form-control">
                                             <option value="" selected>Seleccione el tipo de  documento</option>
                                             <option value="CC">CC</option>
                                             <option value="TI">TI</option>
@@ -35,11 +35,11 @@
                                     </div>
                                     <div class="col-4">
                                         <h4>Número de documento:</h4>
-                                        <input  class="form-control" type="number">
+                                        <input [(ngModel)]="cliente.tipo_documento" class="form-control" type="number">
                                     </div>
                                     <div class="col-4">
                                         <h4>Teléfono:</h4>
-                                        <input  class="form-control" type="number">
+                                        <input [(ngModel)]="cliente.telefono_cliente" class="form-control" type="number">
                                     </div>
                                 </div>
                                 <!-- <div class="col-5">
@@ -75,11 +75,11 @@
                                 <div class="row mb-2 mt-2">
                                     <div class="col-4">
                                         <h4>Fecha de inicio:</h4>
-                                        <input  name="fecha_inicio" [(ngModel)]="reserva.fecha_inicio" class="form-control" type="date">
+                                        <input  name="fecha_inicio" [(ngModel)]="reserva.fecha_inicio"  (change)="validarDisponibilidad()" class="form-control" type="date">
                                     </div>
                                     <div class="col-4">
                                         <h4>Fecha de fin:</h4>
-                                        <input name="fecha_fin" [(ngModel)]="reserva.fecha_fin" class="form-control" type="date">
+                                        <input name="fecha_fin" [(ngModel)]="reserva.fecha_fin"  (change)="validarDisponibilidad()" class="form-control"   type="date">
                                     </div>
                                 </div>
                                 <div class="row">

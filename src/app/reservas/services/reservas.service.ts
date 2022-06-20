@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { Reserva } from '../interfaces/reservas.interfaces';
 
 @Injectable({
@@ -14,5 +15,8 @@ export class ReservasService {
   }
   listarReservas(semana:String[]){
     return this.http.get<Reserva[]>(this.url+"?semana="+semana[1]+"&anio="+semana[0]);
+  }
+  verificarDisponibilidad(reserva:Reserva){
+    return this.http.get<Cabana[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin);
   }
 }
