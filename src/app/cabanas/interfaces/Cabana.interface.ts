@@ -1,3 +1,4 @@
+import { Imagen } from '../interfaces/imagenes.interface';
 export interface Cabana {
     id_cabana:          string;
     nombre_cabana:      string;
@@ -6,4 +7,5 @@ export interface Cabana {
     valor_cabana:       string;
     estado_cabana:      number;
     visibilidad: boolean;
+    imagenesList: Imagen[];
 }

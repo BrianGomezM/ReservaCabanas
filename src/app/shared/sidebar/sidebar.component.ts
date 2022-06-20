@@ -15,12 +15,23 @@ declare interface RouteInfo {
     
 }
 export const ROUTES: RouteInfo[] = [
+<<<<<<< HEAD
   { path: '/reservas', title: 'Reservas',  icon: 'calendar_month', children: null},
   { path: '#component', id: 'component', title: 'Contable', icon: 'calculate', children: [
     {path:  '/abonos', title: 'Abonos', icon: 'A', children: null}    
   ]},
   { path: '/usuario-listar', title: 'Usuarios',  icon:'person', children: null },
   { path: '/cabanas', title: 'Cabañas',  icon:'cottage', children: null },
+=======
+    { path: '/home', title: 'Home',  icon:'content_paste', class: '' },
+    { path: '/reservas', title: 'Reservas',  icon: 'calendar_month', class: '' },
+    //{ path: '/prereservas', title: 'Prereservas',  icon: 'calendar_month', class: '' },
+    { path: '/contable', title: 'Contable',  icon:'library_books', class: '' },
+    //{ path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
+    //{ path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
+    { path: '/usuario-listar', title: 'Usuarios',  icon:'person', class: '' },
+    { path: '/cabanas', title: 'Cabañas',  icon:'cottage', class: '' },
+>>>>>>> test
    // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
   { path: '/planes', title: 'Planes',  icon:'wysiwyg', children: null },
   { path: '/ayuda', title: 'Ayuda',  icon:'help_outline' , children: null },

@@ -19,7 +19,7 @@ import { AdminGuard } from './guardianes/admin.guard';
     HttpClientModule,
     SharedModule,
     RouterModule,
-    AppRoutingModule,
+    AppRoutingModule    
   ],
   declarations: [
     AppComponent,

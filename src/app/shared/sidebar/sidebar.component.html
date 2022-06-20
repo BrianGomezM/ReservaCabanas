@@ -1,14 +1,23 @@
 
 <div class="logo d-flex justify-content-center">
+<<<<<<< HEAD
   <div class="col-6">
       <a routerLink="/reservas" class="">
           <img class="img-fluid" src="/assets/img/logo.svg" title="Cabaña Donde Pacheco">
       </a>
   </div>
+=======
+        <div class="col-6">
+            <a routerLink="/home" class="">
+                <img class="img-fluid" src="/assets/img/logo.svg" title="Cabaña Donde Pacheco">
+            </a>
+        </div>
+>>>>>>> test
 </div>
 <div class="sidebar-wrapper">
   <div *ngIf="isMobileMenu()">
     <!-- <form class="navbar-form">
+<<<<<<< HEAD
     <span class="bmd-form-group">
       <div class="input-group no-border">
         <input type="text" value="" class="form-control" placeholder="Search...">
@@ -18,6 +27,17 @@
         </button>
       </div>
     </span>
+=======
+      <span class="bmd-form-group">
+        <div class="input-group no-border">
+          <input type="text" value="" class="form-control" placeholder="Search...">
+          <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+      </span>
+>>>>>>> test
     </form> -->
     <ul class="nav navbar-nav nav-mobile-menu">
       <li class="nav-item">
@@ -50,6 +70,7 @@
       </li>
     </ul>
   </div>
+<<<<<<< HEAD
   <ul class="nav">
     <li *ngFor="let menuItem of menuItems" routerLinkActive #rla="routerLinkActive" [ngClass]="rla.isActive? (menuItem.children === null? 'active' : '') : ''" [routerLinkActiveOptions]="{exact: true}" >
        <a [style.display]="menuItem.children === null? 'flex' : 'none'" [routerLink]="[menuItem.path]" [style.background-color]="rla.isActive? color : 'transparent'" [style.color]="rla.isActive? activeFontColor : normalFontColor">
@@ -75,4 +96,33 @@
       </div>
     </li>
   </ul>
+=======
+  <ul class="nav navbar-nav" *ngFor="let menuItem of menuItems" >
+    <!-- <li *ngIf="menuItem.title=='Reservas'" class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="[menuItem.path]" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" routerLinkActive="" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/prereservas">
+                <i class="material-icons">calendar_month</i>
+                <p>Prereservas</p>
+            </a>
+        </div>
+    </li>
+    <li *ngIf="menuItem.title!='Reservas' && menuItem.title!='Prereservas' " routerLinkActive="active" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+    </li>-->
+    <li routerLinkActive="active" class="{{menuItem.class}} nav-item">
+        <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+        </a>
+    </li>
+  </ul> 
+    
+>>>>>>> test
 </div>

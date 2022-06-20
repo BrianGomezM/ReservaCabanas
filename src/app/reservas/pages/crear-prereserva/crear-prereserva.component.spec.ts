@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListadoPlanesComponent } from './listado-planes.component';
+import { CrearPrereservaComponent } from './crear-prereserva.component';
 
-describe('ListadoPlanesComponent', () => {
-  let component: ListadoPlanesComponent;
-  let fixture: ComponentFixture<ListadoPlanesComponent>;
+describe('CrearPrereservaComponent', () => {
+  let component: CrearPrereservaComponent;
+  let fixture: ComponentFixture<CrearPrereservaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListadoPlanesComponent ]
+      declarations: [ CrearPrereservaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListadoPlanesComponent);
+    fixture = TestBed.createComponent(CrearPrereservaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

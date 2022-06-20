@@ -5,9 +5,7 @@ import { CrearCabanaComponent } from './pages/crear-cabana/crear-cabana.componen
 import { EditarCabanaComponent } from './pages/editar-cabana/editar-cabana.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
-
-
-
+import { environment } from '../../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,5 +18,6 @@ import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
     FormsModule,
     MatTooltipModule
   ]
+  
 })
 export class CabanasModule { }

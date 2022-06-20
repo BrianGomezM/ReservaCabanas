@@ -158,9 +158,15 @@
 
 .input-group-btn > .btn{
     border: 0;
+    
 }
 
-
+.label-icon{
+  color:$white-color;
+}
+.icon-md{
+  font-size:26px;
+}
 // Align icons inside buttons with text
 .btn .material-icons,
 .btn:not(.btn-just-icon):not(.btn-fab) .fa{
