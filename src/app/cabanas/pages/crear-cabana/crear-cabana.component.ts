@@ -110,9 +110,6 @@ export class CrearCabanaComponent implements OnInit {
     this.alerta.notificacionExito("top", "right", 1, "ERROR:", "Solo se permiten 5 imagenes por cabaña");
   }
   }
-<<<<<<< HEAD
-}
-=======
   
   async subirImagenes(id_cabana:string){
     let nombre = "prueba2";
@@ -179,4 +176,3 @@ export class CrearCabanaComponent implements OnInit {
 
 
 
->>>>>>> test
