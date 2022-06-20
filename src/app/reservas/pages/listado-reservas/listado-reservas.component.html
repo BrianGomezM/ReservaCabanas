@@ -62,15 +62,17 @@
                         <td>{{reserva.id_cabana[0].nombre_cabana}}</td>
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit"  (click)="editarReserva()"  class="btn btn-success btn-just-icon">
+                        
+                          <td *ngIf="reserva.estado==3"> 
+                            <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                                <i class="material-icons">edit</i>
+                            </button>
+                          </td>
+                          <td *ngIf="reserva.estado==4">
+                            <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
-                          </button>
-                          <button type="submit"  (click)="imprimir()"  class="btn btn-success btn-just-icon">
-                            <i class="material-icons">BOTON PRUEBA</i>
-                        </button>
-                        </td>
-
+                            </button>
+                          </td>
                       </tbody>
                     </table>
                   </div>
@@ -111,9 +113,14 @@
                         
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 
@@ -157,9 +164,14 @@
                         
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 
@@ -202,9 +214,14 @@
                         <td>{{reserva.id_cabana[0].nombre_cabana}}</td>
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 
@@ -248,9 +265,14 @@
                         
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 
@@ -294,9 +316,14 @@
                         
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 
@@ -340,9 +367,14 @@
                         
                         <td>{{reserva.fecha_inicio}}</td>
                         <td>{{reserva.fecha_fin}}</td>
-                        <td>
-                          <button type="submit" class="btn btn-success btn-just-icon">
+                        <td *ngIf="reserva.estado==3"> 
+                          <button type="submit"  (click)="editarPreserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
                               <i class="material-icons">edit</i>
+                          </button>
+                        </td>
+                        <td *ngIf="reserva.estado==4">
+                          <button type="submit"  (click)="editarReserva(reserva.id_reserva)"  class="btn btn-success btn-just-icon">
+                            <i class="material-icons">edit</i>
                           </button>
                         </td>
 

@@ -67,39 +67,38 @@ async getListReservations(){
   }
   async organizarDias(){
     this.contadorReservas=0;
-  this.diasSemana=
-  [
-    new Dia("Lunes",null,[]),
-    new Dia("Martes",null,[]),
-    new Dia("Miercoles",null,[]),
-    new Dia("Jueves",null,[]),
-    new Dia("Viernes",null,[]),
-    new Dia("Sabado",null,[]),
-    new Dia("Domingo",null,[]),
-  ];
-  this.cargarFechas();
-  for(let i=0; i< this.listaReservas.length-1;i++){
-    if(this.seleccion == "todo"){
-      this.classifyReservation(this.listaReservas[i]);
-      this.contadorReservas+=1;
-    }else{
-      if(this.seleccion == "3" && this.listaReservas[i].estado=="3"){
+    this.diasSemana=
+    [
+      new Dia("Lunes",null,[]),
+      new Dia("Martes",null,[]),
+      new Dia("Miercoles",null,[]),
+      new Dia("Jueves",null,[]),
+      new Dia("Viernes",null,[]),
+      new Dia("Sabado",null,[]),
+      new Dia("Domingo",null,[]),
+    ];
+    this.cargarFechas();
+    for(let i=0; i< this.listaReservas.length-1;i++){
+      if(this.seleccion == "todo"){
         this.classifyReservation(this.listaReservas[i]);
         this.contadorReservas+=1;
-      } if(this.seleccion == "4" && this.listaReservas[i].estado=="4"){
-        this.classifyReservation(this.listaReservas[i]);
-        this.contadorReservas+=1;
+      }else{
+        if(this.seleccion == "3" && this.listaReservas[i].estado=="3"){
+          this.classifyReservation(this.listaReservas[i]);
+          this.contadorReservas+=1;
+        } if(this.seleccion == "4" && this.listaReservas[i].estado=="4"){
+          this.classifyReservation(this.listaReservas[i]);
+          this.contadorReservas+=1;
+        }
       }
+
     }
-
-    
   }
-}
-
-
-
-  editarReserva(){
-    this.router.navigate(['/editar-reserva']);
+  editarReserva(id:string){
+    this.router.navigate(['/editar-reserva',id]);
+  }
+  editarPreserva(id:string){
+    this.router.navigate(['/editar-prereserva',id]);
   }
 
   crearPrereserva(){
