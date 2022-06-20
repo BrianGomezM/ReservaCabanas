@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { SharedModule } from './shared/shared.module';
+import { EditarPrereservaComponent } from './reservas/pages/editar-prereserva/editar-prereserva.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     AdminLayoutComponent,
     AyudaComponent,
-    ContrasenaOlvidadaComponent
+    ContrasenaOlvidadaComponent,
+    EditarPrereservaComponent
 
   ],
   providers: [],

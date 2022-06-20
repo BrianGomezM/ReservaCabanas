@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CabanasService } from 'app/cabanas/services/cabanas.service';
-import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertMessage } from 'app/alerta/alerta';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
-import { ReservasService } from 'app/reservas/services/reservas.service';
+import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Cliente } from 'app/clientes/interfaces/clientes.interface';
 import { ClientesService } from 'app/clientes/services/clientes.service';
-import { AlertMessage } from 'app/alerta/alerta';
+import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
+import { ReservasService } from 'app/reservas/services/reservas.service';
+import { switchMap} from 'rxjs';
 
 @Component({
-  selector: 'app-crear-prereserva',
-  templateUrl: './crear-prereserva.component.html',
-  styleUrls: ['./crear-prereserva.component.css']
+  selector: 'app-editar-prereserva',
+  templateUrl: './editar-prereserva.component.html',
+  styleUrls: ['./editar-prereserva.component.css']
 })
-export class CrearPrereservaComponent implements OnInit {
+export class EditarPrereservaComponent implements OnInit {
   cliente:Cliente={
     id_cliente:"",
     nombre_cliente:"",
@@ -24,34 +25,24 @@ export class CrearPrereservaComponent implements OnInit {
     telefono2_cliente:"",
     correo_cliente:""
   }
-  cabana:Cabana={
-    id_cabana:"",
-     nombre_cabana:"",
-     descripcion_cabana:"",
-     capacidad_cabana: 0,
-     valor_cabana:"",
-     estado_cabana:1,
-     visibilidad:true,
-     imagenesList:[]
-  }
   prereserva:Reserva={
     id_reserva:"",
-    id_cabana:this.cabana,
+    id_cabana:null,
     id_cliente:null,
+    estado:"",
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
     fecha_inicio:"",
     fecha_fin:"",
-    estado:"",
     id_plan:""
-  };
-  cabanas:Cabana[]=[];
-  flag:boolean = true;
-  total_descuento:number=0;
-  alert: AlertMessage = new AlertMessage();
+  }
 
-  constructor(public router:Router, private clienteService: ClientesService, private cabanaService: CabanasService, private reservasService:ReservasService) { }
+  cabanas:Cabana[];
+  alert: AlertMessage = new AlertMessage();
+  total_descuento:number = 0;
+
+  constructor(private activateRoute: ActivatedRoute,private cabanaService: CabanasService, private clienteService:ClientesService,public router:Router, private reservasService:ReservasService) { }
 
   ngOnInit(): void {
     this.cabanaService.getCabanas().subscribe(
@@ -59,10 +50,44 @@ export class CrearPrereservaComponent implements OnInit {
         this.cabanas = cabanas;
       }
     );
+    this.activateRoute.params
+    .pipe(
+      switchMap(({ id }) => this.reservasService.reservaId(id))
+     
+    )
+    .subscribe( resp =>{
+      this.prereserva = resp[0];
+      this.prereserva.id_cabana= resp[0].id_cabana[0];
+      this.prereserva.id_cliente= resp[0].id_cliente[0];
+      this.calculaTotalNoche();
+    })
   }
+
   redirect(){
     this.router.navigate(["reservas"]);
   }
+
+  editarReserva(){
+    this.prereserva.descuento = Number(this.prereserva.descuento);
+    this.prereserva.valor_reserva = Number(this.prereserva.valor_reserva);
+    
+    this.actualizarCliente();
+    this.reservasService.actualizarprereserva(this.prereserva).subscribe(
+      resp=>{
+        console.log(resp);
+        console.log(this.prereserva.id_cabana.id_cabana);
+        this.alert.notificacionExito("top", "right", 0, "SUCCESS:", "Prereserva actualizada");
+      }
+    )
+  }
+  actualizarCliente(){
+    this.clienteService.actualizarCliente(this.prereserva.id_cliente).subscribe(
+      resp=>{
+        console.log("Actuliza cliente");
+      }
+    )
+  }
+  
   disponibilidad(value:string){
     this.prereserva.id_cabana.id_cabana = value;
     
@@ -71,13 +96,13 @@ export class CrearPrereservaComponent implements OnInit {
         console.log(resp[0]);
         if(resp[0]==null){
           //Si la reserva no está disponible ...
-          this.flag=false;
+          //this.flag=false;
           this.prereserva.valor_reserva=0;
           this.total_descuento=0;
           this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");          
         }else{
           //Si la reserva está disponible trae la cabaña y la asigna
-          this.flag=true;
+          //this.flag=true;
           this.prereserva.id_cabana = resp[0];
           this.calculaTotalNoche();
         }
@@ -121,33 +146,4 @@ export class CrearPrereservaComponent implements OnInit {
    
   }
 
-  crearpreReserva(){
-    if(this.flag){
-      this.clienteService.agregarCliente(this.cliente).subscribe(
-        resp=>{
-          this.prereserva.id_cliente.id_cliente=resp.id_cliente;
-          this.prereserva.estado = '3';
-          this.reservasService.crearpreReserva(this.prereserva).subscribe(
-            resp=>{
-              this.prereserva = {
-                id_reserva:"",
-                id_cabana:null,
-                id_cliente:null,
-                valor_reserva:0,
-                descuento:0,
-                idUsuario:"",
-                fecha_inicio:"",
-                fecha_fin:"",
-                estado:"",
-                id_plan:""
-              };
-              this.redirect();
-            }
-          );
-        }
-      )
-    }
-  
-  }  
-  
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrearPlanComponent } from './crear-plan.component';
+import { EditarPrereservaComponent } from './editar-prereserva.component';
 
-describe('CrearPlanComponent', () => {
-  let component: CrearPlanComponent;
-  let fixture: ComponentFixture<CrearPlanComponent>;
+describe('EditarPrereservaComponent', () => {
+  let component: EditarPrereservaComponent;
+  let fixture: ComponentFixture<EditarPrereservaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrearPlanComponent ]
+      declarations: [ EditarPrereservaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearPlanComponent);
+    fixture = TestBed.createComponent(EditarPrereservaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

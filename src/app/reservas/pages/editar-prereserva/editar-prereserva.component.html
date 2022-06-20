@@ -5,26 +5,26 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header card-header-success">
-                        <h4 class="card-title">Crear prereserva</h4>                    
+                        <h4 class="card-title">Editar Prereserva</h4>                    
                     </div>
                     <div class="card-body">
-                        <form method="get" #crearReservaForm='ngForm'>
-                          <div class="form-group">
+                        <form method="get">
+                          <div class="form-group ">
                             <h4><strong>Información personal</strong></h4>
                                 <div class="row">
                                     <div class="col-6">
                                         <h4>Nombre del titular:</h4>
-                                        <input class="form-control" [(ngModel)]="cliente.nombre_cliente" placeholder="Ingrese el nombre del titular...">
+                                        <input name="nombre_cliente" [(ngModel)]="prereserva.id_cliente.nombre_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                     <div class="col-6">
                                         <h4>Apellido del titular:</h4>
-                                        <input class="form-control" [(ngModel)]="cliente.apellido_cliente" placeholder="Ingrese el apellido del titular...">
+                                        <input name="apellido_cliente" [(ngModel)]="prereserva.id_cliente.apellido_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                 </div>
                                 <div class="row mt-2 mb-2">
                                     <div class="col-4">
                                         <h4>Tipo de documento:</h4>
-                                        <select [(ngModel)]="cliente.tipo_documento" class="form-control">
+                                        <select class="form-control" name="tipo_documento" [(ngModel)]="prereserva.id_cliente.tipo_documento">
                                             <option value="" selected>Seleccione el tipo de  documento</option>
                                             <option value="CC">CC</option>
                                             <option value="TI">TI</option>
@@ -35,52 +35,64 @@
                                     </div>
                                     <div class="col-4">
                                         <h4>Número de documento:</h4>
-                                        <input [(ngModel)]="cliente.numero_documento" class="form-control" placeholder="31499023"  type="number">
+                                        <input name="numero_documento" [(ngModel)]="prereserva.id_cliente.numero_documento" class="form-control" type="number">
                                     </div>
                                     <div class="col-4">
                                         <h4>Teléfono:</h4>
-                                        <input [(ngModel)]="cliente.telefono_cliente" class="form-control" placeholder="3226011603" vtype="number">
+                                        <input name="telefono_cliente" [(ngModel)]="prereserva.id_cliente.telefono_cliente" class="form-control" type="number">
                                     </div>
+                                </div>
+                                <!-- <div class="col-5">
+                                    <h4>Detalles de la reserva:</h4>
+                                    <textarea  class="form-control" rows="5" placeholder="Ingrese los detalles de la reserva..."></textarea>
+                                </div> -->
+                                <div class="row">
                                 </div>
                                 
                             </div>
                             <div class="form-group">
-                                <h4><strong>Información de reserva</strong></h4>
+                                <h4><strong>Información de la reserva</strong></h4>
                                 <div class="row">
                                     <div class="col-4">
-                                        <h4>Cabaña a reservar:</h4>
-                                        
-                                        <select id="id_cabana" name="id_cabana"  (change)="disponibilidad($event.target.value)" class="form-control" >
-                                            <option value="0" selected>Seleccione la cabaña</option>
-                                            <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
-                                        </select>
-                        
+                                            <h4>Cabaña a reservar:</h4>
+                                            <select id="id_cabana" [(ngModel)]="prereserva.id_cabana.id_cabana" (change)="disponibilidad($event.target.value)" class="form-control" >
+                                                <option value="" selected>Seleccione la cabaña</option>
+                                                <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
+                                            </select>
+                                            <!-- <select class="form-control" *ngFor="let cabana of listCabanas, index">
+                                                
+                                                <option value="index">{{cabana.nombre_cabana}}</option>
+                                            </select> -->
                                     </div>
                                     
                                     <div class="col-4">
                                         <h4>Fecha de inicio:</h4>
-                                        <input  name="fecha_inicio" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.fecha_inicio" class="form-control" type="date">
+                                        <input name="fecha_inicio" [(ngModel)]="prereserva.fecha_inicio" class="form-control" type="date">
                                     </div>
                                     <div class="col-4">
                                         <h4>Fecha de fin:</h4>
-                                        <input name="fecha_fin" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.fecha_fin" class="form-control"   type="date">
+                                        <input name="fecha_fin" [(ngModel)]="prereserva.fecha_fin" class="form-control" type="date">
                                     </div>
                                 </div>
-                                <div class="row mb-2 mt-2">
+                                <div class="row mt-2 mb-2">
+                                    <!-- <div class="col-4">
+                                        <h4>Fecha de reserva:</h4>
+                                        <input  class="form-control" type="date">
+                                    </div> -->
                                     <div class="col-4">                      
                                         <h4>Valor total:</h4>
-                                        <input  name="valor_reserva" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="number" >
-                                    </div>
+                                        <input name="valor_reserva" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
                                     <div class="col-4">                      
                                         <h4>Descuento:</h4>
-                                        <input name="descuento" (change)="calculaTotalDescuento()" [(ngModel)]="prereserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="number" >
-                                    </div>
+                                        <input name="descuento" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
                                     <div class="col-4">                      
                                         <h4>Valor total con descuento:</h4>
-                                        <input  name="total_descuento" [(ngModel)]="total_descuento" class="form-control" placeholder="Valor total" type="number" >
-                                    </div>
+                                        <input name="total_descuento" [(ngModel)]="total_descuento" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2 mb-2">   
                                     <div class="col-4">
                                         <h4>Plan de la reserva:</h4>
                                         <select class="form-control">
@@ -92,10 +104,13 @@
                                             <option value="index">{{plan.nombre_plan}}</option>
                                         </select> -->
                                     </div>
+                                    
+                                    
                                 </div>
+                                
                                 <div class="mt-lg-2 d-flex justify-content-end">
-                                    <button   type="submit" class="btn px-2 btn-danger" (click)="redirect()"><i class="material-icons">cancel</i> Cancelar</button>
-                                    <button type="submit" class="btn px-2 btn-success" (click)="crearpreReserva()"><i class="material-icons">save</i> Guardar</button>
+                                    <button  type="submit" class="btn px-2 btn-danger" (click)="redirect()"><i class="material-icons">cancel</i> Cancelar</button>
+                                    <button type="submit" class="btn px-2 btn-success" (click)="editarReserva()"><i class="material-icons">save</i> Guardar</button>
                                 </div>
                             </div>
                             
@@ -104,8 +119,7 @@
                     </div>
                 </div>
             </div>
-    
-       
+               
         </div>
 
     </div>

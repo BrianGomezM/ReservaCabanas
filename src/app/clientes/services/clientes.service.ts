@@ -13,4 +13,7 @@ export class ClientesService {
   agregarCliente(cliente:Cliente){
     return this.http.post<Cliente>(this.url, JSON.stringify(cliente));
   }
+  actualizarCliente(cliente:Cliente){
+    return this.http.put<Cliente>(this.url, JSON.stringify(cliente));
+  }
 }
