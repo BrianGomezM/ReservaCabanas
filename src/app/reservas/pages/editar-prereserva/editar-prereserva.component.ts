@@ -33,8 +33,8 @@ export class EditarPrereservaComponent implements OnInit {
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
-    fecha_inicio:"",
-    fecha_fin:"",
+    fecha_inicio:new Date(),
+    fecha_fin:new Date(),
     id_plan:""
   }
 
@@ -57,8 +57,8 @@ export class EditarPrereservaComponent implements OnInit {
     )
     .subscribe( resp =>{
       this.prereserva = resp[0];
-      this.prereserva.id_cabana= resp[0].id_cabana[0];
-      this.prereserva.id_cliente= resp[0].id_cliente[0];
+      this.prereserva.id_cabana= resp[0].id_cabana;
+      this.prereserva.id_cliente= resp[0].id_cliente;
       this.calculaTotalNoche();
     })
   }
@@ -75,13 +75,13 @@ export class EditarPrereservaComponent implements OnInit {
     this.reservasService.actualizarprereserva(this.prereserva).subscribe(
       resp=>{
         console.log(resp);
-        console.log(this.prereserva.id_cabana.id_cabana);
+        console.log(this.prereserva.id_cabana[0].id_cabana);
         this.alert.notificacionExito("top", "right", 0, "SUCCESS:", "Prereserva actualizada");
       }
     )
   }
   actualizarCliente(){
-    this.clienteService.actualizarCliente(this.prereserva.id_cliente).subscribe(
+    this.clienteService.actualizarCliente(this.prereserva.id_cliente[0]).subscribe(
       resp=>{
         console.log("Actuliza cliente");
       }
@@ -89,7 +89,7 @@ export class EditarPrereservaComponent implements OnInit {
   }
   
   disponibilidad(value:string){
-    this.prereserva.id_cabana.id_cabana = value;
+    this.prereserva.id_cabana[0].id_cabana = value;
     
     this.reservasService.verificarDisponibilidad(this.prereserva).subscribe(
       resp=>{
@@ -103,7 +103,7 @@ export class EditarPrereservaComponent implements OnInit {
         }else{
           //Si la reserva está disponible trae la cabaña y la asigna
           //this.flag=true;
-          this.prereserva.id_cabana = resp[0];
+          this.prereserva.id_cabana = resp;
           this.calculaTotalNoche();
         }
       }
@@ -114,16 +114,13 @@ export class EditarPrereservaComponent implements OnInit {
   cantidadNoches(){
     //Calcula el total de noches según las fechas seleccionadas
     var diaEnMils = 1000 * 60 * 60 * 24;
-    var fecha_fin = this.prereserva.fecha_fin.split('-');
-    var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
+    var fecha_fin = this.prereserva.fecha_fin.getTime();
+    var fecha_incio = this.prereserva.fecha_inicio.getTime();
 
-    var fecha_incio = this.prereserva.fecha_inicio.split('-');
-    var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
-
-    var dias = ff - fi + diaEnMils;
+    var dias = fecha_fin - fecha_incio + diaEnMils;
     dias = dias / diaEnMils;
 
-    console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
+    //console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
     return dias;
   }
 
@@ -132,7 +129,7 @@ export class EditarPrereservaComponent implements OnInit {
     var valor_noche =0;
     //calcula el total de la reserva sin descuento, en base al total de días
     if(this.prereserva.id_cabana != null){
-      valor_noche = Number(this.prereserva.id_cabana.valor_cabana);
+      valor_noche = Number(this.prereserva.id_cabana[0].valor_cabana);
       this.prereserva.valor_reserva = valor_noche * dias;
       this.calculaTotalDescuento();
     }

@@ -43,8 +43,8 @@ export class EditarReservaComponent implements OnInit {
     )
     .subscribe( resp =>{
       this.reserva = resp[0];
-      this.reserva.id_cabana= resp[0].id_cabana[0];
-      this.reserva.id_cliente= resp[0].id_cliente[0];
+      this.reserva.id_cabana= resp[0].id_cabana;
+      this.reserva.id_cliente= resp[0].id_cliente;
       this.calculaTotalDescuento();
       //this.calculaTotalNoche();
     })

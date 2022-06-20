@@ -78,7 +78,7 @@ export class CrearPrereservaComponent implements OnInit {
         }else{
           //Si la reserva está disponible trae la cabaña y la asigna
           this.flag=true;
-          this.prereserva[0].id_cabana = resp[0];
+          this.prereserva.id_cabana = resp;
           this.calculaTotalNoche();
         }
       }
@@ -89,13 +89,15 @@ export class CrearPrereservaComponent implements OnInit {
   cantidadNoches(){
     //Calcula el total de noches según las fechas seleccionadas
     var diaEnMils = 1000 * 60 * 60 * 24;
-    var fecha_fin = this.prereserva.fecha_fin.getTime();
+    var fecha_fin = this.prereserva.fecha_fin;
+    var ff = new Date(fecha_fin).getTime();
     //var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
-
-    var fecha_inicio = this.prereserva.fecha_inicio.getTime();
+    var fecha_inicio = this.prereserva.fecha_fin;
+    var fi = new Date(fecha_inicio).getTime();
+    //var fecha_inicio = this.prereserva.fecha_inicio.getTime();
     //var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
-
-    var dias = fecha_fin - fecha_inicio  + diaEnMils;
+    
+    var dias = ff - fi  + diaEnMils;
     dias = dias / diaEnMils;
 
     //console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);

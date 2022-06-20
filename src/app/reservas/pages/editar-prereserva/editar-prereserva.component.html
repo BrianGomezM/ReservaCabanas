@@ -14,17 +14,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <h4>Nombre del titular:</h4>
-                                        <input name="nombre_cliente" [(ngModel)]="prereserva.id_cliente.nombre_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input name="nombre_cliente" [(ngModel)]="prereserva.id_cliente[0].nombre_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                     <div class="col-6">
                                         <h4>Apellido del titular:</h4>
-                                        <input name="apellido_cliente" [(ngModel)]="prereserva.id_cliente.apellido_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input name="apellido_cliente" [(ngModel)]="prereserva.id_cliente[0].apellido_cliente" class="form-control" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                 </div>
                                 <div class="row mt-2 mb-2">
                                     <div class="col-4">
                                         <h4>Tipo de documento:</h4>
-                                        <select class="form-control" name="tipo_documento" [(ngModel)]="prereserva.id_cliente.tipo_documento">
+                                        <select class="form-control" name="tipo_documento" [(ngModel)]="prereserva.id_cliente[0].tipo_documento">
                                             <option value="" selected>Seleccione el tipo de  documento</option>
                                             <option value="CC">CC</option>
                                             <option value="TI">TI</option>
@@ -35,11 +35,11 @@
                                     </div>
                                     <div class="col-4">
                                         <h4>Número de documento:</h4>
-                                        <input name="numero_documento" [(ngModel)]="prereserva.id_cliente.numero_documento" class="form-control" type="number">
+                                        <input name="numero_documento" [(ngModel)]="prereserva.id_cliente[0].numero_documento" class="form-control" type="number">
                                     </div>
                                     <div class="col-4">
                                         <h4>Teléfono:</h4>
-                                        <input name="telefono_cliente" [(ngModel)]="prereserva.id_cliente.telefono_cliente" class="form-control" type="number">
+                                        <input name="telefono_cliente" [(ngModel)]="prereserva.id_cliente[0].telefono_cliente" class="form-control" type="number">
                                     </div>
                                 </div>
                                 <!-- <div class="col-5">
@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-4">
                                             <h4>Cabaña a reservar:</h4>
-                                            <select id="id_cabana" [(ngModel)]="prereserva.id_cabana.id_cabana" (change)="disponibilidad($event.target.value)" class="form-control" >
+                                            <select id="id_cabana" [(ngModel)]="prereserva.id_cabana[0].id_cabana" (change)="disponibilidad($event.target.value)" class="form-control" >
                                                 <option value="" selected>Seleccione la cabaña</option>
                                                 <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                             </select>
