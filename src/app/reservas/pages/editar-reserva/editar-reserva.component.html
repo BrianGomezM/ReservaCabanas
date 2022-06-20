@@ -58,7 +58,7 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h4>Cabaña a reservada:</h4>
-                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana[0].id_cabana" class="form-control" >
+                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana[0].id_cabana" (change)="disponibilidad($event.target.value)"  class="form-control" >
                                             <option value="" selected>Seleccione la cabaña</option>
                                             <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                         </select>
@@ -69,11 +69,11 @@
                                     </div>
                                     <div  class="col-4">
                                         <h4>Fecha de inicio:</h4>
-                                        <input [(ngModel)]="reserva.fecha_inicio" name="fecha_inicio" class="form-control" type="date">
+                                        <input (change)="disponibilidad(reserva.id_cabana[0].id_cabana)"  [(ngModel)]="reserva.fecha_inicio" name="fecha_inicio" class="form-control" type="date">
                                     </div>
                                     <div class="col-4">
                                         <h4>Fecha de fin:</h4>
-                                        <input  [(ngModel)]="reserva.fecha_fin" name="fecha_fin" class="form-control" type="date">
+                                        <input (change)="disponibilidad(reserva.id_cabana[0].id_cabana)"  [(ngModel)]="reserva.fecha_fin" name="fecha_fin" class="form-control" type="date">
                                     </div>
                                     
                                 </div>

@@ -92,11 +92,8 @@ export class CrearPrereservaComponent implements OnInit {
     var diaEnMils = 1000 * 60 * 60 * 24;
     var fecha_fin = this.prereserva.fecha_fin;
     var ff = new Date(fecha_fin).getTime();
-    //var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
     var fecha_inicio = this.prereserva.fecha_inicio;
     var fi = new Date(fecha_inicio).getTime();
-    //var fecha_inicio = this.prereserva.fecha_inicio.getTime();
-    //var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
     
     var dias = ff - fi  + diaEnMils;
     dias = dias / diaEnMils;
@@ -133,6 +130,7 @@ export class CrearPrereservaComponent implements OnInit {
           console.log(this.prereserva);
           this.reservasService.crearpreReserva(this.prereserva).subscribe(
             resp=>{
+              this.alert.notificacionExito("top", "right", 0, "SUCCESS:", "Se ha creado la prereserva correctamente");          
               this.prereserva = {
                 id_reserva:"",
                 id_cabana:null,

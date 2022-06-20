@@ -25,10 +25,20 @@ export class EditarPrereservaComponent implements OnInit {
     telefono2_cliente:"",
     correo_cliente:""
   }
+  cabana:Cabana={
+    id_cabana:"",
+     nombre_cabana:"",
+     descripcion_cabana:"",
+     capacidad_cabana: 0,
+     valor_cabana:"",
+     estado_cabana:1,
+     visibilidad:true,
+     imagenesList:[]
+  }
   prereserva:Reserva={
     id_reserva:"",
-    id_cabana:null,
-    id_cliente:null,
+    id_cabana:[this.cabana],
+    id_cliente:[this.cliente],
     estado:"",
     valor_reserva:0,
     descuento:0,
@@ -41,7 +51,7 @@ export class EditarPrereservaComponent implements OnInit {
   cabanas:Cabana[];
   alert: AlertMessage = new AlertMessage();
   total_descuento:number = 0;
-
+  flag:boolean=true;
   constructor(private activateRoute: ActivatedRoute,private cabanaService: CabanasService, private clienteService:ClientesService,public router:Router, private reservasService:ReservasService) { }
 
   ngOnInit(): void {
@@ -70,16 +80,18 @@ export class EditarPrereservaComponent implements OnInit {
   editarReserva(){
     this.prereserva.descuento = Number(this.prereserva.descuento);
     this.prereserva.valor_reserva = Number(this.prereserva.valor_reserva);
-    
-    this.actualizarCliente();
-    this.reservasService.actualizarprereserva(this.prereserva).subscribe(
-      resp=>{
-        console.log(resp);
-        console.log(this.prereserva.id_cabana[0].id_cabana);
-        this.alert.notificacionExito("top", "right", 0, "SUCCESS:", "Prereserva actualizada");
-      }
-    )
+    if(this.flag){
+      this.actualizarCliente();
+      this.reservasService.actualizarprereserva(this.prereserva).subscribe(
+        resp=>{
+          this.alert.notificacionExito("top", "right", 0, "SUCCESS:", "La prereserva se ha actualizado correctamente");
+          this.redirect();
+        }
+      )
+    }
+
   }
+
   actualizarCliente(){
     this.clienteService.actualizarCliente(this.prereserva.id_cliente[0]).subscribe(
       resp=>{
@@ -96,13 +108,13 @@ export class EditarPrereservaComponent implements OnInit {
         console.log(resp[0]);
         if(resp[0]==null){
           //Si la reserva no está disponible ...
-          //this.flag=false;
+          this.flag=false;
           this.prereserva.valor_reserva=0;
           this.total_descuento=0;
           this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");          
         }else{
           //Si la reserva está disponible trae la cabaña y la asigna
-          //this.flag=true;
+          this.flag=true;
           this.prereserva.id_cabana = resp;
           this.calculaTotalNoche();
         }
@@ -114,13 +126,14 @@ export class EditarPrereservaComponent implements OnInit {
   cantidadNoches(){
     //Calcula el total de noches según las fechas seleccionadas
     var diaEnMils = 1000 * 60 * 60 * 24;
-    var fecha_fin = this.prereserva.fecha_fin.getTime();
-    var fecha_incio = this.prereserva.fecha_inicio.getTime();
-
-    var dias = fecha_fin - fecha_incio + diaEnMils;
+    var fecha_fin = this.prereserva.fecha_fin;
+    var ff = new Date(fecha_fin).getTime();
+    var fecha_inicio = this.prereserva.fecha_inicio;
+    var fi = new Date(fecha_inicio).getTime();
+    var dias = ff - fi  + diaEnMils;
     dias = dias / diaEnMils;
 
-    //console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
+    console.log(dias);
     return dias;
   }
 
