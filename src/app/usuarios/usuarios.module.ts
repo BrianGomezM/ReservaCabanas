@@ -6,7 +6,6 @@ import { MatInput } from '@angular/material/input';
 import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { FormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     EditarUsuarioComponent,
@@ -15,8 +14,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    NgxPaginationModule
+    FormsModule
 
   ]
 })
