@@ -21,7 +21,7 @@ export class ListadoReservasComponent implements OnInit {
     var datefin = new Date(event);
     console.log(datefin);
   }
-  crearPrereserva(){
+  crearPrereserva(){                  
     this.router.navigate(['/crear-prereserva']);
   }
 }
