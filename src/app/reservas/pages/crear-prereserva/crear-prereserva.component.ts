@@ -36,13 +36,13 @@ export class CrearPrereservaComponent implements OnInit {
   }
   prereserva:Reserva={
     id_reserva:"",
-    id_cabana:this.cabana,
+    id_cabana:[this.cabana],
     id_cliente:null,
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
-    fecha_inicio:"",
-    fecha_fin:"",
+    fecha_inicio:new Date(),
+    fecha_fin:new Date(),
     estado:"",
     id_plan:""
   };
@@ -64,7 +64,7 @@ export class CrearPrereservaComponent implements OnInit {
     this.router.navigate(["reservas"]);
   }
   disponibilidad(value:string){
-    this.prereserva.id_cabana.id_cabana = value;
+    this.prereserva.id_cabana[0].id_cabana = value;
     
     this.reservasService.verificarDisponibilidad(this.prereserva).subscribe(
       resp=>{
