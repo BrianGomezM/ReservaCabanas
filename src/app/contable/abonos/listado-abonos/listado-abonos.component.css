@@ -1,3 +1,9 @@
+#textUser{
+    padding-right: 10px;
+}
+select.customDropdown::-ms-expand {
+    display: auto;
+}
 .form-control {
     color: #aaaabd !important;
 }
@@ -6,7 +12,10 @@
     color: red;
 }
 
+option{
+    color:#757575;
+}
+
 select, select.form-control {
-    -moz-appearance: none;
     -webkit-appearance: auto;
 }

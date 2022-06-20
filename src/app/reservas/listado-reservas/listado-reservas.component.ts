@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado-reservas',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ListadoReservasComponent implements OnInit {
   fecha = new Date();
  
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  abono(){
+    var index = 20;
+    this.router.navigate(['reserva-abonos-crear',index]);
+  }
 
 }

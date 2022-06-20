@@ -15,6 +15,31 @@ export class ContrasenaOlvidadaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  validarFormulario(){
+    var  respuesta = true;
+    var emailV = document.getElementById('email')as HTMLInputElement;
+    var errorEmail = document.getElementById('errorEmail');
+    errorEmail.style.color = 'red';
+
+    var mensajeErrorE=[];
+    if(emailV.value === null || emailV.value ===''){
+      mensajeErrorE.push('Ingrese un correo');
+      respuesta=false;
+    }else if(!this.validarEmail(emailV.value)){
+      mensajeErrorE.push('Correo incorrecto');
+      respuesta=false;
+    }else{
+      mensajeErrorE.push('&nbsp;');
+    }
+    errorEmail.innerHTML = mensajeErrorE.join(',');
+    if(respuesta){
+      this.olvidarC();
+    }
+  }
+
+  validarEmail(valor) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(valor); 
+  }
 
   olvidarC(){
    if(this.correo){

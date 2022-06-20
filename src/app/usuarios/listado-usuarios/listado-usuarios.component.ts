@@ -11,13 +11,14 @@ import Swal from 'sweetalert2'
 })
 export class ListadoUsuariosComponent implements OnInit {
 
- 
+  min=0;
+  max=5;
   aler = new AlertMessage();
   public param: String="";
   public nocarga:boolean=true;
   public closeModal:string="";
   public usuarios:Array<Usuario> = [];
-
+  public paginar:Array<Usuario> = [];
   @Output()  usuario:Usuario={
     idUsuario: 0,
     nombre: "",
@@ -31,21 +32,25 @@ export class ListadoUsuariosComponent implements OnInit {
     fechaRegistro: "",
   }
 
-
+  
 
   constructor(private router: Router, private route: ActivatedRoute, private UsuariosService:UsuariosService) {}
   
   ngOnInit(): void {
+    this.min = 0;
+    this.max= 5;
     this.UsuariosService.getUsuarios(this.param)
     .subscribe((usuario:any)=>{
-      this.usuarios = usuario['0'];
+      this.usuarios = usuario['respuesta'];
+      this.paginar=this.usuarios.slice(this.min,this.max);
     }
       //usuario => this.usuarios = usuario
-      );}
+      ); 
+    }
     //invoco el servicio
-    eliminarUsuario(index:string){
+    eliminarUsuario(index){
        Swal.fire({
-        title: "Estad seguro?",
+        title: "Esta seguro?",
         text: "Se borrara  de forma permanente!",
         icon: 'warning',
         showCancelButton: true,
@@ -59,24 +64,48 @@ export class ListadoUsuariosComponent implements OnInit {
             'El registro seleccionado fue eliminado correctamente.',
             'success') 
             this.UsuariosService.eliminarUsuario(index).subscribe(
-              resp=>{this.ngOnInit();
+              resp=>{
+                this.ngOnInit();
              });
         }
       }); 
     }
 
-    editar(index: number){
-      index=this.usuarios[index]['idUsuario'];
+    
+    convertir(rol:string): string{
+      var respuesta:string = "";
+      switch(rol){
+        case "1":          
+          respuesta = "Administrador";
+        break;
+        case "2":
+          respuesta = "Logistica";
+        break;
+        case "3":
+          respuesta = "Auxiliar Contable";
+        break;
+        case "4":
+          respuesta = "Encargado de reservas";
+        break
+        default:
+          respuesta = "Error";
+        break
+      }return respuesta;
+
+    }
+    editar(index){  
       this.router.navigate(['usuario-editar',index]);
     }
     
-    buscar(valor){
-       
+    buscar(valor){   
+      this.min = 0;
+      this.max= 5;
         this.UsuariosService.getUsuarios(valor).subscribe((usuario:any)=>{
-          if(this.usuarios = usuario['0']){
-
+          if(this.usuarios = usuario['respuesta']){
+            this.paginar=this.usuarios.slice(this.min,this.max);
+            // TODO document why this block is empty
           }else{
-            this.aler.error("Advertencia", "No hay usuarios registrados con el nombre: "+valor, 'warning');   
+            this.aler.error("Advertencia", "No hay usuarios registrados con el dato: "+valor, 'warning');   
           }
           });
       }
@@ -84,4 +113,30 @@ export class ListadoUsuariosComponent implements OnInit {
     crear(){ 
        this.router.navigate(['usuario-crear']);
     }
+
+    next(minE, maxE){
+       if(maxE != this.usuarios.length && maxE <= this.usuarios.length ){
+            if((maxE+5)>this.usuarios.length){
+              this.max = maxE=this.usuarios.length;
+              this.min = minE + 5;
+            }else{
+                  this.max = maxE + 5;
+                  this.min = minE + 5;
+            }
+            this.paginar=this.usuarios.slice(this.min,this.max);
+       }
+      }
+
+    previous(minE, maxE){
+      if(minE != 0){
+        if((minE-5)<=0){
+          this.max = 5;
+          this.min = 0;
+        }else{
+              this.max = maxE - 5;
+              this.min = minE - 5;
+        }
+        this.paginar=this.usuarios.slice(this.min,this.max);
+   }
+  }
 }

@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { SharedModule } from './shared/shared.module';
+import { AdminGuard } from './guardianes/admin.guard';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { SharedModule } from './shared/shared.module';
     ContrasenaOlvidadaComponent
 
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { LoginComponent } from 'app/login/login.component';
+//import { AdminGuard } from '../../guardianes/admin.guard';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { LoginComponent } from 'app/login/login.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-  ]
+  ],
+ // providers: [AdminGuard]
 })
 
 export class AdminLayoutModule {}

@@ -9,58 +9,66 @@
 					<form method="get">
 						<div class="form-group">
 							<div class="row" >
-								<div class="col-md-4" style="padding-bottom: 12px;">	
-									<label for="nombre" class="form-label">Nombre*</label>								
-								    <input  class="form-control" type="text" title="nombre" required pattern="[A-Za-z0-9]{5,40}" placeholder="" id="nombre" name="nombre" [(ngModel)]="usuarioEdita.nombre">
+								<div class="col-md-4">	
+									<h4>Nombre: </h4>							
+								    <input  class="form-control" (click)="limpiar(1)"  type="text" title="nombre"  placeholder="" id="nombre" name="nombre" [(ngModel)]="usuarioEdita.nombre">
+									<div class="menssageE" id="errorNombre">&nbsp;</div>
 								</div>
 								<div class="col-md-4">
-									<label for="apellido" class="form-label">Apellido*</label>
-								    <input  class="form-control" type="text" title="apellido" placeholder="" name="apellido" id="apellido" [(ngModel)]="usuarioEdita.apellido">
+									<h4>Apellido: </h4>
+								    <input  class="form-control" (click)="limpiar(2)"  type="text" title="apellido" placeholder="" name="apellido" id="apellido" [(ngModel)]="usuarioEdita.apellido">
+									<div class="menssageE" id="errorApellido">&nbsp;</div>
 								</div>
 								<div class="col-md-4">  
-									<label for="rolUser" class="form-label">Rol de usuario*</label>
-									<select class="form-control"  name="rolUser" title="rol de usuario"  id="rolUser"  [(ngModel)]="usuarioEdita.idRol">
+									<h4>Rol de usuario: </h4>
+									<select class="form-control customDropdown" (click)="limpiar(3)"  name="rolUser" title="rol de usuario"  id="rolUser"  [(ngModel)]="usuarioEdita.idRol">
 										<option value=0>Seleccione el rol</option>
 										<option value=1>Administrador</option>
 										<option value=2>Logistica</option>
-										<option value=3>Encargado de reservas</option>
-										<option value=4>Auxiliar contable</option>
+										<option value=3>Auxiliar contable</option>
+										<option value=4>Encargado de reservas</option>
 									</select>
+									<div class="menssageE" id="errorRol">&nbsp;</div>
 								</div>
 							</div>
 							<div class="row">	
-								<div class="col-md-4" style="padding-bottom: 12px;"> 
-								<label for="tipoDoc" class="form-label">Tipo de documento*</label> 
-								<select class="form-control" title="Tipo de documento" id="tipoDoc" name="tipoDoc" [(ngModel)]="usuarioEdita.tipoDocumento">
+								<div class="col-md-4"> 
+								<h4>Tipo de documento: </h4>
+								<select class="form-control customDropdown" (click)="limpiar(4)"  title="Tipo de documento" id="tipoDoc" name="tipoDoc" [(ngModel)]="usuarioEdita.tipoDocumento">
 								  <option value="0">Seleccione el tipo de documento</option>
 								  <option value="1">Cedula ciudadania</option>
-								  <option value="2">Cedula extrangera</option>
-								  <option value="3">Tajerta Identidad</option>
+								  <option value="2">Tarjeta Identidad</option>
+								  <option value="3">Pasaporte</option>
 								</select>
-								
+								<div class="menssageE" id="errorTipoDoc">&nbsp;</div>
 							  </div>
 								<div class="col-md-4">
-									<label for="documento" id="documento" class="form-label">Numero de documento*</label> 
-								    <input  class="form-control" type="number" title="documento" id="documento"  placeholder="" name="documento" [(ngModel)]="usuarioEdita.documento">
+									<h4>Número de documento: </h4>
+								    <input  class="form-control" (click)="limpiar(5)"  type="number" title="documento" id="documento"  placeholder=""  name="documento" [(ngModel)]="usuarioEdita.documento">
+									<div class="menssageE" id="errorNDoc">&nbsp;</div>
 								</div>
 								<div class="col-md-4">
-									<label for="telefono" id="telefono" class="form-label">Telefono*</label> 
-								    <input  class="form-control" type="number" title="telefono"  placeholder="" name="telefono" [(ngModel)]="usuarioEdita.telefono">
-							  </div>
+									<h4>Teléfono: </h4>
+								    <input  class="form-control" (click)="limpiar(6)"  type="number" title="telefono"  placeholder="" id="telefono" name="telefono" [(ngModel)]="usuarioEdita.telefono">
+									<div class="menssageE" id="errorNTelefono">&nbsp;</div>
+								</div>
 							</div>
 							<div class="row">
-									<div class="col-md-4" style="padding-bottom: 40px;">
-									<label for="correo" id="correo" class="form-label">Correo electronico*</label> 
-								    <input  class="form-control" type="email" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" placeholder="" name="correo" [(ngModel)]="usuarioEdita.correo">
+									<div class="col-md-4">
+									<h4>Correo electrónico: </h4>
+								    <input  class="form-control" (click)="limpiar(7)"  (blur)="validarDC(usuarioEdita.correo)" type="email" placeholder="" id="correo" name="correo" [(ngModel)]="usuarioEdita.correo">
+									<div class="menssageE" id="errorCorreo">&nbsp;</div>
 								</div>
 								<div class="col-md-4">
-									<label for="password" id="password" class="form-label">Contraseña*</label> 
-									<input class="form-control" placeholder="" type="password" [(ngModel)]="usuarioEdita.contrasena">
+									<h4>Contraseña: </h4> 
+									<input class="form-control" placeholder="" (click)="limpiar(8)"  type="password" id="contrasena" [(ngModel)]="usuarioEdita.contrasena">
+									<div class="menssageE" id="errorContrasena">&nbsp;</div>
 								</div>
 							</div>
-							<button  type="submit" class="btn pull-right btn-danger" title="Cancelar" (click)="cancelar()"><i class="material-icons">cancel</i> Cancelar</button>
-							<button type="submit" class="btn pull-right btn-success" title="gurdar" (click)="guardar()"><i class="material-icons">save</i> Guardar</button>
-							<div class="clearfix"></div>
+							<div class="mt-lg-2 d-flex justify-content-end">
+								<button  type="submit" class="btn px-2 btn-danger" title="Cancelar" (click)="cancelar()"><i class="material-icons">cancel</i> Cancelar</button>
+								<button type="submit" class="btn px-2 btn-success" title="gurdar" (click)="validarFormulario()"><i class="material-icons">save</i> Guardar</button>
+							</div>
 						</div>
 					</form>
 				</div>

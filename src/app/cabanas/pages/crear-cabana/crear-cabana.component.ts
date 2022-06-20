@@ -50,6 +50,4 @@ export class CrearCabanaComponent implements OnInit {
       this.onCrear.emit();
     })
   }
-
-
 }
