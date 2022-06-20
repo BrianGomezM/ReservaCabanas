@@ -34,7 +34,8 @@ export class EditarPrereservaComponent implements OnInit {
     descuento:0,
     idUsuario:"",
     fecha_inicio:"",
-    fecha_fin:""
+    fecha_fin:"",
+    id_plan:""
   }
 
   cabanas:Cabana[];

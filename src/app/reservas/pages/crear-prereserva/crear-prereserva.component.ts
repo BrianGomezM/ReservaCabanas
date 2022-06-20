@@ -43,7 +43,8 @@ export class CrearPrereservaComponent implements OnInit {
     idUsuario:"",
     fecha_inicio:"",
     fecha_fin:"",
-    estado:""
+    estado:"",
+    id_plan:""
   };
   cabanas:Cabana[]=[];
   flag:boolean = true;
@@ -137,7 +138,8 @@ export class CrearPrereservaComponent implements OnInit {
                 idUsuario:"",
                 fecha_inicio:"",
                 fecha_fin:"",
-                estado:""
+                estado:"",
+                id_plan:""
               };
               this.redirect();
             }

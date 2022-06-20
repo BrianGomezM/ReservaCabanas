@@ -5,7 +5,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { ListadoReservasComponent } from 'app/reservas/pages/listado-reservas/listado-reservas.component';
 import { ListadoCabanasComponent } from 'app/cabanas/pages/listado-cabanas/listado-cabanas.component';
 import { AyudaComponent } from 'app/ayuda/ayuda.component';
-import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
+//import { ListadoPlanesComponent } from 'app/planes/listado-planes/listado-planes.component';
 import { IngresosComponent } from 'app/contable/ingresos/ingresos.component';
 import { EditarUsuarioComponent } from 'app/usuarios/editar-usuario/editar-usuario.component';
 import { ListadoUsuariosComponent } from 'app/usuarios/listado-usuarios/listado-usuarios.component';
@@ -38,5 +38,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'cabana-crear',   component: CrearCabanaComponent },
     { path: 'cabana-editar/:id',  component: EditarCabanaComponent},
     { path: 'ayuda',          component: AyudaComponent},
-    { path: 'planes',         component: ListadoPlanesComponent},
+    //{ path: 'planes',         component: ListadoPlanesComponent},
 ];

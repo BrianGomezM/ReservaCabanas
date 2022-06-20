@@ -11,4 +11,5 @@ export interface Reserva{
     idUsuario:string;
     fecha_inicio:string;
     fecha_fin:string;
+    id_plan:string;
 }

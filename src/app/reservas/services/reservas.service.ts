@@ -8,6 +8,8 @@ import { Reserva } from '../interfaces/reservas.interfaces';
 })
 export class ReservasService {
   url: string ="http://localhost/proyect2/Reservas.php";
+  url_abonos: string = "";
+
   constructor(private http: HttpClient) { }
 
   crearpreReserva(reserva:Reserva){
