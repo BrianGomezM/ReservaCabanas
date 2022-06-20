@@ -20,7 +20,7 @@ import { EditarPrereservaComponent } from 'app/reservas/pages/editar-prereserva/
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'reservas',       component: ListadoReservasComponent},
-    { path: 'editar-reserva', component: EditarReservaComponent},
+    { path: 'editar-reserva/:id', component: EditarReservaComponent},
     { path: 'prereservas',    component: ListadoReservasComponent},
     { path: 'editar-prereserva/:id',    component: EditarPrereservaComponent},
     { path: 'crear-prereserva',    component: CrearPrereservaComponent},

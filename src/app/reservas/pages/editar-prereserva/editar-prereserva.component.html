@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                             <h4>Cabaña a reservar:</h4>
-                                            <select id="id_cabana" [(ngModel)]="prereserva.id_cabana.id_cabana" class="form-control" >
+                                            <select id="id_cabana" [(ngModel)]="prereserva.id_cabana.id_cabana" (change)="disponibilidad($event.target.value)" class="form-control" >
                                                 <option value="" selected>Seleccione la cabaña</option>
                                                 <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                             </select>
@@ -93,12 +93,16 @@
                                 </div>
                                 <div class="row mt-2 mb-2">   
                                     <div class="col-6">                      
-                                        <h4>Descuento:</h4>
-                                        <input name="descuento" [(ngModel)]="prereserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                        <h4>Valor total:</h4>
+                                        <input name="valor_reserva" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="text" >
                                     </div> 
                                     <div class="col-6">                      
-                                        <h4>Valor total:</h4>
-                                        <input name="valor_reserva" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                        <h4>Descuento:</h4>
+                                        <input name="descuento" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="text" >
+                                    </div> 
+                                    <div class="col-6">                      
+                                        <h4>Valor total con descuento:</h4>
+                                        <input name="total_descuento" [(ngModel)]="total_descuento" class="form-control" placeholder="Ingrese el valor..." type="text" >
                                     </div> 
                                     
                                     

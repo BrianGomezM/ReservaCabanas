@@ -34,10 +34,10 @@ export class CrearPrereservaComponent implements OnInit {
      visibilidad:true,
      imagenesList:[]
   }
-  reserva:Reserva={
+  prereserva:Reserva={
     id_reserva:"",
     id_cabana:this.cabana,
-    id_cliente:this.cliente,
+    id_cliente:null,
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
@@ -47,54 +47,88 @@ export class CrearPrereservaComponent implements OnInit {
   };
   cabanas:Cabana[]=[];
   flag:boolean = true;
+  total_descuento:number=0;
   alert: AlertMessage = new AlertMessage();
+
   constructor(public router:Router, private clienteService: ClientesService, private cabanaService: CabanasService, private reservasService:ReservasService) { }
 
   ngOnInit(): void {
     this.cabanaService.getCabanas().subscribe(
       (cabanas) =>{
         this.cabanas = cabanas;
-        
       }
     );
   }
   redirect(){
     this.router.navigate(["reservas"]);
   }
-
-  verificarDisponibilidad(){
-    // var fecha_fin = this.reserva.fecha_fin.split('-');
-    // var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2]));
-    // var fecha_inicio = this.reserva.fecha_inicio.split('-');
-    // var fi = new Date(parseInt(fecha_inicio[0]),parseInt(fecha_inicio[1])-1,parseInt(fecha_inicio[2]));
-    // if( (ff.getDay() == 0 || ff.getDay() == 1 ||ff.getDay() == 5 || ff.getDay() == 6)){
-    //     console.log("fecha final");
-    // } 
-    // if(fi.getDay() == 0 || fi.getDay() == 1 ||fi.getDay() == 5 || fi.getDay() == 6  ){
-    //     console.log("Fecha inicial");
-    // }
-    this.reservasService.verificarDisponibilidad(this.reserva).subscribe(
+  disponibilidad(value:string){
+    this.prereserva.id_cabana.id_cabana = value;
+    
+    this.reservasService.verificarDisponibilidad(this.prereserva).subscribe(
       resp=>{
-        if(resp.length==0){
+        console.log(resp[0]);
+        if(resp[0]==null){
+          //Si la reserva no está disponible ...
           this.flag=false;
-          this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");
+          this.prereserva.valor_reserva=0;
+          this.total_descuento=0;
+          this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");          
         }else{
+          //Si la reserva está disponible trae la cabaña y la asigna
           this.flag=true;
+          this.prereserva.id_cabana = resp[0];
+          this.calculaTotalNoche();
         }
       }
-    )
+    );
   }
  
+  
+  cantidadNoches(){
+    //Calcula el total de noches según las fechas seleccionadas
+    var diaEnMils = 1000 * 60 * 60 * 24;
+    var fecha_fin = this.prereserva.fecha_fin.split('-');
+    var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
+
+    var fecha_incio = this.prereserva.fecha_inicio.split('-');
+    var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
+
+    var dias = ff - fi + diaEnMils;
+    dias = dias / diaEnMils;
+
+    console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
+    return dias;
+  }
+
+  calculaTotalNoche(){
+    var dias = this.cantidadNoches();
+    var valor_noche =0;
+    //calcula el total de la reserva sin descuento, en base al total de días
+    if(this.prereserva.id_cabana != null){
+      valor_noche = Number(this.prereserva.id_cabana.valor_cabana);
+      this.prereserva.valor_reserva = valor_noche * dias;
+      this.calculaTotalDescuento();
+    }
+  }
+  calculaTotalDescuento(){
+    //calcula el total de la reserva con descuento
+    var valor_noche = this.prereserva.valor_reserva;
+    var descuento = Number(this.prereserva.descuento);
+    var total = valor_noche - descuento;
+    this.total_descuento = total;
+   
+  }
 
   crearpreReserva(){
-    
     if(this.flag){
       this.clienteService.agregarCliente(this.cliente).subscribe(
         resp=>{
-          this.reserva.id_cliente.id_cliente=resp.id_cliente;
-          this.reservasService.crearpreReserva(this.reserva).subscribe(
+          this.prereserva.id_cliente.id_cliente=resp.id_cliente;
+          this.prereserva.estado = '3';
+          this.reservasService.crearpreReserva(this.prereserva).subscribe(
             resp=>{
-              this.reserva = {
+              this.prereserva = {
                 id_reserva:"",
                 id_cabana:null,
                 id_cliente:null,
@@ -111,6 +145,7 @@ export class CrearPrereservaComponent implements OnInit {
         }
       )
     }
-
+  
   }  
+  
 }

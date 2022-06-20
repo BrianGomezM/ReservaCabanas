@@ -17,7 +17,7 @@ export class ReservasService {
     return this.http.get<Reserva[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin);
   }
   verificarDisponibilidad(reserva:Reserva){
-    return this.http.get<Reserva[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin+"&id_cabana="+reserva.id_cabana);
+    return this.http.get<Cabana[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin+"&id_cabana="+reserva.id_cabana.id_cabana);
   }
   reservaId(id:string){
     return this.http.get<Reserva>(this.url+"?id="+id);
