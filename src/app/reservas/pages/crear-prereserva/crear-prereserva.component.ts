@@ -37,7 +37,7 @@ export class CrearPrereservaComponent implements OnInit {
   prereserva:Reserva={
     id_reserva:"",
     id_cabana:[this.cabana],
-    id_cliente:null,
+    id_cliente:[this.cliente],
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
@@ -63,12 +63,13 @@ export class CrearPrereservaComponent implements OnInit {
   redirect(){
     this.router.navigate(["reservas"]);
   }
+
   disponibilidad(value:string){
     this.prereserva.id_cabana[0].id_cabana = value;
     
     this.reservasService.verificarDisponibilidad(this.prereserva).subscribe(
       resp=>{
-        console.log(resp[0]);
+        
         if(resp[0]==null){
           //Si la reserva no está disponible ...
           this.flag=false;
@@ -92,7 +93,7 @@ export class CrearPrereservaComponent implements OnInit {
     var fecha_fin = this.prereserva.fecha_fin;
     var ff = new Date(fecha_fin).getTime();
     //var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
-    var fecha_inicio = this.prereserva.fecha_fin;
+    var fecha_inicio = this.prereserva.fecha_inicio;
     var fi = new Date(fecha_inicio).getTime();
     //var fecha_inicio = this.prereserva.fecha_inicio.getTime();
     //var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
@@ -100,7 +101,7 @@ export class CrearPrereservaComponent implements OnInit {
     var dias = ff - fi  + diaEnMils;
     dias = dias / diaEnMils;
 
-    //console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
+    console.log(dias);
     return dias;
   }
 
@@ -129,6 +130,7 @@ export class CrearPrereservaComponent implements OnInit {
         resp=>{
           this.prereserva.id_cliente[0].id_cliente=resp.id_cliente;
           this.prereserva.estado = '3';
+          console.log(this.prereserva);
           this.reservasService.crearpreReserva(this.prereserva).subscribe(
             resp=>{
               this.prereserva = {

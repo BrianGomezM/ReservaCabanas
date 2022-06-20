@@ -59,11 +59,11 @@
                                     
                                     <div class="col-4">
                                         <h4>Fecha de inicio:</h4>
-                                        <input  name="fecha_inicio" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.fecha_inicio" class="form-control" type="date">
+                                        <input  name="fecha_inicio" (change)="disponibilidad(prereserva.id_cabana[0].id_cabana)" [(ngModel)]="prereserva.fecha_inicio" class="form-control" type="date">
                                     </div>
                                     <div class="col-4">
                                         <h4>Fecha de fin:</h4>
-                                        <input name="fecha_fin" (change)="calculaTotalNoche()" [(ngModel)]="prereserva.fecha_fin" class="form-control"   type="date">
+                                        <input name="fecha_fin" (change)="disponibilidad(prereserva.id_cabana[0].id_cabana)"  [(ngModel)]="prereserva.fecha_fin" class="form-control"   type="date">
                                     </div>
                                 </div>
                                 <div class="row mb-2 mt-2">
