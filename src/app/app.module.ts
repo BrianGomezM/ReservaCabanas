@@ -11,7 +11,6 @@ import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-ol
 import { SharedModule } from './shared/shared.module';
 import { EditarPrereservaComponent } from './reservas/pages/editar-prereserva/editar-prereserva.component';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -20,8 +19,7 @@ import { EditarPrereservaComponent } from './reservas/pages/editar-prereserva/ed
     HttpClientModule,
     SharedModule,
     RouterModule,
-    AppRoutingModule,
-    
+    AppRoutingModule    
   ],
   declarations: [
     AppComponent,

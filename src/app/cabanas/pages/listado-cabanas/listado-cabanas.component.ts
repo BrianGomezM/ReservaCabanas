@@ -4,7 +4,6 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { MatTooltip } from '@angular/material/tooltip';
-
 declare var $: any;
 @Component({
   selector: 'app-listado-cabanas',

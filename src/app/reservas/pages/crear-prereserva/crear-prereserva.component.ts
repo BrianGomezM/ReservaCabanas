@@ -78,7 +78,7 @@ export class CrearPrereservaComponent implements OnInit {
         }else{
           //Si la reserva está disponible trae la cabaña y la asigna
           this.flag=true;
-          this.prereserva.id_cabana = resp[0];
+          this.prereserva[0].id_cabana = resp[0];
           this.calculaTotalNoche();
         }
       }
@@ -89,16 +89,16 @@ export class CrearPrereservaComponent implements OnInit {
   cantidadNoches(){
     //Calcula el total de noches según las fechas seleccionadas
     var diaEnMils = 1000 * 60 * 60 * 24;
-    var fecha_fin = this.prereserva.fecha_fin.split('-');
-    var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
+    var fecha_fin = this.prereserva.fecha_fin.getTime();
+    //var ff = new Date(parseInt(fecha_fin[0]),parseInt(fecha_fin[1])-1,parseInt(fecha_fin[2])).getTime();
 
-    var fecha_incio = this.prereserva.fecha_inicio.split('-');
-    var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
+    var fecha_inicio = this.prereserva.fecha_inicio.getTime();
+    //var fi = new Date(parseInt(fecha_incio[0]),parseInt(fecha_incio[1])-1,parseInt(fecha_incio[2])).getTime();
 
-    var dias = ff - fi + diaEnMils;
+    var dias = fecha_fin - fecha_inicio  + diaEnMils;
     dias = dias / diaEnMils;
 
-    console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
+    //console.log("fecha_fin"+ff+"fecha_incio"+fi+"dias"+dias);
     return dias;
   }
 
@@ -107,7 +107,7 @@ export class CrearPrereservaComponent implements OnInit {
     var valor_noche =0;
     //calcula el total de la reserva sin descuento, en base al total de días
     if(this.prereserva.id_cabana != null){
-      valor_noche = Number(this.prereserva.id_cabana.valor_cabana);
+      valor_noche = Number(this.prereserva.id_cabana[0].valor_cabana);
       this.prereserva.valor_reserva = valor_noche * dias;
       this.calculaTotalDescuento();
     }
@@ -125,7 +125,7 @@ export class CrearPrereservaComponent implements OnInit {
     if(this.flag){
       this.clienteService.agregarCliente(this.cliente).subscribe(
         resp=>{
-          this.prereserva.id_cliente.id_cliente=resp.id_cliente;
+          this.prereserva.id_cliente[0].id_cliente=resp.id_cliente;
           this.prereserva.estado = '3';
           this.reservasService.crearpreReserva(this.prereserva).subscribe(
             resp=>{
@@ -136,8 +136,8 @@ export class CrearPrereservaComponent implements OnInit {
                 valor_reserva:0,
                 descuento:0,
                 idUsuario:"",
-                fecha_inicio:"",
-                fecha_fin:"",
+                fecha_inicio:new Date(),
+                fecha_fin:new Date(),
                 estado:"",
                 id_plan:""
               };

@@ -19,13 +19,15 @@ export class ReservasService {
     return this.http.get<Reserva[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin);
   }
   verificarDisponibilidad(reserva:Reserva){
-    return this.http.get<Cabana[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin+"&id_cabana="+reserva.id_cabana.id_cabana);
+    return this.http.get<Cabana[]>(this.url+"?fecha_inicio="+reserva.fecha_inicio+"&fecha_fin="+reserva.fecha_fin+"&id_cabana="+reserva.id_cabana[0].id_cabana);
   }
   reservaId(id:string){
     return this.http.get<Reserva>(this.url+"?id="+id);
   }
   actualizarprereserva(reserva:Reserva){
-    
     return this.http.put(this.url, JSON.stringify(reserva));
+  }
+  listarReservas(semana:String[]){
+    return this.http.get<Reserva[]>(this.url+"?semana="+semana[1]+"&anio="+semana[0]);
   }
 }

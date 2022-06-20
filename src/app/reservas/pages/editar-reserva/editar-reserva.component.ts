@@ -21,8 +21,8 @@ export class EditarReservaComponent implements OnInit {
     valor_reserva:0,
     descuento:0,
     idUsuario:"",
-    fecha_inicio:"",
-    fecha_fin:"",
+    fecha_inicio:new Date(),
+    fecha_fin:new Date(),
     id_plan:""
   };
   cabanas:Cabana[];
@@ -53,7 +53,7 @@ export class EditarReservaComponent implements OnInit {
     this.router.navigate(["reservas"]);
   }
   actualizarCliente(){
-    this.clienteService.actualizarCliente(this.reserva.id_cliente).subscribe(
+    this.clienteService.actualizarCliente(this.reserva.id_cliente[0]).subscribe(
       resp=>{
         console.log("Actuliza cliente");
       }
