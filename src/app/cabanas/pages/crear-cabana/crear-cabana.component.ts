@@ -3,7 +3,7 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Router } from '@angular/router';
-
+import {AlertMessage} from '../../../alerta/alerta';
 declare var $: any;
 @Component({
   selector: 'app-crear-cabana',
@@ -31,7 +31,8 @@ export class CrearCabanaComponent implements OnInit {
   visibilidad:true,
   imagenesList:null
   };
-
+  alerta:AlertMessage = new AlertMessage();
+  contadorImagenes:number=0;
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
   constructor(private router: Router,private cabanaService:CabanasService) { }
 
@@ -45,7 +46,7 @@ export class CrearCabanaComponent implements OnInit {
   }
 
   crearCabana(){
-    console.log(this.cabana.nombre_cabana);
+    if(this.contadorImagenes>=1 && this.contadorImagenes<=5){
     this.cabanaService.crearCabana(this.cabana).subscribe(
       resp => {
         this.cabana = {
@@ -60,9 +61,13 @@ export class CrearCabanaComponent implements OnInit {
         };
         console.log("----" + resp.id_cabana);
         this.subirImagenes(resp.id_cabana);
+        this.showNotification("top", "right", 0, "SUCCESS:", "Se ha creado la cabaña correctamente");
         console.log("CABAÑA CREADA: " + resp.id_cabana);
         this.onCrear.emit();
       })
+    }else{
+      this.alerta.notificacionExito("top", "right", 1, "ERROR", "Debe tener por lo menos una imagen para poder guardar la cabaña.");
+    }
   }
   typeValidate(file:File){
      let varResultado:Boolean=false;
@@ -74,10 +79,12 @@ export class CrearCabanaComponent implements OnInit {
 
   deleteImage(i:number){
     this.fileToUpload.splice(i,1);
+    this.contadorImagenes-=1;
     //this.imagenes.splice(i,1);
   }
 
   cargarImagenes(file:FileList){
+    if(file.length <= 5-this.contadorImagenes ){
     for(let i=0; i<file.length;i++){
       if(this.typeValidate(file.item(i))){
         //reader.onload = ; // Renderizamos la imagen
@@ -91,6 +98,7 @@ export class CrearCabanaComponent implements OnInit {
             url_imagen:reader.result as string
           };
           this.fileToUpload.push(this.imagen);
+          this.contadorImagenes+=1;
         }
         reader.readAsDataURL(file.item(i));
       }else{
@@ -98,10 +106,14 @@ export class CrearCabanaComponent implements OnInit {
         
       }
     }
+  }else{
+    this.alerta.notificacionExito("top", "right", 1, "ERROR:", "Solo se permiten 5 imagenes por cabaña");
+  }
   }
   
   async subirImagenes(id_cabana:string){
     let nombre = "prueba2";
+    let varRes:boolean=false;
     var tmpImagenes = this.fileToUpload.length;
     for(let i=0; i<tmpImagenes; i++){
       // let reader = new FileReader();
@@ -120,15 +132,14 @@ export class CrearCabanaComponent implements OnInit {
             this.fileToUpload[i].id_cabana = id_cabana;
             console.log(urlImagen, this.fileToUpload[i]);
       });
-      
       this.cabanaService.agregarImagenes(this.fileToUpload[i]).subscribe(
         resp=>{
           console.log(resp);
           this.redirect();
-          this.showNotification("top", "right", 0, "SUCCESS:", "Se ha creado la cabaña correctamente");
+          
         }
+        
       );
-
     }
     
    

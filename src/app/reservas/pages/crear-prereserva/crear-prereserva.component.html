@@ -53,7 +53,7 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h4>Cabaña a reservar:</h4>
-                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana" class="form-control" >
+                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana[0].id_cabana" class="form-control" >
                                             <!-- <option value="" selected>Seleccione la cabaña</option> -->
                                             <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                         </select>
