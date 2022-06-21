@@ -124,7 +124,13 @@ export class EditarReservaComponent implements OnInit {
       }
     );
   }
- 
+  listarAbonos(){
+    this.reservasService.listarAbonosReserva(this.reserva).subscribe(
+      resp=>{
+        
+      }
+    )
+  }
   
 
 }

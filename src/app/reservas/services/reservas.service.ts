@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
+import { Abono } from 'app/contable/abonos/interfaces/abono.interface';
 import { Reserva } from '../interfaces/reservas.interfaces';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Reserva } from '../interfaces/reservas.interfaces';
 })
 export class ReservasService {
   url: string ="http://localhost/proyect2/Reservas.php";
-  url_abonos: string = "";
+  url_abonos: string = "https://rentcabinsproyect.tk/control/Controlador_Abono_Datos.php";
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +30,8 @@ export class ReservasService {
   }
   listarReservas(semana:String[]){
     return this.http.get<Reserva[]>(this.url+"?semana="+semana[1]+"&anio="+semana[0]);
+  }
+  listarAbonosReserva(reserva:Reserva){
+    return this.http.get<Abono[]>(this.url_abonos+"?codReserva="+reserva.id_reserva);
   }
 }

@@ -13,8 +13,8 @@ firebase.initializeApp(environment.firebaseConfig);
   providedIn: 'root'
 })
 export class CabanasService {
-  url: string ="http://localhost/proyect2/Cabanas.php";
-  url_imagen = "http://localhost/proyect2/Imagenes.php";
+  url: string ="https://rentcabinsproyect.tk/control/Controlador_Cabanas.php";
+  url_imagen = "https://rentcabinsproyect.tk/control/Controlador_Imagenes.php";
   storageRef = firebase.app().storage().ref();
 
   constructor(private http: HttpClient) { }
