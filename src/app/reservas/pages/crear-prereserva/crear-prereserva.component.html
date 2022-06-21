@@ -69,7 +69,7 @@
                                 <div class="row mb-2 mt-2">
                                     <div class="col-4">                      
                                         <h4>Valor total:</h4>
-                                        <input  name="valor_reserva" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="number" >
+                                        <input  name="valor_reserva" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="number" disabled >
                                     </div>
                                     <div class="col-4">                      
                                         <h4>Descuento:</h4>
@@ -80,19 +80,19 @@
                                         <input  name="total_descuento" [(ngModel)]="total_descuento" class="form-control" placeholder="Valor total" type="number" >
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-4">
                                         <h4>Plan de la reserva:</h4>
                                         <select class="form-control">
                                             <option value="" selected>Seleccione el plan</option>
                                             <option value="1">Aquí van los planes</option>
                                         </select>
-                                        <!-- <select class="form-control" *ngFor="let plan of listPlanes, index">
+                                         <select class="form-control" *ngFor="let plan of listPlanes, index">
                                             
                                             <option value="index">{{plan.nombre_plan}}</option>
-                                        </select> -->
+                                        </select> 
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mt-lg-2 d-flex justify-content-end">
                                     <button   type="submit" class="btn px-2 btn-danger" (click)="redirect()"><i class="material-icons">cancel</i> Cancelar</button>
                                     <button type="submit" class="btn px-2 btn-success" (click)="crearpreReserva()"><i class="material-icons">save</i> Guardar</button>

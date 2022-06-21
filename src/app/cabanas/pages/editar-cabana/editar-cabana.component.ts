@@ -110,11 +110,11 @@ export class EditarCabanaComponent implements OnInit {
 
   typeValidate(file:File){
     let varResultado:Boolean=false;
-   if(file.type == "image/png" || file.type == "image/jpg" || file.type == "image/jpeg"){
+   if(file.type == "image/PNG"|| file.type == "image/JPEG" || file.type == "image/jpeg" || file.type == "image/JPG" || file.type == "image/png" || file.type == "image/jpg"){
        varResultado=true;
    }
    return varResultado;
-  }
+ }
 
   cargarImagenes(file:FileList){
     if(file.length <= 5-this.contadorImagenes ){

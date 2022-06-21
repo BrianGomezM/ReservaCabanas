@@ -8,7 +8,7 @@ import { Reserva } from '../interfaces/reservas.interfaces';
   providedIn: 'root'
 })
 export class ReservasService {
-  url: string ="http://localhost/proyect2/Reservas.php";
+  url: string ="https://rentcabinsproyect.tk/control/Controlador_Reservas.php";
   url_abonos: string = "https://rentcabinsproyect.tk/control/Controlador_Abono_Datos.php";
 
   constructor(private http: HttpClient) { }

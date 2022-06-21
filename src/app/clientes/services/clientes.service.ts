@@ -6,7 +6,7 @@ import { Cliente } from '../interfaces/clientes.interface';
   providedIn: 'root'
 })
 export class ClientesService {
-  url:string = "http://localhost/proyect2/Clientes.php";
+  url:string = "https://rentcabinsproyect.tk/control/Controlador_Clientes.php";
 
   constructor(private http:HttpClient) { }
 

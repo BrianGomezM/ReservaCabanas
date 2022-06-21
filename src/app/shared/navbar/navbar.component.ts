@@ -21,15 +21,7 @@ export class NavbarComponent implements OnInit {
           this.sidebarVisible = false;
     }
 
-    cerrarSesion(){
-        this.promess.registrarDatos("");
-        this.promess.removeData();
-        this.router.navigate(['/']);  
-    }
-    editarPerfil(){
-        var index = JSON.parse(this.promess.getData());
-        this.router.navigate(['usuario-editar',index['idUsuario']]);
-    }
+    
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
@@ -43,7 +35,15 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
-
+    cerrarSesion(){
+        this.promess.registrarDatos("");
+        this.promess.removeData();
+        this.router.navigate(['/']);  
+    }
+    editarPerfil(){
+        var index = JSON.parse(this.promess.getData());
+        this.router.navigate(['usuario-editar',index['idUsuario']]);
+    }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];

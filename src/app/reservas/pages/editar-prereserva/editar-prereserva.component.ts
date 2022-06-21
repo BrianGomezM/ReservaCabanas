@@ -155,5 +155,8 @@ export class EditarPrereservaComponent implements OnInit {
     this.total_descuento = total;
    
   }
+  redirigeAbono(){
+    this.router.navigate(["reserva-abonos-crear",this.prereserva.id_reserva]);
+  }
 
 }

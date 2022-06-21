@@ -4,6 +4,7 @@ import { AlertMessage } from 'app/alerta/alerta';
 import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { ClientesService } from 'app/clientes/services/clientes.service';
+import { Abono } from 'app/contable/abonos/interfaces/abono.interface';
 import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
 import { ReservasService } from 'app/reservas/services/reservas.service';
 import { switchMap} from 'rxjs';
@@ -26,10 +27,14 @@ export class EditarReservaComponent implements OnInit {
     fecha_fin:new Date(),
     id_plan:""
   };
+  abonos:Abono[];
+  total=0;
+  totalSaldo=0;
   alert: AlertMessage = new AlertMessage();
   cabanas:Cabana[];
   total_descuento:number = 0;
   flag:boolean=true;
+  
   constructor(private activateRoute: ActivatedRoute,private cabanaService: CabanasService, private clienteService:ClientesService,public router:Router, private reservasService:ReservasService) { }
 
   ngOnInit(): void {
@@ -48,6 +53,7 @@ export class EditarReservaComponent implements OnInit {
       this.reserva.id_cabana= resp[0].id_cabana;
       this.reserva.id_cliente= resp[0].id_cliente;
       this.calculaTotalDescuento();
+      this.listarAbonos();
       //this.calculaTotalNoche();
     })
   }
@@ -113,6 +119,8 @@ export class EditarReservaComponent implements OnInit {
           //Si la reserva no está disponible ...
           this.flag=false;
           this.reserva.valor_reserva=0;
+          this.total=0;
+          this.totalSaldo=0;
           this.total_descuento=0;
           this.alert.notificacionExito("top", "right", 1, "ERROR:", "Cabaña no disponible para la fecha seleccionada");          
         }else{
@@ -124,10 +132,22 @@ export class EditarReservaComponent implements OnInit {
       }
     );
   }
+  redirigeAbono(){
+    this.router.navigate(["reserva-abonos-crear",this.reserva.id_reserva]);
+  }
+  
+  certificado(){
+    var linkCertificado="https://rentcabinsproyect.tk/vista/html/Vista_Generar_Certificado.php?codUser="+this.reserva.id_cliente[0].id_cliente+"&codReserva="+this.reserva.id_reserva;
+    this.router.navigate(["/reservas"]).then(result=>{window.open(linkCertificado, "_blank")});
+  }
   listarAbonos(){
     this.reservasService.listarAbonosReserva(this.reserva).subscribe(
       resp=>{
-        
+        this.abonos=resp['respuesta'];
+        this.total = resp['respuesta'][0]['total'];
+        this.totalSaldo = this.reserva.valor_reserva - this.total;
+        console.log(this.abonos);
+        console.log(resp['respuesta']);
       }
     )
   }

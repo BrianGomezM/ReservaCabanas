@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Usuario } from '../login/usuario.module';
+import {Usuario} from '../usuarios/interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,21 @@ import { Usuario } from '../login/usuario.module';
 
 export class AdminGuard implements CanActivate {
 
-
-public usuarios:Array<Usuario> = [];
+  usuarioEdita:Usuario = {
+    idUsuario: 1,
+    nombre: "",
+    apellido: "",
+    idRol: 1,
+    tipoDocumento: 0,
+    documento: "",
+    telefono: "",
+    correo: "",
+    contrasena: "",
+    fechaRegistro: ""
+  };
+public usuarios:Array<Usuario> = [
+  this.usuarioEdita
+];
 constructor(){
   this.usuarios = JSON.parse(this.getData());
 }
@@ -32,7 +45,8 @@ constructor(){
   }  
   
   saveData(datos) {
-    const myObjStr = JSON.stringify(datos);  
+    //const myObjStr = JSON.stringify(datos);  
+    const myObjStr = JSON.stringify(this.usuarioEdita);  
     sessionStorage.setItem("sesion",myObjStr);
   }
 

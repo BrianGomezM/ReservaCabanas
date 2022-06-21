@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   login(){
      this.userService.getSesionUser(this.email, this.password).subscribe(resultado=>{
       if(resultado['status'] == 200){  
-        this.promess.registrarDatos(resultado['respuesta']['0']);
+        //this.promess.registrarDatos(resultado['respuesta']['0']);
         this.router.navigate(['reservas']);       
       }else{       
         this.aler.error("Error", "Usuario incorrecto", 'error');

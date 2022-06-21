@@ -19,20 +19,7 @@ export class ListadoCabanasComponent implements OnInit {
   filtroInhabilitadas:boolean=false;
   varNombre:String="";
   hayError:boolean=false;
-//   imagesPrueba:Imagen[]=[
-//     {
-//     id_imagen:"0",
-//     nombre_imagen:"uno",
-//     url_imagen:"https://exp.cdn-hotels.com/hotels/37000000/36340000/36336000/36335955/a0af4458_z.jpg?impolicy=fcrop&w=500&h=333&q=medium",
-//     id_cabana:"0"
-//   },
-//   {
-//     id_imagen:"2",
-//     nombre_imagen:"dos",
-//     url_imagen:"https://media-cdn.tripadvisor.com/media/photo-s/1c/f7/a3/eb/glamping-la-herradura.jpg",
-//     id_cabana:"0"
-//   }
-// ];
+
   constructor(private router: Router, private cabanaService: CabanasService) { }
 
   ngOnInit(): void {
@@ -107,7 +94,8 @@ filtrarCabanas(value){
   asignarImagenes(){
     for(let i =0;i<this.cabanasActual.length;i++){
       this.cabanaService.listarImagenes(this.cabanasActual[i].id_cabana).subscribe(resp=>{
-        this.cabanasActual[i].imagenesList=resp;    
+        this.cabanasActual[i].imagenesList=resp; 
+        console.log(this.cabanasActual[i].imagenesList);   
     }, (err)=>{
       console.log("errrrr")
     })

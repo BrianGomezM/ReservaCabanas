@@ -7,6 +7,7 @@ import { ReservasService } from 'app/reservas/services/reservas.service';
 import { Cliente } from 'app/clientes/interfaces/clientes.interface';
 import { ClientesService } from 'app/clientes/services/clientes.service';
 import { AlertMessage } from 'app/alerta/alerta';
+import { AdminGuard } from 'app/guardianes/admin.guard';
 
 @Component({
   selector: 'app-crear-prereserva',
@@ -43,7 +44,7 @@ export class CrearPrereservaComponent implements OnInit {
     idUsuario:"",
     fecha_inicio:new Date(),
     fecha_fin:new Date(),
-    estado:"",
+    estado:"3",
     id_plan:""
   };
   cabanas:Cabana[]=[];
@@ -51,7 +52,10 @@ export class CrearPrereservaComponent implements OnInit {
   total_descuento:number=0;
   alert: AlertMessage = new AlertMessage();
 
-  constructor(public router:Router, private clienteService: ClientesService, private cabanaService: CabanasService, private reservasService:ReservasService) { }
+  constructor(private promiss:AdminGuard,public router:Router, private clienteService: ClientesService, private cabanaService: CabanasService, private reservasService:ReservasService) { 
+    var User = JSON.parse(this.promiss.getData());
+    this.prereserva.idUsuario = User['idUsuario'];
+  }
 
   ngOnInit(): void {
     this.cabanaService.getCabanas().subscribe(
@@ -126,7 +130,6 @@ export class CrearPrereservaComponent implements OnInit {
       this.clienteService.agregarCliente(this.cliente).subscribe(
         resp=>{
           this.prereserva.id_cliente[0].id_cliente=resp.id_cliente;
-          this.prereserva.estado = '3';
           console.log(this.prereserva);
           this.reservasService.crearpreReserva(this.prereserva).subscribe(
             resp=>{

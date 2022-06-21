@@ -15,15 +15,14 @@ declare interface RouteInfo {
     
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/home', title: 'Home',  icon:'content_paste', children:null },
+  //{ path: '/home', title: 'Home',  icon:'content_paste', children:null },
   { path: '/reservas', title: 'Reservas',  icon: 'calendar_month', children: null},
   { path: '#component', id: 'component', title: 'Contable', icon: 'calculate', children: [
     {path:  '/abonos', title: 'Abonos', icon: 'A', children: null}    
   ]},
   { path: '/usuario-listar', title: 'Usuarios',  icon:'person', children: null },
   { path: '/cabanas', title: 'Cabañas',  icon:'cottage', children: null },
-   // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-  { path: '/planes', title: 'Planes',  icon:'wysiwyg', children: null },
+  //{ path: '/planes', title: 'Planes',  icon:'wysiwyg', children: null },
   { path: '/ayuda', title: 'Ayuda',  icon:'help_outline' , children: null },
 ];
 

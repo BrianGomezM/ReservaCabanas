@@ -4,6 +4,7 @@ import { Imagen } from 'app/cabanas/interfaces/imagenes.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { Router } from '@angular/router';
 import {AlertMessage} from '../../../alerta/alerta';
+import { AdminGuard } from 'app/guardianes/admin.guard';
 declare var $: any;
 @Component({
   selector: 'app-crear-cabana',
@@ -34,7 +35,9 @@ export class CrearCabanaComponent implements OnInit {
   alerta:AlertMessage = new AlertMessage();
   contadorImagenes:number=0;
   @Output() onCrear: EventEmitter<any> = new EventEmitter();
-  constructor(private router: Router,private cabanaService:CabanasService) { }
+  constructor(private router: Router,private cabanaService:CabanasService) {
+  
+   }
 
   ngOnInit(): void {
 
@@ -71,7 +74,7 @@ export class CrearCabanaComponent implements OnInit {
   }
   typeValidate(file:File){
      let varResultado:Boolean=false;
-    if(file.type == "image/png" || file.type == "image/jpg"){
+    if(file.type == "image/PNG"|| file.type == "image/JPEG" || file.type == "image/jpeg" || file.type == "image/JPG" || file.type == "image/png" || file.type == "image/jpg"){
         varResultado=true;
     }
     return varResultado;
@@ -98,6 +101,7 @@ export class CrearCabanaComponent implements OnInit {
             url_imagen:reader.result as string
           };
           this.fileToUpload.push(this.imagen);
+          console.log(this.fileToUpload);
           this.contadorImagenes+=1;
         }
         reader.readAsDataURL(file.item(i));
