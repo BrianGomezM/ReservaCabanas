@@ -45,8 +45,8 @@ constructor(){
   }  
   
   saveData(datos) {
-    //const myObjStr = JSON.stringify(datos);  
-    const myObjStr = JSON.stringify(this.usuarioEdita);  
+    const myObjStr = JSON.stringify(datos);  
+    //const myObjStr = JSON.stringify(this.usuarioEdita);  
     sessionStorage.setItem("sesion",myObjStr);
   }
 

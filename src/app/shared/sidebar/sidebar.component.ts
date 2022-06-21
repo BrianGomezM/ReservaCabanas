@@ -47,7 +47,6 @@ export class SidebarComponent implements OnInit {
       this.menuNuevo.push(ROUTES[5]);  
     }else if(this.rol.usuarios['idRol']==3){//contable
       this.menuNuevo.push(ROUTES[1]);
-      this.menuNuevo.push(ROUTES[5]);   
     }else if(this.rol.usuarios['idRol']==4){//reservas
       this.menuNuevo.push(ROUTES[0]);       
       this.menuNuevo.push(ROUTES[2]);
