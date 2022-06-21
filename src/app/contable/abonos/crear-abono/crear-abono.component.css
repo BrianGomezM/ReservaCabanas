@@ -1,0 +1,25 @@
+#textUser{
+    padding-right: 10px;
+}
+select.customDropdown::-ms-expand {
+    display: auto;
+}
+.form-control {
+    color: #aaaabd !important;
+}
+
+.menssageE{
+    color: red;
+}
+
+option{
+    color:#757575;
+}
+
+select, select.form-control {
+    -webkit-appearance: auto;
+}
+
+textarea {
+    resize: auto !important;
+}

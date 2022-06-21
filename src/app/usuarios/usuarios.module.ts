@@ -6,7 +6,6 @@ import { MatInput } from '@angular/material/input';
 import { ListadoUsuariosComponent } from './listado-usuarios/listado-usuarios.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     EditarUsuarioComponent,

@@ -1,25 +1,26 @@
 <div class="main-content">
-    <div class="row">
-        <div class="col-md-8" style="padding-left: 450px;">
-            <div class="input-group no-border">
-                <input type="text"  class="form-control" placeholder="Buscar Por Nombre" id="buscarNombre" value="" (ngModelChange)="buscar($event)" name="buscar" [(ngModel)]="param">
-                <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon"  >
-                    <i class="material-icons">search</i>
-                    <div class="ripple-container"></div>
-                </button>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <form class="form-group col-md-6">
+                <div class="input-group">
+                    <input type="text" title="Buscar usuario por nombre" name="varNombre" [(ngModel)]="param" class="form-control" 
+                    placeholder="Buscar usuario por nombre...">                    
+                    <button (click)="buscar(param)" type="submit" class="btn btn-white btn-just-icon">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <button type="submit" class="btn btn-success px-2" (click)="crear()">
+                        <span class="material-icons btnIconLg" id="textUser">person_add</span>Crear usuario
+                    </button>
+                </div>
+            </form>  
         </div>
-        <div class="col-md-4">
-            <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="crear()">Crear usuario</button> 
-        </div>
-    </div>
-    <div class="row">
+    <div class="col-12">
         <div class="card">
             <!-- Header de card-->  
              <div class="card-header card-header-success">
                <div class="row col-md-12 ">
                    <div class="col-md-12">
-                        <h4 class="card-title ">Lista De Usuarios</h4>
+                        <h4 class="card-title ">Lista de usuarios</h4>
                    </div>
                </div> 
             </div>
@@ -30,30 +31,40 @@
                         <thead class="">
                             <th> Nombre </th>
                             <th> Apellido </th>
-                            <th> Cedula </th>
-                            <th> Telefono </th>
-                            <th> Correo Electronico </th>
-                            <th> Fecha De Registro</th>
+                            <th> Teléfono </th>
+                            <th> Rol </th>
+                            <th> Correo electrónico </th>
+                            <th> Fecha de registro</th>
                             <th> Editar</th>
                             <th> Eliminar</th>
                         </thead>
                         <tbody>
-                             <tr *ngFor="let usuario of usuarios,let i = index">
+                             <tr *ngFor="let pag of paginar,let i = index">
                                 <th scope="row" style="display:none;">{{i+1}}</th>
-                                <td>{{usuario.nombre}}</td>
-                                <td>{{usuario.apellido}}</td>
-                                <td>{{usuario.documento}}</td>
-                                <td>{{usuario.telefono}}</td>
-                                <td>{{usuario.correo}}</td>
-                                <td>{{usuario.fechaR}}</td>
-                                <td><button mat-raised-button type="submit" class="btn btn-warning btn-round btn-just-icon" (click)="editar([i])"title="Editar Usuario" ><i class="material-icons">manage_accounts</i></button> </td>
-                                <td><button mat-raised-button type="submit" class="btn btn-danger btn-round btn-just-icon" (click)="eliminarUsuario(usuario.idUsuario)" title="Eliminar Usuario"><i class="material-icons">person_remove</i></button> </td>
+                                <td>{{pag.nombre}}</td>
+                                <td>{{pag.apellido}}</td>                
+                                <td>{{pag.telefono}}</td>
+                                <td>{{convertir(pag.idRol)}}</td>
+                                <td>{{pag.correo}}</td>
+                                <td>{{pag.fechaR}}</td>                                
+                                <td><button mat-raised-button type="submit" class="btn btn-success btn-round btn-just-icon" (click)="editar(pag.idUsuario)"title="Editar Usuario" ><i class="material-icons">manage_accounts</i></button> </td>
+                                <td><button mat-raised-button type="submit" class="btn btn-danger btn-round btn-just-icon" (click)="eliminarUsuario(pag.idUsuario)" title="Eliminar Usuario"><i class="material-icons">person_remove</i></button> </td>
                             </tr>
                         </tbody>
-                    </table>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" align="center">
+                                    <button mat-raised-button (click)="previous(min, max)" type="submit" class="btn btn-success btn-round btn-just-icon"  title="Atras"><i class="material-icons">skip_previous</i></button>
+                                    <button mat-raised-button (click)="next(min, max)" type="submit" class="btn btn-success btn-round btn-just-icon"  title="Siguiente"><i class="material-icons">skip_next</i></button>                                
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                   
                 </div>
             </div>
         </div>
     </div>  
+
+    </div>
 </div>
   

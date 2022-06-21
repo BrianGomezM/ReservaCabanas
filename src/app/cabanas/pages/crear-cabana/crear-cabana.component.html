@@ -20,8 +20,7 @@
                                     <h4>Capacidad maxima:</h4>
                                     <input [(ngModel)]="cabana.capacidad_cabana" name="capacidad_cabana" class="form-control" min="1" type="number" required>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                             <h4>Detalles de la cabaña:</h4>
                             <textarea [(ngModel)]="cabana.descripcion_cabana" name="descripcion_cabana" class="form-control" rows="5" placeholder="Ingrese los detalles de la cabaña..." required></textarea>
 
@@ -40,7 +39,7 @@
             <div class="card">
                 <div class="row d-flex pb-1 justify-content-between card-header card-header-success">
                     <h4  class="card-title">Imagenes de la cabaña</h4>
-                    <input type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png">
+                    <input type="file" class="inputfile" multiple id="file" (change)="cargarImagenes($event.target.files)" accept=".jpg,.png,.JPEG,.PNG,.JPEG">
                     <label for="file" class="label-icon"><i class="material-icons icon-md">upload_file</i></label>
 				</div>
 				<div class="card-body">

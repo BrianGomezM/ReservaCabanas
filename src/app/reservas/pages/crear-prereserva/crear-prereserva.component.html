@@ -14,17 +14,17 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <h4>Nombre del titular:</h4>
-                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input class="form-control" [(ngModel)]="cliente.nombre_cliente" placeholder="Ingrese el nombre del titular...">
                                     </div>
                                     <div class="col-6">
                                         <h4>Apellido del titular:</h4>
-                                        <input class="form-control" placeholder="Ingrese el nombre del titular...">
+                                        <input class="form-control" [(ngModel)]="cliente.apellido_cliente" placeholder="Ingrese el apellido del titular...">
                                     </div>
                                 </div>
                                 <div class="row mt-2 mb-2">
                                     <div class="col-4">
                                         <h4>Tipo de documento:</h4>
-                                        <select class="form-control">
+                                        <select [(ngModel)]="cliente.tipo_documento" class="form-control">
                                             <option value="" selected>Seleccione el tipo de  documento</option>
                                             <option value="CC">CC</option>
                                             <option value="TI">TI</option>
@@ -35,17 +35,13 @@
                                     </div>
                                     <div class="col-4">
                                         <h4>Número de documento:</h4>
-                                        <input  class="form-control" type="number">
+                                        <input [(ngModel)]="cliente.numero_documento" class="form-control" placeholder="31499023"  type="number">
                                     </div>
                                     <div class="col-4">
                                         <h4>Teléfono:</h4>
-                                        <input  class="form-control" type="number">
+                                        <input [(ngModel)]="cliente.telefono_cliente" class="form-control" placeholder="3226011603" vtype="number">
                                     </div>
                                 </div>
-                                <!-- <div class="col-5">
-                                    <h4>Detalles de la reserva:</h4>
-                                    <textarea  class="form-control" rows="5" placeholder="Ingrese los detalles de la reserva..."></textarea>
-                                </div> -->
                                 
                             </div>
                             <div class="form-group">
@@ -53,45 +49,50 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <h4>Cabaña a reservar:</h4>
-                                        <select id="id_cabana" [(ngModel)]="reserva.id_cabana" class="form-control" >
-                                            <!-- <option value="" selected>Seleccione la cabaña</option> -->
+                                        
+                                        <select id="id_cabana" name="id_cabana"  (change)="disponibilidad($event.target.value)" class="form-control" >
+                                            <option value="0" selected>Seleccione la cabaña</option>
                                             <option *ngFor="let cabana of cabanas" [value]="cabana.id_cabana">{{cabana.nombre_cabana}}</option>
                                         </select>
                         
                                     </div>
+                                    
+                                    <div class="col-4">
+                                        <h4>Fecha de inicio:</h4>
+                                        <input  name="fecha_inicio" (change)="disponibilidad(prereserva.id_cabana[0].id_cabana)" [(ngModel)]="prereserva.fecha_inicio" class="form-control" type="date">
+                                    </div>
+                                    <div class="col-4">
+                                        <h4>Fecha de fin:</h4>
+                                        <input name="fecha_fin" (change)="disponibilidad(prereserva.id_cabana[0].id_cabana)"  [(ngModel)]="prereserva.fecha_fin" class="form-control"   type="date">
+                                    </div>
+                                </div>
+                                <div class="row mb-2 mt-2">
+                                    <div class="col-4">                      
+                                        <h4>Valor total:</h4>
+                                        <input  name="valor_reserva" [(ngModel)]="prereserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="number" disabled >
+                                    </div>
+                                    <div class="col-4">                      
+                                        <h4>Descuento:</h4>
+                                        <input name="descuento" (change)="calculaTotalDescuento()" [(ngModel)]="prereserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="number" >
+                                    </div>
+                                    <div class="col-4">                      
+                                        <h4>Valor total con descuento:</h4>
+                                        <input  name="total_descuento" [(ngModel)]="total_descuento" class="form-control" placeholder="Valor total" type="number" >
+                                    </div>
+                                </div>
+                                <!-- <div class="row">
                                     <div class="col-4">
                                         <h4>Plan de la reserva:</h4>
                                         <select class="form-control">
                                             <option value="" selected>Seleccione el plan</option>
                                             <option value="1">Aquí van los planes</option>
                                         </select>
-                                        <!-- <select class="form-control" *ngFor="let plan of listPlanes, index">
+                                         <select class="form-control" *ngFor="let plan of listPlanes, index">
                                             
                                             <option value="index">{{plan.nombre_plan}}</option>
-                                        </select> -->
+                                        </select> 
                                     </div>
-                                    
-                                </div>
-                                <div class="row mb-2 mt-2">
-                                    <div class="col-4">
-                                        <h4>Fecha de inicio:</h4>
-                                        <input  name="fecha_inicio" [(ngModel)]="reserva.fecha_inicio" class="form-control" type="date">
-                                    </div>
-                                    <div class="col-4">
-                                        <h4>Fecha de fin:</h4>
-                                        <input name="fecha_fin" [(ngModel)]="reserva.fecha_fin" class="form-control" type="date">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4">                      
-                                        <h4>Descuento:</h4>
-                                        <input name="descuento" [(ngModel)]="reserva.descuento" class="form-control" placeholder="Ingrese el valor..." type="number" >
-                                    </div>
-                                    <div class="col-4">                      
-                                        <h4>Valor total:</h4>
-                                        <input  name="valor_reserva" [(ngModel)]="reserva.valor_reserva" class="form-control" placeholder="Ingrese el valor..." type="number" >
-                                    </div>
-                                </div>
+                                </div> -->
                                 <div class="mt-lg-2 d-flex justify-content-end">
                                     <button   type="submit" class="btn px-2 btn-danger" (click)="redirect()"><i class="material-icons">cancel</i> Cancelar</button>
                                     <button type="submit" class="btn px-2 btn-success" (click)="crearpreReserva()"><i class="material-icons">save</i> Guardar</button>

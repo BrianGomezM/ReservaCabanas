@@ -1,0 +1,85 @@
+
+<div class="main-content">     
+    <div class="container-fluid">
+        <div class="row">          
+                <div class="col-3">                 
+                    <select class="form-control customDropdown" name="selectBuscar" title="Filtrar abono"  id="selectBuscar" [(ngModel)]="banderaB" >
+                        <option value="0" disabled selected>Opciones de busqueda</option>
+                        <option value="1">Buscar por nombre cliente o usuario</option>
+                        <option value="2">Buscar por rango de fecha</option>                
+                    </select>                  
+                </div>
+                <div class="col-2" *ngIf="banderaB=='1'">
+                    <input type="text" title="Buscar por nombre de usuario o cliente" name="varNombre" [(ngModel)]="param" class="form-control" placeholder="Buscar">
+                </div> 
+                <div class="col-2" *ngIf="banderaB=='2'"> 
+                    <a>Fecha superior:</a>
+                    <input type="date" title="fecha mayor" name="fehcaInicial" [(ngModel)]="param1" class="form-control" >
+                </div>
+                <div class="col-2" *ngIf="banderaB=='2'">
+                    <a>Fecha inferior:</a>
+                    <input type="date" title="fecha menor" name="fehcaFinal" [(ngModel)]="param2" class="form-control">                    
+                </div>
+                <div class="col-3">
+                    <button (click)="buscarAbono()" title="Buscar" type="submit" class="btn btn-white btn-just-icon">
+                        <i class="material-icons">search</i>
+                    </button>
+                    <button type="submit" class="btn btn-success px-2" title="Crear abono" (click)="crearAbono()">
+                        <span class="material-icons btnIconLg">paid</span> CREAR ABONO
+                    </button>
+                </div> 
+        </div> 
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <!-- Header de card-->  
+            <div class="card-header card-header-success">
+            <div class="row col-md-12 ">
+                <div class="col-md-12">
+                        <h4 class="card-title ">Lista de abonos</h4>
+                </div>
+            </div> 
+            </div>
+            <!-- Body de card-->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="">
+                            <th> Fecha de pago </th>
+                            <th> Codigo abono </th>
+                            <th> Codgo reserva</th>
+                            <th> Cliente </th>
+                            <th> Valor abonado </th>
+                            <th> Banco</th>
+                            <th> Usuario</th>
+                            <th> Editar</th>
+                            <th> Eliminar</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pag of paginar,let i = index">
+                                <th scope="row" style="display:none;">{{i+1}}</th>
+                                <td>{{convertDateFormat(pag.fechaPago)}}</td> 
+                                <td>{{pag.idAbono}}</td>   
+                                <td>{{pag.idReserva}}</td>                                
+                                <td>{{pag.cliente}}</td> 
+                                <td>{{formatearPeso(pag.valorAbonado)}}</td>
+                                <td>{{convertir(pag.banco)}}</td>
+                                <td>{{pag.usuario}}</td>                    
+                                <td><button mat-raised-button type="submit" class="btn btn-success btn-round btn-just-icon" (click)="editar(pag.idAbono)"title="Editar abono" ><i class="material-icons">currency_exchange</i></button> </td>
+                                <td><button mat-raised-button type="submit" class="btn btn-danger btn-round btn-just-icon"(click)="eliminarUsuario(pag.idAbono)" title="Eliminar abono"><i class="material-icons">money_off</i></button> </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" align="center">
+                                    <button mat-raised-button (click)="previous(min, max)" type="submit" class="btn btn-success btn-round btn-just-icon"  title="Atras"><i class="material-icons">skip_previous</i></button>
+                                    <button mat-raised-button (click)="next(min, max)" type="submit" class="btn btn-success btn-round btn-just-icon"  title="Siguiente"><i class="material-icons">skip_next</i></button>                                
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                   
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

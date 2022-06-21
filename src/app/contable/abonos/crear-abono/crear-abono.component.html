@@ -1,0 +1,94 @@
+<div class="main-content">
+	<div class="row">
+		<div class="col-md-10">
+			<div class="card">
+				<div class="card-header card-header-success">
+					<h4  class="card-title">{{varTitulo}}</h4>                    
+				</div>
+				<div class="card-body">
+					<form method="get">
+						<div class="form-group">
+							<div class="row" >
+								<div class="col-md-4">	
+									<h4>Fecha pago: </h4>							
+								    <input  class="form-control" (click)="limpiar(1)"  type="date" title="fechaPago"  placeholder="" id="fechaPago" name="fechaPago" [(ngModel)]="abonoEdita.fechaPago">
+									<div class="menssageE" id="errorFechaPago">&nbsp;</div>
+								</div>
+                                <div class="col-md-4">  
+									<h4>Tipo de banco: </h4>
+									<select class="form-control customDropdown" (click)="limpiar(2)"  name="banco" title="tipo de banco"  id="banco"  [(ngModel)]="abonoEdita.banco" >
+										<option value=0 disabled selected>Seleccione el banco</option>
+										<option value=1>BBVA</option>
+										<option value=2>Banco de bogota</option>
+										<option value=3>Bancolombia</option>
+                                        <option value=4>Banco Davivienda</option>
+                                        <option value=5>David Plata</option>
+										<option value=6>Gane</option>                                        
+                                        <option value=7>Nequi</option>
+									</select>
+									<div class="menssageE" id="errorBanco">&nbsp;</div>
+								</div>
+								<div class="col-md-4">
+									<h4>Valor abonado: </h4>
+								    <input  class="form-control" (click)="limpiar(3)" (change)="formatearValor()"  type="text" title="valor abonado" placeholder="" name="valorAbonado" id="valorAbonado" [(ngModel)]="abonoEdita.valorAbonado">
+									<div class="menssageE" id="errorAbonado">&nbsp;</div>
+								</div>								
+							</div>
+							<div class="row">	
+								<div class="col-md-4"> 
+								<h4>Codigo de reserva: </h4>
+								<select class="form-control customDropdown" [disabled]="banderaS" (click)="limpiar(4)" (change)="validarResultado()"  [(ngModel)]="datosxbono.id_reserva" title="Codigo de reserva" id="id_reserva" name="id_reserva" >
+									<option value=0 disabled selected>Seleccione la reserva</option>
+									<option *ngFor="let datos of datosAbonos" [value]="datos.id_reserva">{{datos.id_reserva}}  {{datos.clientes}}</option>
+								 </select>
+								<div class="menssageE" id="errorCodReserva">&nbsp;</div>
+							  </div>								
+								<div class="col-md-4">
+									<h4>Codigo de pago: </h4>
+								    <input  class="form-control" (click)="limpiar(5)"  type="text" title="codigo de pago"  placeholder="" id="codPago" name="codPago" [(ngModel)]="abonoEdita.codPago">
+									<div class="menssageE" id="errorCodPag">&nbsp;</div>
+								</div>                                
+							</div>
+							<div class="row" style="height: 100px;">
+								<div class="col-md-4" *ngIf="mostrarC">
+									<h4>IDUsuario: </h4>
+								    <input  class="form-control"   type="text" placeholder="" id="usuario" [disabled]="true" name="usuario"[(ngModel)]="abonoEdita.usuario" >
+								</div>
+                                <div class="col-md-4">
+									<h4>Cliente:</h4> 
+									<input class="form-control" placeholder=""   type="cliente" id="cliente" [disabled]="true" name="cliente" [(ngModel)]="abonoEdita.cliente">
+								</div>
+								<div class="col-md-4">
+									<h4>Usuario: </h4> 
+									<input class="form-control" placeholder=""   [disabled]="true" type="nombreUsuario" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="nombreUsuario">
+								</div>
+                                <div class="col-md-4" style="top: -93px;">
+                                    <h4>Observaciones: </h4>                                   
+                                    <textarea class="form-control" rows="0"  matInput title="observaiones" id="observaiones"  placeholder=""  name="observaiones" [(ngModel)]="abonoEdita.observacion" style="height: 127px !important; width: 256px;"></textarea>                                   
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<h4>Debe: </h4>
+								    <input  class="form-control"    type="text" placeholder="" id="debe" [disabled]="true" name="debe"[(ngModel)]="debe" >
+								</div>
+								<div class="col-md-4">
+									<h4>Total abonado: </h4>
+								    <input  class="form-control"   type="text" placeholder="" id="totalAbonado" [disabled]="true" name="totalAbonado"[(ngModel)]="totalAbonado" >
+								</div>
+                                <div class="col-md-4">
+									<h4>Total apagar:</h4> 
+									<input class="form-control" placeholder=""  type="text" id="totalApagar" [disabled]="true" name="totalApagar" [(ngModel)]="totalApagar">
+								</div>
+							</div>
+							<div class="mt-lg-2 d-flex justify-content-end">
+								<button  type="submit" class="btn px-2 btn-danger" title="Cancelar" (click)="cancelar()"><i class="material-icons">cancel</i> Cancelar</button>
+								<button type="submit" class="btn px-2 btn-success" title="gurdar" (click)="validarFormulario()"><i class="material-icons">save</i> Guardar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

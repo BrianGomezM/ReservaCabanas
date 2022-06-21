@@ -78,7 +78,7 @@
                         <div class="container">
                             <div class="row ">
                               <div class="col-md-6 justify-content-start">
-                                <img *ngIf="cabana.imagenesList" class="d-block w-100 p-1" [src]="cabana.imagenesList[0].url_imagen">
+                                <img *ngIf="cabana.imagenesList.length >  0" class="d-block w-100 p-1" [src]="cabana.imagenesList[0].url_imagen">
                                 <!-- <ngb-carousel *ngIf="cabana.imagenesList">
                                     <ng-template *ngFor="let img of cabana.imagenesList" ngbSlide>
                                       <div class="picsum-img-wrapper">

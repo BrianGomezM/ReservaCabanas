@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { AdminGuard } from '../../guardianes/admin.guard';
 
 @Component({
   selector: 'app-navbar',
@@ -15,11 +16,12 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router, private promess:AdminGuard) {
       this.location = location;
           this.sidebarVisible = false;
     }
 
+    
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
@@ -33,7 +35,15 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
-
+    cerrarSesion(){
+        this.promess.registrarDatos("");
+        this.promess.removeData();
+        this.router.navigate(['/']);  
+    }
+    editarPerfil(){
+        var index = JSON.parse(this.promess.getData());
+        this.router.navigate(['usuario-editar',index['idUsuario']]);
+    }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
