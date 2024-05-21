@@ -5,6 +5,7 @@ import { Cabana } from 'app/cabanas/interfaces/Cabana.interface';
 import { CabanasService } from 'app/cabanas/services/cabanas.service';
 import { ClientesService } from 'app/clientes/services/clientes.service';
 import { Abono } from 'app/contable/abonos/interfaces/abono.interface';
+import { AdminGuard } from 'app/guardianes/admin.guard';
 import { Reserva } from 'app/reservas/interfaces/reservas.interfaces';
 import { ReservasService } from 'app/reservas/services/reservas.service';
 import { switchMap} from 'rxjs';
@@ -15,6 +16,7 @@ import { switchMap} from 'rxjs';
   styleUrls: ['./editar-reserva.component.css']
 })
 export class EditarReservaComponent implements OnInit {
+  idUserLoguin=1;
   reserva:Reserva ={
     id_reserva:"",
     id_cabana:null,
@@ -35,7 +37,10 @@ export class EditarReservaComponent implements OnInit {
   total_descuento:number = 0;
   flag:boolean=true;
   
-  constructor(private activateRoute: ActivatedRoute,private cabanaService: CabanasService, private clienteService:ClientesService,public router:Router, private reservasService:ReservasService) { }
+  constructor(private promiss:AdminGuard, private activateRoute: ActivatedRoute,private cabanaService: CabanasService, private clienteService:ClientesService,public router:Router, private reservasService:ReservasService) {
+    var User = JSON.parse(this.promiss.getData());
+    this.idUserLoguin=User['idUsuario'];
+   }
 
   ngOnInit(): void {
     this.cabanaService.getCabanas().subscribe(
@@ -137,7 +142,7 @@ export class EditarReservaComponent implements OnInit {
   }
   
   certificado(){
-    var linkCertificado="https://rentcabinsproyect.tk/vista/html/Vista_Generar_Certificado.php?codUser="+this.reserva.id_cliente[0].id_cliente+"&codReserva="+this.reserva.id_reserva;
+    var linkCertificado="https://rentcabinsproyect.tk/vista/html/Vista_Generar_Certificado.php?codUser="+this.idUserLoguin+"&codReserva="+this.reserva.id_reserva;
     this.router.navigate(["/reservas"]).then(result=>{window.open(linkCertificado, "_blank")});
   }
   listarAbonos(){

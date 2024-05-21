@@ -1,0 +1,1826 @@
+# npm resolution error report
+
+2022-06-23T05:52:37.943Z
+
+While resolving: @angular/animations@13.3.1
+Found: @angular/core@13.3.3
+node_modules/@angular/core
+  @angular/core@"^13.3.3" from the root project
+  peer @angular/core@"^13.0.0 || ^14.0.0-0" from @angular/cdk@13.3.1
+  node_modules/@angular/cdk
+    @angular/cdk@"^13.3.1" from the root project
+    peer @angular/cdk@"13.3.1" from @angular/material@13.3.1
+    node_modules/@angular/material
+      @angular/material@"13.3.1" from the root project
+  peer @angular/core@"13.3.3" from @angular/common@13.3.3
+  node_modules/@angular/common
+    @angular/common@"^13.3.1" from the root project
+    peer @angular/common@"^13.0.0 || ^14.0.0-0" from @angular/cdk@13.3.1
+    node_modules/@angular/cdk
+      @angular/cdk@"^13.3.1" from the root project
+      peer @angular/cdk@"13.3.1" from @angular/material@13.3.1
+      node_modules/@angular/material
+        @angular/material@"13.3.1" from the root project
+    peer @angular/common@"^12.0.0 || ^13.0.0" from @angular/fire@7.3.0
+    node_modules/@angular/fire
+      @angular/fire@"^7.3.0" from the root project
+    peer @angular/common@"13.3.3" from @angular/forms@13.3.3
+    node_modules/@angular/forms
+      @angular/forms@"^13.3.1" from the root project
+      peer @angular/forms@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+      node_modules/@angular/material
+        @angular/material@"13.3.1" from the root project
+      peer @angular/forms@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+      node_modules/@ng-bootstrap/ng-bootstrap
+        @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+    peer @angular/common@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+    node_modules/@angular/material
+      @angular/material@"13.3.1" from the root project
+    peer @angular/common@"13.3.3" from @angular/platform-browser@13.3.3
+    node_modules/@angular/platform-browser
+      @angular/platform-browser@"^13.3.1" from the root project
+      peer @angular/platform-browser@"^12.0.0 || ^13.0.0" from @angular/fire@7.3.0
+      node_modules/@angular/fire
+        @angular/fire@"^7.3.0" from the root project
+      peer @angular/platform-browser@"13.3.3" from @angular/forms@13.3.3
+      node_modules/@angular/forms
+        @angular/forms@"^13.3.1" from the root project
+        peer @angular/forms@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+        node_modules/@angular/material
+          @angular/material@"13.3.1" from the root project
+        peer @angular/forms@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+        node_modules/@ng-bootstrap/ng-bootstrap
+          @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+      peer @angular/platform-browser@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+      node_modules/@angular/material
+        @angular/material@"13.3.1" from the root project
+      peer @angular/platform-browser@"13.3.3" from @angular/router@13.3.3
+      node_modules/@angular/router
+        @angular/router@"^13.3.1" from the root project
+    peer @angular/common@"13.3.3" from @angular/router@13.3.3
+    node_modules/@angular/router
+      @angular/router@"^13.3.1" from the root project
+    peer @angular/common@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+    node_modules/@ng-bootstrap/ng-bootstrap
+      @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+  peer @angular/core@"13.3.3" from @angular/elements@13.3.3
+  node_modules/@angular/elements
+    @angular/elements@"^13.3.1" from the root project
+  peer @angular/core@"^12.0.0 || ^13.0.0" from @angular/fire@7.3.0
+  node_modules/@angular/fire
+    @angular/fire@"^7.3.0" from the root project
+  peer @angular/core@"13.3.3" from @angular/forms@13.3.3
+  node_modules/@angular/forms
+    @angular/forms@"^13.3.1" from the root project
+    peer @angular/forms@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+    node_modules/@angular/material
+      @angular/material@"13.3.1" from the root project
+    peer @angular/forms@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+    node_modules/@ng-bootstrap/ng-bootstrap
+      @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+  peer @angular/core@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+  node_modules/@angular/material
+    @angular/material@"13.3.1" from the root project
+  peer @angular/core@"13.3.3" from @angular/platform-browser@13.3.3
+  node_modules/@angular/platform-browser
+    @angular/platform-browser@"^13.3.1" from the root project
+    peer @angular/platform-browser@"^12.0.0 || ^13.0.0" from @angular/fire@7.3.0
+    node_modules/@angular/fire
+      @angular/fire@"^7.3.0" from the root project
+    peer @angular/platform-browser@"13.3.3" from @angular/forms@13.3.3
+    node_modules/@angular/forms
+      @angular/forms@"^13.3.1" from the root project
+      peer @angular/forms@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+      node_modules/@angular/material
+        @angular/material@"13.3.1" from the root project
+      peer @angular/forms@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+      node_modules/@ng-bootstrap/ng-bootstrap
+        @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+    peer @angular/platform-browser@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+    node_modules/@angular/material
+      @angular/material@"13.3.1" from the root project
+    peer @angular/platform-browser@"13.3.3" from @angular/router@13.3.3
+    node_modules/@angular/router
+      @angular/router@"^13.3.1" from the root project
+  peer @angular/core@"13.3.3" from @angular/router@13.3.3
+  node_modules/@angular/router
+    @angular/router@"^13.3.1" from the root project
+  peer @angular/core@"^13.0.0" from @ng-bootstrap/ng-bootstrap@12.1.2
+  node_modules/@ng-bootstrap/ng-bootstrap
+    @ng-bootstrap/ng-bootstrap@"^12.1.2" from the root project
+
+Could not resolve dependency:
+peer @angular/core@"13.3.1" from @angular/animations@13.3.1
+node_modules/@angular/animations
+  @angular/animations@"13.3.1" from the root project
+  peer @angular/animations@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+  node_modules/@angular/material
+    @angular/material@"13.3.1" from the root project
+  peer @angular/animations@"13.3.1" from @angular/platform-server@13.3.1
+  node_modules/@angular/platform-server
+    @angular/platform-server@"13.3.1" from the root project
+
+Conflicting peer dependency: @angular/core@13.3.1
+node_modules/@angular/core
+  peer @angular/core@"13.3.1" from @angular/animations@13.3.1
+  node_modules/@angular/animations
+    @angular/animations@"13.3.1" from the root project
+    peer @angular/animations@"^13.0.0 || ^14.0.0-0" from @angular/material@13.3.1
+    node_modules/@angular/material
+      @angular/material@"13.3.1" from the root project
+    peer @angular/animations@"13.3.1" from @angular/platform-server@13.3.1
+    node_modules/@angular/platform-server
+      @angular/platform-server@"13.3.1" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force, or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.
+
+Raw JSON explanation object:
+
+{
+  "code": "ERESOLVE",
+  "edge": {
+    "type": "peer",
+    "name": "@angular/core",
+    "spec": "13.3.1",
+    "error": "INVALID",
+    "from": {
+      "name": "@angular/animations",
+      "version": "13.3.1",
+      "location": "node_modules/@angular/animations",
+      "isWorkspace": false,
+      "dependents": [
+        {
+          "type": "prod",
+          "name": "@angular/animations",
+          "spec": "13.3.1",
+          "from": {
+            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/animations",
+          "spec": "^13.0.0 || ^14.0.0-0",
+          "from": {
+            "name": "@angular/material",
+            "version": "13.3.1",
+            "location": "node_modules/@angular/material",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/material",
+                "spec": "13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/animations",
+          "spec": "13.3.1",
+          "from": {
+            "name": "@angular/platform-server",
+            "version": "13.3.1",
+            "location": "node_modules/@angular/platform-server",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/platform-server",
+                "spec": "13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "dep": {
+    "name": "@angular/core",
+    "version": "13.3.1",
+    "whileInstalling": {
+      "name": "@angular/animations",
+      "version": "13.3.1",
+      "path": "E:\\ProyectoFinal\\ProyectoReservas\\node_modules\\@angular\\animations"
+    },
+    "location": "node_modules/@angular/core",
+    "isWorkspace": false,
+    "dependents": [
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.1",
+        "error": "INVALID",
+        "from": {
+          "name": "@angular/animations",
+          "version": "13.3.1",
+          "location": "node_modules/@angular/animations",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/animations",
+              "spec": "13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/animations",
+              "spec": "^13.0.0 || ^14.0.0-0",
+              "from": {
+                "name": "@angular/material",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/material",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/material",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/animations",
+              "spec": "13.3.1",
+              "from": {
+                "name": "@angular/platform-server",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/platform-server",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/platform-server",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "current": {
+    "name": "@angular/core",
+    "version": "13.3.3",
+    "location": "node_modules/@angular/core",
+    "isWorkspace": false,
+    "dependents": [
+      {
+        "type": "prod",
+        "name": "@angular/core",
+        "spec": "^13.3.3",
+        "from": {
+          "location": "E:\\ProyectoFinal\\ProyectoReservas"
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "^13.0.0 || ^14.0.0-0",
+        "from": {
+          "name": "@angular/cdk",
+          "version": "13.3.1",
+          "location": "node_modules/@angular/cdk",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/cdk",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/cdk",
+              "spec": "13.3.1",
+              "from": {
+                "name": "@angular/material",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/material",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/material",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.3",
+        "from": {
+          "name": "@angular/common",
+          "version": "13.3.3",
+          "location": "node_modules/@angular/common",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/common",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "^13.0.0 || ^14.0.0-0",
+              "from": {
+                "name": "@angular/cdk",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/cdk",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/cdk",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/cdk",
+                    "spec": "13.3.1",
+                    "from": {
+                      "name": "@angular/material",
+                      "version": "13.3.1",
+                      "location": "node_modules/@angular/material",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/material",
+                          "spec": "13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "^12.0.0 || ^13.0.0",
+              "from": {
+                "name": "@angular/fire",
+                "version": "7.3.0",
+                "location": "node_modules/@angular/fire",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/fire",
+                    "spec": "^7.3.0",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "13.3.3",
+              "from": {
+                "name": "@angular/forms",
+                "version": "13.3.3",
+                "location": "node_modules/@angular/forms",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/forms",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/forms",
+                    "spec": "^13.0.0 || ^14.0.0-0",
+                    "from": {
+                      "name": "@angular/material",
+                      "version": "13.3.1",
+                      "location": "node_modules/@angular/material",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/material",
+                          "spec": "13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/forms",
+                    "spec": "^13.0.0",
+                    "from": {
+                      "name": "@ng-bootstrap/ng-bootstrap",
+                      "version": "12.1.2",
+                      "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@ng-bootstrap/ng-bootstrap",
+                          "spec": "^12.1.2",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "^13.0.0 || ^14.0.0-0",
+              "from": {
+                "name": "@angular/material",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/material",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/material",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "13.3.3",
+              "from": {
+                "name": "@angular/platform-browser",
+                "version": "13.3.3",
+                "location": "node_modules/@angular/platform-browser",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/platform-browser",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/platform-browser",
+                    "spec": "^12.0.0 || ^13.0.0",
+                    "from": {
+                      "name": "@angular/fire",
+                      "version": "7.3.0",
+                      "location": "node_modules/@angular/fire",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/fire",
+                          "spec": "^7.3.0",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/platform-browser",
+                    "spec": "13.3.3",
+                    "from": {
+                      "name": "@angular/forms",
+                      "version": "13.3.3",
+                      "location": "node_modules/@angular/forms",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/forms",
+                          "spec": "^13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        },
+                        {
+                          "type": "peer",
+                          "name": "@angular/forms",
+                          "spec": "^13.0.0 || ^14.0.0-0",
+                          "from": {
+                            "name": "@angular/material",
+                            "version": "13.3.1",
+                            "location": "node_modules/@angular/material",
+                            "isWorkspace": false,
+                            "dependents": [
+                              {
+                                "type": "prod",
+                                "name": "@angular/material",
+                                "spec": "13.3.1",
+                                "from": {
+                                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "peer",
+                          "name": "@angular/forms",
+                          "spec": "^13.0.0",
+                          "from": {
+                            "name": "@ng-bootstrap/ng-bootstrap",
+                            "version": "12.1.2",
+                            "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                            "isWorkspace": false,
+                            "dependents": [
+                              {
+                                "type": "prod",
+                                "name": "@ng-bootstrap/ng-bootstrap",
+                                "spec": "^12.1.2",
+                                "from": {
+                                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/platform-browser",
+                    "spec": "^13.0.0 || ^14.0.0-0",
+                    "from": {
+                      "name": "@angular/material",
+                      "version": "13.3.1",
+                      "location": "node_modules/@angular/material",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/material",
+                          "spec": "13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/platform-browser",
+                    "spec": "13.3.3",
+                    "from": {
+                      "name": "@angular/router",
+                      "version": "13.3.3",
+                      "location": "node_modules/@angular/router",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/router",
+                          "spec": "^13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "13.3.3",
+              "from": {
+                "name": "@angular/router",
+                "version": "13.3.3",
+                "location": "node_modules/@angular/router",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/router",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/common",
+              "spec": "^13.0.0",
+              "from": {
+                "name": "@ng-bootstrap/ng-bootstrap",
+                "version": "12.1.2",
+                "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@ng-bootstrap/ng-bootstrap",
+                    "spec": "^12.1.2",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.3",
+        "from": {
+          "name": "@angular/elements",
+          "version": "13.3.3",
+          "location": "node_modules/@angular/elements",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/elements",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "^12.0.0 || ^13.0.0",
+        "from": {
+          "name": "@angular/fire",
+          "version": "7.3.0",
+          "location": "node_modules/@angular/fire",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/fire",
+              "spec": "^7.3.0",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.3",
+        "from": {
+          "name": "@angular/forms",
+          "version": "13.3.3",
+          "location": "node_modules/@angular/forms",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/forms",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/forms",
+              "spec": "^13.0.0 || ^14.0.0-0",
+              "from": {
+                "name": "@angular/material",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/material",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/material",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/forms",
+              "spec": "^13.0.0",
+              "from": {
+                "name": "@ng-bootstrap/ng-bootstrap",
+                "version": "12.1.2",
+                "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@ng-bootstrap/ng-bootstrap",
+                    "spec": "^12.1.2",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "^13.0.0 || ^14.0.0-0",
+        "from": {
+          "name": "@angular/material",
+          "version": "13.3.1",
+          "location": "node_modules/@angular/material",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/material",
+              "spec": "13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.3",
+        "from": {
+          "name": "@angular/platform-browser",
+          "version": "13.3.3",
+          "location": "node_modules/@angular/platform-browser",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/platform-browser",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/platform-browser",
+              "spec": "^12.0.0 || ^13.0.0",
+              "from": {
+                "name": "@angular/fire",
+                "version": "7.3.0",
+                "location": "node_modules/@angular/fire",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/fire",
+                    "spec": "^7.3.0",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/platform-browser",
+              "spec": "13.3.3",
+              "from": {
+                "name": "@angular/forms",
+                "version": "13.3.3",
+                "location": "node_modules/@angular/forms",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/forms",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/forms",
+                    "spec": "^13.0.0 || ^14.0.0-0",
+                    "from": {
+                      "name": "@angular/material",
+                      "version": "13.3.1",
+                      "location": "node_modules/@angular/material",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@angular/material",
+                          "spec": "13.3.1",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "peer",
+                    "name": "@angular/forms",
+                    "spec": "^13.0.0",
+                    "from": {
+                      "name": "@ng-bootstrap/ng-bootstrap",
+                      "version": "12.1.2",
+                      "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                      "isWorkspace": false,
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@ng-bootstrap/ng-bootstrap",
+                          "spec": "^12.1.2",
+                          "from": {
+                            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/platform-browser",
+              "spec": "^13.0.0 || ^14.0.0-0",
+              "from": {
+                "name": "@angular/material",
+                "version": "13.3.1",
+                "location": "node_modules/@angular/material",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/material",
+                    "spec": "13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "peer",
+              "name": "@angular/platform-browser",
+              "spec": "13.3.3",
+              "from": {
+                "name": "@angular/router",
+                "version": "13.3.3",
+                "location": "node_modules/@angular/router",
+                "isWorkspace": false,
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@angular/router",
+                    "spec": "^13.3.1",
+                    "from": {
+                      "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "13.3.3",
+        "from": {
+          "name": "@angular/router",
+          "version": "13.3.3",
+          "location": "node_modules/@angular/router",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@angular/router",
+              "spec": "^13.3.1",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@angular/core",
+        "spec": "^13.0.0",
+        "from": {
+          "name": "@ng-bootstrap/ng-bootstrap",
+          "version": "12.1.2",
+          "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+          "isWorkspace": false,
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@ng-bootstrap/ng-bootstrap",
+              "spec": "^12.1.2",
+              "from": {
+                "location": "E:\\ProyectoFinal\\ProyectoReservas"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "peerConflict": {
+    "current": {
+      "name": "@angular/core",
+      "version": "13.3.3",
+      "location": "node_modules/@angular/core",
+      "isWorkspace": false,
+      "dependents": [
+        {
+          "type": "prod",
+          "name": "@angular/core",
+          "spec": "^13.3.3",
+          "from": {
+            "location": "E:\\ProyectoFinal\\ProyectoReservas"
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "^13.0.0 || ^14.0.0-0",
+          "from": {
+            "name": "@angular/cdk",
+            "version": "13.3.1",
+            "location": "node_modules/@angular/cdk",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/cdk",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/cdk",
+                "spec": "13.3.1",
+                "from": {
+                  "name": "@angular/material",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/material",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/material",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.3",
+          "from": {
+            "name": "@angular/common",
+            "version": "13.3.3",
+            "location": "node_modules/@angular/common",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/common",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "^13.0.0 || ^14.0.0-0",
+                "from": {
+                  "name": "@angular/cdk",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/cdk",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/cdk",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/cdk",
+                      "spec": "13.3.1",
+                      "from": {
+                        "name": "@angular/material",
+                        "version": "13.3.1",
+                        "location": "node_modules/@angular/material",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/material",
+                            "spec": "13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "^12.0.0 || ^13.0.0",
+                "from": {
+                  "name": "@angular/fire",
+                  "version": "7.3.0",
+                  "location": "node_modules/@angular/fire",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/fire",
+                      "spec": "^7.3.0",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "13.3.3",
+                "from": {
+                  "name": "@angular/forms",
+                  "version": "13.3.3",
+                  "location": "node_modules/@angular/forms",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/forms",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/forms",
+                      "spec": "^13.0.0 || ^14.0.0-0",
+                      "from": {
+                        "name": "@angular/material",
+                        "version": "13.3.1",
+                        "location": "node_modules/@angular/material",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/material",
+                            "spec": "13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/forms",
+                      "spec": "^13.0.0",
+                      "from": {
+                        "name": "@ng-bootstrap/ng-bootstrap",
+                        "version": "12.1.2",
+                        "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@ng-bootstrap/ng-bootstrap",
+                            "spec": "^12.1.2",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "^13.0.0 || ^14.0.0-0",
+                "from": {
+                  "name": "@angular/material",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/material",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/material",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "13.3.3",
+                "from": {
+                  "name": "@angular/platform-browser",
+                  "version": "13.3.3",
+                  "location": "node_modules/@angular/platform-browser",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/platform-browser",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/platform-browser",
+                      "spec": "^12.0.0 || ^13.0.0",
+                      "from": {
+                        "name": "@angular/fire",
+                        "version": "7.3.0",
+                        "location": "node_modules/@angular/fire",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/fire",
+                            "spec": "^7.3.0",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/platform-browser",
+                      "spec": "13.3.3",
+                      "from": {
+                        "name": "@angular/forms",
+                        "version": "13.3.3",
+                        "location": "node_modules/@angular/forms",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/forms",
+                            "spec": "^13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          },
+                          {
+                            "type": "peer",
+                            "name": "@angular/forms",
+                            "spec": "^13.0.0 || ^14.0.0-0",
+                            "from": {
+                              "name": "@angular/material",
+                              "version": "13.3.1",
+                              "location": "node_modules/@angular/material",
+                              "isWorkspace": false,
+                              "dependents": [
+                                {
+                                  "type": "prod",
+                                  "name": "@angular/material",
+                                  "spec": "13.3.1",
+                                  "from": {
+                                    "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "peer",
+                            "name": "@angular/forms",
+                            "spec": "^13.0.0",
+                            "from": {
+                              "name": "@ng-bootstrap/ng-bootstrap",
+                              "version": "12.1.2",
+                              "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                              "isWorkspace": false,
+                              "dependents": [
+                                {
+                                  "type": "prod",
+                                  "name": "@ng-bootstrap/ng-bootstrap",
+                                  "spec": "^12.1.2",
+                                  "from": {
+                                    "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/platform-browser",
+                      "spec": "^13.0.0 || ^14.0.0-0",
+                      "from": {
+                        "name": "@angular/material",
+                        "version": "13.3.1",
+                        "location": "node_modules/@angular/material",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/material",
+                            "spec": "13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/platform-browser",
+                      "spec": "13.3.3",
+                      "from": {
+                        "name": "@angular/router",
+                        "version": "13.3.3",
+                        "location": "node_modules/@angular/router",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/router",
+                            "spec": "^13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "13.3.3",
+                "from": {
+                  "name": "@angular/router",
+                  "version": "13.3.3",
+                  "location": "node_modules/@angular/router",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/router",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/common",
+                "spec": "^13.0.0",
+                "from": {
+                  "name": "@ng-bootstrap/ng-bootstrap",
+                  "version": "12.1.2",
+                  "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@ng-bootstrap/ng-bootstrap",
+                      "spec": "^12.1.2",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.3",
+          "from": {
+            "name": "@angular/elements",
+            "version": "13.3.3",
+            "location": "node_modules/@angular/elements",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/elements",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "^12.0.0 || ^13.0.0",
+          "from": {
+            "name": "@angular/fire",
+            "version": "7.3.0",
+            "location": "node_modules/@angular/fire",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/fire",
+                "spec": "^7.3.0",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.3",
+          "from": {
+            "name": "@angular/forms",
+            "version": "13.3.3",
+            "location": "node_modules/@angular/forms",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/forms",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/forms",
+                "spec": "^13.0.0 || ^14.0.0-0",
+                "from": {
+                  "name": "@angular/material",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/material",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/material",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/forms",
+                "spec": "^13.0.0",
+                "from": {
+                  "name": "@ng-bootstrap/ng-bootstrap",
+                  "version": "12.1.2",
+                  "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@ng-bootstrap/ng-bootstrap",
+                      "spec": "^12.1.2",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "^13.0.0 || ^14.0.0-0",
+          "from": {
+            "name": "@angular/material",
+            "version": "13.3.1",
+            "location": "node_modules/@angular/material",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/material",
+                "spec": "13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.3",
+          "from": {
+            "name": "@angular/platform-browser",
+            "version": "13.3.3",
+            "location": "node_modules/@angular/platform-browser",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/platform-browser",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/platform-browser",
+                "spec": "^12.0.0 || ^13.0.0",
+                "from": {
+                  "name": "@angular/fire",
+                  "version": "7.3.0",
+                  "location": "node_modules/@angular/fire",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/fire",
+                      "spec": "^7.3.0",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/platform-browser",
+                "spec": "13.3.3",
+                "from": {
+                  "name": "@angular/forms",
+                  "version": "13.3.3",
+                  "location": "node_modules/@angular/forms",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/forms",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/forms",
+                      "spec": "^13.0.0 || ^14.0.0-0",
+                      "from": {
+                        "name": "@angular/material",
+                        "version": "13.3.1",
+                        "location": "node_modules/@angular/material",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@angular/material",
+                            "spec": "13.3.1",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "peer",
+                      "name": "@angular/forms",
+                      "spec": "^13.0.0",
+                      "from": {
+                        "name": "@ng-bootstrap/ng-bootstrap",
+                        "version": "12.1.2",
+                        "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+                        "isWorkspace": false,
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "@ng-bootstrap/ng-bootstrap",
+                            "spec": "^12.1.2",
+                            "from": {
+                              "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/platform-browser",
+                "spec": "^13.0.0 || ^14.0.0-0",
+                "from": {
+                  "name": "@angular/material",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/material",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/material",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/platform-browser",
+                "spec": "13.3.3",
+                "from": {
+                  "name": "@angular/router",
+                  "version": "13.3.3",
+                  "location": "node_modules/@angular/router",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/router",
+                      "spec": "^13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.3",
+          "from": {
+            "name": "@angular/router",
+            "version": "13.3.3",
+            "location": "node_modules/@angular/router",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/router",
+                "spec": "^13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "^13.0.0",
+          "from": {
+            "name": "@ng-bootstrap/ng-bootstrap",
+            "version": "12.1.2",
+            "location": "node_modules/@ng-bootstrap/ng-bootstrap",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@ng-bootstrap/ng-bootstrap",
+                "spec": "^12.1.2",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "peer": {
+      "name": "@angular/core",
+      "version": "13.3.1",
+      "whileInstalling": {
+        "name": "@angular/animations",
+        "version": "13.3.1",
+        "path": "E:\\ProyectoFinal\\ProyectoReservas\\node_modules\\@angular\\animations"
+      },
+      "location": "node_modules/@angular/core",
+      "isWorkspace": false,
+      "dependents": [
+        {
+          "type": "peer",
+          "name": "@angular/core",
+          "spec": "13.3.1",
+          "error": "INVALID",
+          "from": {
+            "name": "@angular/animations",
+            "version": "13.3.1",
+            "location": "node_modules/@angular/animations",
+            "isWorkspace": false,
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@angular/animations",
+                "spec": "13.3.1",
+                "from": {
+                  "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/animations",
+                "spec": "^13.0.0 || ^14.0.0-0",
+                "from": {
+                  "name": "@angular/material",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/material",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/material",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "peer",
+                "name": "@angular/animations",
+                "spec": "13.3.1",
+                "from": {
+                  "name": "@angular/platform-server",
+                  "version": "13.3.1",
+                  "location": "node_modules/@angular/platform-server",
+                  "isWorkspace": false,
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@angular/platform-server",
+                      "spec": "13.3.1",
+                      "from": {
+                        "location": "E:\\ProyectoFinal\\ProyectoReservas"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "strictPeerDeps": false,
+  "force": false,
+  "isMine": true
+}

@@ -1,0 +1,62 @@
+ 
+<div class="background"></div>
+<div class="container">  
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+                <h4>FORMULARIO DE RESERVAS DE CABAÑAS DONDE PACHECHO</h4>                              
+            </div> 
+            <div class="card-headers">
+                <img src="../../assets/img/logo.png">
+            </div> 
+            <div class="card-form">                                       
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Nombre del titular:</h4>
+                        <input class="form-control" [(ngModel)]="datoscliente.nombre_cliente" id="nombre_cliente" name ="nombre_cliente" placeholder="Ingrese el nombre del titular...">
+                    </div>
+                    <div class="col-4">
+                        <h4>Apellido del titular:</h4>
+                        <input class="form-control" [(ngModel)]="datoscliente.apellido_cliente" id="apellido_cliente" name ="apellido_cliente" placeholder="Ingrese el nombre del titular...">
+                    </div>
+                    <div class="col-4">
+                        <h4>Correo electronico:</h4>
+                        <input [(ngModel)]="datoscliente.correo_cliente" placeholder="Ingrese el correo del cliente..." id="correo_cliente" name="correo_cliente" class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                    <div class="col-4">
+                        <h4>Tipo de documento:</h4>
+                        <select [(ngModel)]="datoscliente.tipo_documento" id="tipo_documento"  name="tipo_documento" class="form-control">
+                            <option value="" selected>Seleccione el tipo de  documento</option>
+                            <option value="CC">CC</option>
+                            <option value="TI">TI</option>
+                            <option value="NIT">NIT</option>
+                            <option value="CE">CE</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <h4>Número de documento:</h4>
+                        <input  [(ngModel)]="datoscliente.numero_documento" id="numero_documentos"  name="numero_documentos" placeholder="Ingrese el número de documento..." class="form-control" type="number">
+                    </div>
+                    <div class="col-4">
+                        <h4>Teléfono:</h4>
+                        <input [(ngModel)]="datoscliente.telefono_cliente" id="telefono_cliente" name="telefono_cliente" placeholder="Ingrese el teléfono..." class="form-control" type="number">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Teléfono opcional:</h4>
+                        <input [(ngModel)]="datoscliente.telefono2_cliente" id="telefono2_cliente" name="telefono2_cliente" placeholder="Ingrese el teléfono opcional..." class="form-control" type="number">
+                    </div>
+                </div>
+            </div>
+            <div class="mt-lg-2 d-flex justify-content-end">
+                <button type="submit" (click)="crearFormulario()"  class="btn px-2 btn-success" ><i class="material-icons">save</i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+       
+     

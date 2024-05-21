@@ -10,6 +10,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
 import { SharedModule } from './shared/shared.module';
 import { AdminGuard } from './guardianes/admin.guard';
+import { FormularioReservaComponent } from './formulario-reserva/formulario-reserva.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { AdminGuard } from './guardianes/admin.guard';
     AppComponent,
     AdminLayoutComponent,
     AyudaComponent,
-    ContrasenaOlvidadaComponent
+    ContrasenaOlvidadaComponent,
+    FormularioReservaComponent
 
   ],
   providers: [AdminGuard],

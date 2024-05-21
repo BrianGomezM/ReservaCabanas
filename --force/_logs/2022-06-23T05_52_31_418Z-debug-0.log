@@ -1,0 +1,111 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\braya\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@8.7.0
+2 info using node@v16.14.2
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:C:\Users\braya\AppData\Roaming\npm\node_modules\npm\npmrc Completed in 3ms
+6 timing config:load:builtin Completed in 3ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:file:E:\ProyectoFinal\ProyectoReservas\.npmrc Completed in 1ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:C:\Users\braya\.npmrc Completed in 1ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:C:\Users\braya\AppData\Roaming\npm\etc\npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 11ms
+19 timing npm:load:configload Completed in 11ms
+20 timing npm:load:mkdirpcache Completed in 3ms
+21 timing npm:load:mkdirplogs Completed in 49ms
+22 verbose title npm install
+23 verbose argv "install" "--cache" "--force"
+24 timing npm:load:setTitle Completed in 2ms
+25 timing config:load:flatten Completed in 3ms
+26 timing npm:load:display Completed in 4ms
+27 verbose logfile logs-max:10 dir:E:\ProyectoFinal\ProyectoReservas\--force\_logs
+28 verbose logfile E:\ProyectoFinal\ProyectoReservas\--force\_logs\2022-06-23T05_52_31_418Z-debug-0.log
+29 timing npm:load:logFile Completed in 5ms
+30 timing npm:load:timers Completed in 0ms
+31 timing npm:load:configScope Completed in 1ms
+32 timing npm:load Completed in 75ms
+33 timing arborist:ctor Completed in 0ms
+34 silly logfile done cleaning log files
+35 timing idealTree:init Completed in 687ms
+36 timing idealTree:userRequests Completed in 1ms
+37 silly idealTree buildDeps
+38 timing idealTree:#root Completed in 1ms
+39 silly fetch manifest @angular/core@13.3.1
+40 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+41 http fetch GET 200 https://registry.npmjs.org/@angular%2fcore 3380ms (cache miss)
+42 silly fetch manifest rxjs@^6.5.3 || ^7.4.0
+43 http fetch GET 200 https://registry.npmjs.org/rxjs 1556ms (cache miss)
+44 silly fetch manifest zone.js@~0.11.4
+45 http fetch GET 200 https://registry.npmjs.org/zone.js 668ms (cache miss)
+46 timing idealTree Completed in 6312ms
+47 timing command:install Completed in 6345ms
+48 verbose stack Error: could not resolve
+48 verbose stack     at PlaceDep.failPeerConflict (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\place-dep.js:546:25)
+48 verbose stack     at PlaceDep.place (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\place-dep.js:197:21)
+48 verbose stack     at new PlaceDep (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\place-dep.js:71:10)
+48 verbose stack     at C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:984:31
+48 verbose stack     at Array.map (<anonymous>)
+48 verbose stack     at Arborist.[buildDepStep] (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:984:8)
+48 verbose stack     at async Arborist.buildIdealTree (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:216:7)
+48 verbose stack     at async Promise.all (index 1)
+48 verbose stack     at async Arborist.reify (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:153:5)
+48 verbose stack     at async Install.exec (C:\Users\braya\AppData\Roaming\npm\node_modules\npm\lib\commands\install.js:150:5)
+49 verbose cwd E:\ProyectoFinal\ProyectoReservas
+50 verbose Windows_NT 10.0.19043
+51 verbose node v16.14.2
+52 verbose npm  v8.7.0
+53 error code ERESOLVE
+54 error ERESOLVE could not resolve
+55 error
+56 error While resolving: [1m@angular/animations[22m@[1m13.3.1[22m
+56 error Found: [1m@angular/core[22m@[1m13.3.3[22m[2m[22m
+56 error [2mnode_modules/@angular/core[22m
+56 error   [1m@angular/core[22m@"[1m^13.3.3[22m" from the root project
+56 error   [35mpeer[39m [1m@angular/core[22m@"[1m^13.0.0 || ^14.0.0-0[22m" from [1m@angular/cdk[22m@[1m13.3.1[22m[2m[22m
+56 error   [2mnode_modules/@angular/cdk[22m
+56 error     [1m@angular/cdk[22m@"[1m^13.3.1[22m" from the root project
+56 error     [35mpeer[39m [1m@angular/cdk[22m@"[1m13.3.1[22m" from [1m@angular/material[22m@[1m13.3.1[22m[2m[22m
+56 error     [2mnode_modules/@angular/material[22m
+56 error       [1m@angular/material[22m@"[1m13.3.1[22m" from the root project
+56 error   8 more (@angular/common, @angular/elements, @angular/fire, ...)
+56 error
+56 error Could not resolve dependency:
+56 error [35mpeer[39m [1m@angular/core[22m@"[1m13.3.1[22m" from [1m@angular/animations[22m@[1m13.3.1[22m[2m[22m
+56 error [2mnode_modules/@angular/animations[22m
+56 error   [1m@angular/animations[22m@"[1m13.3.1[22m" from the root project
+56 error   [35mpeer[39m [1m@angular/animations[22m@"[1m^13.0.0 || ^14.0.0-0[22m" from [1m@angular/material[22m@[1m13.3.1[22m[2m[22m
+56 error   [2mnode_modules/@angular/material[22m
+56 error     [1m@angular/material[22m@"[1m13.3.1[22m" from the root project
+56 error   1 more (@angular/platform-server)
+56 error
+56 error Conflicting peer dependency: [1m@angular/core[22m@[1m13.3.1[22m[2m[22m
+56 error [2mnode_modules/@angular/core[22m
+56 error   [35mpeer[39m [1m@angular/core[22m@"[1m13.3.1[22m" from [1m@angular/animations[22m@[1m13.3.1[22m[2m[22m
+56 error   [2mnode_modules/@angular/animations[22m
+56 error     [1m@angular/animations[22m@"[1m13.3.1[22m" from the root project
+56 error     [35mpeer[39m [1m@angular/animations[22m@"[1m^13.0.0 || ^14.0.0-0[22m" from [1m@angular/material[22m@[1m13.3.1[22m[2m[22m
+56 error     [2mnode_modules/@angular/material[22m
+56 error       [1m@angular/material[22m@"[1m13.3.1[22m" from the root project
+56 error     1 more (@angular/platform-server)
+56 error
+56 error Fix the upstream dependency conflict, or retry
+56 error this command with --force, or --legacy-peer-deps
+56 error to accept an incorrect (and potentially broken) dependency resolution.
+56 error
+56 error See E:\ProyectoFinal\ProyectoReservas\--force\eresolve-report.txt for a full report.
+57 verbose exit 1
+58 timing npm Completed in 6574ms
+59 verbose unfinished npm timer reify 1655963551595
+60 verbose unfinished npm timer reify:loadTrees 1655963551626
+61 verbose unfinished npm timer idealTree:buildDeps 1655963552315
+62 verbose unfinished npm timer idealTree:node_modules/@angular/animations 1655963552316
+63 verbose code 1
+64 error A complete log of this run can be found in:
+64 error     E:\ProyectoFinal\ProyectoReservas\--force\_logs\2022-06-23T05_52_31_418Z-debug-0.log

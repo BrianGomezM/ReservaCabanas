@@ -104,4 +104,7 @@ async getListReservations(){
   crearPrereserva(){
     this.router.navigate(['/crear-prereserva']);
   }
+  link(){
+    this.router.navigate(['/formularioC/123']);
+  }
 }

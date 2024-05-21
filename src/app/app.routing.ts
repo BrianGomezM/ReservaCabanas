@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { ContrasenaOlvidadaComponent } from './contrasena-olvidada/contrasena-olvidada.component';
+import { FormularioReservaComponent } from './formulario-reserva/formulario-reserva.component';
 
 const routes: Routes =[
   {
@@ -13,6 +14,9 @@ const routes: Routes =[
   },{
     path: 'contrasenaolvidada',
     component: ContrasenaOlvidadaComponent,
+  },{
+    path: 'formularioC/:id',
+    component: FormularioReservaComponent
   },{
     path: '',
     component: AdminLayoutComponent,

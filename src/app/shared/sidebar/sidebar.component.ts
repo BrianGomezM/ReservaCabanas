@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminGuard } from '../../guardianes/admin.guard';
-import { CanActivate, Router } from '@angular/router';
-import { slides } from 'googleapis/build/src/apis/slides';
+import { Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -9,20 +8,16 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     id?: string;
-    //class: string;
-    //collapsed?: string;
     children? : RouteInfo[];
     
 }
 export const ROUTES: RouteInfo[] = [
-  //{ path: '/home', title: 'Home',  icon:'content_paste', children:null },
   { path: '/reservas', title: 'Reservas',  icon: 'calendar_month', children: null},
   { path: '#component', id: 'component', title: 'Contable', icon: 'calculate', children: [
     {path:  '/abonos', title: 'Abonos', icon: 'A', children: null}    
   ]},
   { path: '/usuario-listar', title: 'Usuarios',  icon:'person', children: null },
   { path: '/cabanas', title: 'Cabañas',  icon:'cottage', children: null },
-  //{ path: '/planes', title: 'Planes',  icon:'wysiwyg', children: null },
   { path: '/ayuda', title: 'Ayuda',  icon:'help_outline' , children: null },
 ];
 

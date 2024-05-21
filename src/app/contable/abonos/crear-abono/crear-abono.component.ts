@@ -170,7 +170,7 @@ export class CrearAbonoComponent implements OnInit {
      });
     }else{
       this.AbonoService.editarAbono(this.abonoEdita).subscribe(respuesta=>{
-        if(respuesta['status']==200){        
+        if(respuesta['status']==200){       
           this.aler.correcto("Bien", "El abono se actualizo correctamente");
           this.router.navigate(['abonos']);
         }else{

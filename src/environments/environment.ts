@@ -13,6 +13,6 @@ const firebaseConfig = {
 
 export const environment = {
   production: false,
-  baseUrl:'https://reservascabanas.000webhostapp.com/',
+  baseUrl:'https://rentcabinsproyect.tk/',
   firebaseConfig
 };
